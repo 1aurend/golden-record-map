@@ -8,12 +8,16 @@ import {
 
 export default function Map() {
   return (
-    <>
+    <Flex
+      height={'100vh'}
+      bg='black'
+      flexDirection='column'
+      >
     <Flex
       width={'75vw'}
       justifyContent={'center'}
       pl={5}
-      pt={5}
+      pt={7}
       pr={5}
       bg='black'
       >
@@ -49,7 +53,7 @@ export default function Map() {
     </Flex>
     <Flex
       width={'75vw'}
-      height={'73vh'}
+      height={'75vh'}
       pl={5}
       pr={5}
       justifyContent={'center'}
@@ -85,6 +89,6 @@ export default function Map() {
         click me!
       </Button>
     </Flex>
-    </>
+  </Flex>
   )
 }

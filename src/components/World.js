@@ -1,5 +1,6 @@
 import React from 'react'
 import {
+  Flex,
   Box
 } from 'rebass'
 import Map from './Map'
@@ -9,12 +10,16 @@ import Sidebar from './Sidebar'
 
 export default function World() {
   return (
-    <Box
+    <Flex
       width={'100vw'}
       >
-      <Map />
-    {/*  <MapNav />
-      <Sidebar data={'prop or context?'}/> */}
-    </Box>
+      <Box>
+        <Map />
+      </Box>
+    {/*  <MapNav /> */}
+      <Box>
+        <Sidebar data={'prop or context?'}/>
+      </Box>
+    </Flex>
   )
 }
