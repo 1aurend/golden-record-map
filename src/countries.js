@@ -4,3 +4,5 @@ const countries = {
   INDONESIA: 'indonesia',
   BENIN: 'benin'
 }
+
+export default countries
