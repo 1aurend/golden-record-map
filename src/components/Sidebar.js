@@ -10,7 +10,7 @@ import {
 import countries from '../countries'
 
 
-export default function Sidebar() {
+export default function Sidebar({ country }) {
   const [selection, setSelection] = useState('')
 
   return (
@@ -27,7 +27,7 @@ export default function Sidebar() {
         pb={4}
         fontSize={32}
         >
-        Voyager Golden Record
+        {country? country : 'Voyager Golden Record'}
       </Heading>
       <Box
         pt={3}
@@ -41,7 +41,7 @@ export default function Sidebar() {
           {Object.entries(countries).map(([ key, country ]) => (
             <option
               key={key}>
-              {country}
+              {country.name}
             </option>
           ))}
           >

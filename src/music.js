@@ -243,3 +243,5 @@ const music = [
    "Length": "6:37"
  }
 ]
+
+export default music

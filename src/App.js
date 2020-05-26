@@ -1,8 +1,15 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useParams,
+  Redirect
+ } from 'react-router-dom'
 import World from './components/World'
 import Country from './components/Country'
 import countries from './countries'
+
 
 export default function AppRouter() {
   return (
@@ -11,10 +18,28 @@ export default function AppRouter() {
         <Route exact path='/'>
           <World />
         </Route>
-        <Route exact path='/usa'>
-          <Country country={countries.USA} />
+        <Route path='/:country'>
+          <ValidateCountry />
         </Route>
       </Switch>
     </Router>
+  )
+}
+
+
+function ValidateCountry() {
+  const { country } = useParams()
+  console.log(country.toUpperCase())
+  const valid = Object.keys(countries).includes(country.toUpperCase())
+  return (
+    <Route
+      render={() =>
+        valid ? (
+          <Country country={country.toUpperCase()}/>
+        ) : (
+          <Redirect to='/'/>
+        )
+      }
+    />
   )
 }
