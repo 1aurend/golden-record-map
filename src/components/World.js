@@ -14,7 +14,7 @@ export default function World() {
       width={'100vw'}
       >
       <Box>
-        <Map />
+        <Map height='100vh'/>
       </Box>
     {/*  <MapNav /> */}
       <Box>
