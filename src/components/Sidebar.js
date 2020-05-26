@@ -5,13 +5,31 @@ import {
   Heading
 } from 'rebass'
 import {
-  Select
+  Select,
+  Label
 } from '@rebass/forms'
+import { useHistory } from 'react-router-dom'
 import countries from '../countries'
 
 
 export default function Sidebar({ country }) {
-  const [selection, setSelection] = useState('')
+  const history = useHistory()
+
+  const onSelectCountry = (e) => {
+    switch (e.target.value) {
+    case '-----':
+      history.push('/')
+      break
+    default:
+      Object.entries(countries).forEach(([ key, country ]) => {
+        if (country.name === e.target.value) {
+          history.push(country.path)
+          return
+        }
+      })
+      break
+    }
+  }
 
   return (
     <Flex
@@ -26,18 +44,22 @@ export default function Sidebar({ country }) {
         fontFamily='sans-serif'
         pb={4}
         fontSize={32}
+        textAlign='center'
         >
-        {country? country : 'Voyager Golden Record'}
+        {country? countries[country].name : 'Voyager Golden Record'}
       </Heading>
       <Box
         pt={3}
         >
+        <Label htmlFor='country'>Country</Label>
         <Select
           id='country'
           name='country'
-          defaultValue='United States'
+          placeholder='Select...'
           width={'10vw'}
+          onChange={onSelectCountry}
           >
+          <option key='-'>-----</option>
           {Object.entries(countries).map(([ key, country ]) => (
             <option
               key={key}>

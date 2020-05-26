@@ -34,7 +34,7 @@ const countries = {
     name: 'United States of America',
     tracks: [7, 14, 20, 26]
   },
-  PNG: {
+  PAPUANEWGUINEA: {
     path: '/papuanewguinea',
     name: 'Papua New Guinea',
     tracks: [8]
@@ -79,7 +79,7 @@ const countries = {
     name: 'United Kingdom',
     tracks: [21]
   },
-  SOLOMONIL: {
+  SOLOMONISLANDS: {
     path: '/solomonislands',
     name: 'Solomon Islands',
     tracks: [22]
