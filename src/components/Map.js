@@ -24,10 +24,11 @@ const Shrinker = styled(Button)`
   height: ${props => props.height === '65vh' ? '6vw' : '8vw'};
   width: ${props => props.height === '65vh' ? '6vw' : '8vw'};
   transition: height 1s, width 1s;
-  filter: brightness(${props => props.highlight ? '150%' : '100%' });
+  background-color: ${props => props.highlight ? 'gold' : 'gray' };
+  color: ${props => props.highlight ? 'black' : 'white' };
 
   &:hover {
-    filter: brightness(150%);
+    filter: ${props => props.highlight ? '' : 'brightness(150%)' };
   }
 `
 
@@ -35,7 +36,6 @@ const Shrinker = styled(Button)`
 
 export default function Map({ height, highlight }) {
   const history = useHistory()
-  const colors = ['gold', 'purple', 'gray']
 
   const onSelectCountry = (e) => {
     switch (e.target.value) {
@@ -63,17 +63,14 @@ export default function Map({ height, highlight }) {
       {style}
       {
         Object.entries(countries).map(([key, country]) => {
-          const bg = colors[Math.floor(Math.random() * Math.floor(3))]
-          const bright = key === highlight
+          // QUESTION: should this be conditional and omit the popup if country is currently selected?
           return (
             <Popup
               hoverable
               trigger={
                 <Shrinker
                   height={height}
-                  highlight={bright}
-                  bg={bg}
-                  color={bg === 'gold' ? 'black' : 'white'}
+                  highlight={key === highlight}
                   m={1}
                   onClick={onSelectCountry}
                   value={key}
