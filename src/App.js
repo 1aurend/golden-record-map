@@ -29,7 +29,6 @@ export default function AppRouter() {
 
 function ValidateCountry() {
   const { country } = useParams()
-  console.log(country.toUpperCase())
   const valid = Object.keys(countries).includes(country.toUpperCase())
   return (
     <Route

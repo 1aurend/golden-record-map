@@ -23,14 +23,14 @@ export default function Country({ country }) {
       width={'100vw'}
       >
       <Box>
-        <Map height={height}/>
+        <Map height={height} highlight={country}/>
+        <InfoPane mapHeight={height} country={country}/>
       </Box>
     {/*  <MapNav /> */}
       <Box>
         <Sidebar country={country}/>
       </Box>
     </Flex>
-    <InfoPane />
     </>
   )
 }

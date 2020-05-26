@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import {
   Flex,
   Box,
-  Heading
+  Heading,
+  Text
 } from 'rebass'
 import {
   Select,
@@ -45,18 +46,20 @@ export default function Sidebar({ country }) {
         pb={4}
         fontSize={32}
         textAlign='center'
+        height={80}
         >
         {country? countries[country].name : 'Voyager Golden Record'}
       </Heading>
       <Box
         pt={3}
         >
-        <Label htmlFor='country'>Country</Label>
+        <Label htmlFor='country'>Select a Country...</Label>
         <Select
           id='country'
           name='country'
-          placeholder='Select...'
-          width={'10vw'}
+          width={'20vw'}
+          defaultValue={country ? countries[country].name : '-----'}
+          value={country ? countries[country].name : '-----'}
           onChange={onSelectCountry}
           >
           <option key='-'>-----</option>
@@ -69,6 +72,27 @@ export default function Sidebar({ country }) {
           >
         </Select>
       </Box>
+      <Heading
+        fontFamily='sans-serif'
+        pb={4}
+        pt={5}
+        fontSize={24}
+        textAlign='center'
+        height={30}
+        >
+        About This Map
+      </Heading>
+      <Text
+        p={3}
+        >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pulvinar elementum integer enim neque volutpat. Pretium quam vulputate dignissim suspendisse in est ante in. Fusce id velit ut tortor pretium viverra suspendisse potenti. Luctus venenatis lectus magna fringilla urna porttitor. Neque volutpat ac tincidunt vitae semper quis lectus nulla at. Donec enim diam vulputate ut pharetra. Feugiat scelerisque varius morbi enim nunc faucibus a. Metus vulputate eu scelerisque felis imperdiet. Turpis egestas maecenas pharetra convallis posuere morbi leo urna molestie. Eros in cursus turpis massa tincidunt.
+      </Text>
+      <Text
+        pr={3}
+        pl={3}
+        >
+        Mattis rhoncus urna neque viverra justo. Eu nisl nunc mi ipsum faucibus. Sodales ut etiam sit amet nisl purus in mollis nunc. Vel pretium lectus quam id. Massa massa ultricies mi quis. Quam vulputate dignissim suspendisse in est ante in nibh. Nam aliquam sem et tortor consequat id porta nibh. Dolor purus non enim praesent elementum facilisis leo vel. Rhoncus mattis rhoncus urna neque viverra justo nec ultrices. Amet aliquam id diam maecenas. Est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat. Non odio euismod lacinia at quis. Laoreet id donec ultrices tincidunt arcu non sodales.
+      </Text>
     </Flex>
   )
 }
