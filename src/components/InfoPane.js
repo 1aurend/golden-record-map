@@ -35,9 +35,9 @@ export default function InfoPane({ mapHeight, country }) {
           countries[country].tracks.map(track => {
             return (
               <p
-                key={track}
+                key={track-1}
                 >
-                {JSON.stringify(music[track], null, 2)}
+                {JSON.stringify(music[track-1], null, 2)}
               </p>
             )
           })
