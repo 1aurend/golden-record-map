@@ -39,7 +39,9 @@ export default function Map({ height, highlight, setTrack }) {
   const history = useHistory()
 
   const onSelectCountry = (e) => {
-    setTrack(music[(countries[e.target.value].tracks[0])-1])
+    if (setTrack) {
+      setTrack(music[(countries[e.target.value].tracks[0])-1])
+    }
     history.push(countries[e.target.value].path)
   }
 

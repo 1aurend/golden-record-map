@@ -17,13 +17,14 @@ export default function World({ mapHeight, setMapHeight }) {
       return () => clearTimeout(delay)
     }
   }, [setMapHeight, mapHeight])
+
   return (
     <Flex
       width={'100vw'}
       >
       <MapNav />
       <Box>
-        <Map height={mapHeight}/>
+        <Map height={mapHeight} setTrack={null}/>
       </Box>
       <Box>
         <Sidebar data={'prop or context?'}/>
