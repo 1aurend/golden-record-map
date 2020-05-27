@@ -16,9 +16,9 @@ const style = <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/semantic
 
 const Slider = styled(Flex)`
   height: ${props => props.height || '100vh'};
-  padding-top: ${props =>  props.height === '65vh' ? '10vh' : '25vh'};
-  padding-left: ${props =>  props.height === '65vh' ? '20vh' : '10vh'};
-  padding-right: ${props =>  props.height === '65vh' ? '20vh' : '10vh'};
+  padding-top: ${props =>  props.height === '65vh' ? '15vh' : '20vh'};
+  padding-left: ${props =>  props.height === '65vh' ? '20vh' : '25vh'};
+  padding-right: ${props =>  props.height === '65vh' ? '20vh' : '25vh'};
   transition: height 2s, padding-top 2s;
 `
 const Shrinker = styled(Button)`
