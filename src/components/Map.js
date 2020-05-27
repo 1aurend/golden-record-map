@@ -10,13 +10,13 @@ import {
   useHistory
 } from 'react-router-dom'
 import countries from '../countries.js'
-import globeIcon from '../assets/globe_icon.svg'
+
 
 const style = <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/semantic-ui@2.4.1/dist/semantic.min.css'/>
 
 const Slider = styled(Flex)`
   height: ${props => props.height || '100vh'};
-  padding-top: ${props =>  props.height === '65vh' ? '10vh' : '20vh'};
+  padding-top: ${props =>  props.height === '65vh' ? '10vh' : '25vh'};
   padding-left: ${props =>  props.height === '65vh' ? '20vh' : '10vh'};
   padding-right: ${props =>  props.height === '65vh' ? '20vh' : '10vh'};
   transition: height 2s, padding-top 2s;
@@ -31,19 +31,6 @@ const Shrinker = styled(Button)`
   &:hover {
     filter: ${props => props.highlight ? '' : 'brightness(150%)' };
   }
-`
-const SvgButton = styled(Button)`
-  display: flex;
-  flex-direction: row;
-  justifyContent: center;
-  width: 3vw;
-  height: 3vw;
-  position: fixed;
-  left: 3vw;
-  top: 4vw;
-  background: none;
-  padding: 0;
-  cursor: pointer;
 `
 
 
@@ -67,13 +54,6 @@ export default function Map({ height, highlight }) {
       alignContent='flex-start'
       >
       {style}
-      <SvgButton onClick={() => history.push('/')}>
-        <img
-          src={globeIcon}
-          alt='globe-icon'
-          style={{display: 'block'}}
-          />
-      </SvgButton>
       {
         Object.entries(countries).map(([key, country]) => {
           // QUESTION: should this be conditional and omit the popup if country is currently selected?

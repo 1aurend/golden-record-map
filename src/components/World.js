@@ -21,10 +21,10 @@ export default function World({ mapHeight, setMapHeight }) {
     <Flex
       width={'100vw'}
       >
+      <MapNav />
       <Box>
         <Map height={mapHeight}/>
       </Box>
-    {/*  <MapNav /> */}
       <Box>
         <Sidebar data={'prop or context?'}/>
       </Box>

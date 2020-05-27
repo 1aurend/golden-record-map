@@ -21,11 +21,11 @@ export default function Country({ country, mapHeight, setMapHeight }) {
     <Flex
       width={'100vw'}
       >
+      <MapNav />
       <Box>
         <Map height={mapHeight} highlight={country}/>
         <InfoPane mapHeight={mapHeight} country={country}/>
       </Box>
-    {/*  <MapNav /> */}
       <Box>
         <Sidebar country={country}/>
       </Box>
