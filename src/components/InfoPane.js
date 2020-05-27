@@ -2,10 +2,12 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import {
   Flex,
-  Box
+  Box,
+  Heading,
+  Text
 } from 'rebass'
-import countries from '../countries'
-import music from '../music'
+import RecordPlayer from './RecordPlayer'
+
 
 const Pane = styled(Flex)`
   width: 75vw;
@@ -21,28 +23,38 @@ const Pane = styled(Flex)`
   justify-content: flex-start;
   flex-direction: column;
 `
+const ContentBox = styled(Flex)`
+  width: 55vw;
+  flex-direction: row;
+  justify-content: flex-start;
+`
+const TrackInfo = styled(Flex)`
+  flex-direction: column;
+  width: 35vw;
+`
 
-export default function InfoPane({ mapHeight, country }) {
+
+export default function InfoPane({ mapHeight, track }) {
   return (
     <Pane mapHeight={mapHeight}>
-      <Box
-        pb={2}
-        >
-        <h2>Tracks</h2>
-      </Box>
-      <Box>
-        {
-          countries[country].tracks.map(track => {
-            return (
-              <p
-                key={track-1}
-                >
-                {JSON.stringify(music[track-1], null, 2)}
-              </p>
-            )
-          })
-        }
-      </Box>
+      <ContentBox>
+        <RecordPlayer track={track} />
+        <TrackInfo>
+          <Heading
+            fontFamily='sans-serif'
+            pb={2}
+            >
+            {track.Piece}
+          </Heading>
+          {
+            Object.entries(track)
+            .filter(([key, value]) => {return key !== 'Country' && key !== 'Piece'})
+            .map(([key, value]) => {
+              return <Text pb={2} fontSize={16}>{key}: {value}</Text>
+            })
+          }
+        </TrackInfo>
+      </ContentBox>
     </Pane>
   )
 }

@@ -1,7 +1,9 @@
 import React from 'react'
 import {
   Flex,
-  Button
+  Button,
+  Box,
+  Text
 } from 'rebass'
 import styled from 'styled-components'
 import Popup from '@bit/semantic-org.semantic-ui-react.popup'
@@ -9,16 +11,17 @@ import {
   Link,
   useHistory
 } from 'react-router-dom'
-import countries from '../countries.js'
-import globeIcon from '../assets/globe_icon.svg'
+import countries from '../countries'
+import music from '../music'
+
 
 const style = <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/semantic-ui@2.4.1/dist/semantic.min.css'/>
 
 const Slider = styled(Flex)`
   height: ${props => props.height || '100vh'};
-  padding-top: ${props =>  props.height === '65vh' ? '10vh' : '20vh'};
-  padding-left: ${props =>  props.height === '65vh' ? '20vh' : '10vh'};
-  padding-right: ${props =>  props.height === '65vh' ? '20vh' : '10vh'};
+  padding-top: ${props =>  props.height === '65vh' ? '15vh' : '20vh'};
+  padding-left: ${props =>  props.height === '65vh' ? '20vh' : '25vh'};
+  padding-right: ${props =>  props.height === '65vh' ? '20vh' : '25vh'};
   transition: height 2s, padding-top 2s;
 `
 const Shrinker = styled(Button)`
@@ -32,25 +35,15 @@ const Shrinker = styled(Button)`
     filter: ${props => props.highlight ? '' : 'brightness(150%)' };
   }
 `
-const SvgButton = styled(Button)`
-  display: flex;
-  flex-direction: row;
-  justifyContent: center;
-  width: 3vw;
-  height: 3vw;
-  position: fixed;
-  left: 3vw;
-  top: 4vw;
-  background: none;
-  padding: 0;
-  cursor: pointer;
-`
 
 
-export default function Map({ height, highlight }) {
+export default function Map({ height, highlight, setTrack }) {
   const history = useHistory()
 
   const onSelectCountry = (e) => {
+    if (setTrack) {
+      setTrack(music[(countries[e.target.value].tracks[0])-1])
+    }
     history.push(countries[e.target.value].path)
   }
 
@@ -67,13 +60,6 @@ export default function Map({ height, highlight }) {
       alignContent='flex-start'
       >
       {style}
-      <SvgButton onClick={() => history.push('/')}>
-        <img
-          src={globeIcon}
-          alt='globe-icon'
-          style={{display: 'block'}}
-          />
-      </SvgButton>
       {
         Object.entries(countries).map(([key, country]) => {
           // QUESTION: should this be conditional and omit the popup if country is currently selected?
@@ -92,10 +78,35 @@ export default function Map({ height, highlight }) {
                 </Shrinker>
               }
               content={
-                <div>
-                  <p>{country.tracks.length} tracks</p>
-                  <Link to={`/${key.toLowerCase()}`}>details</Link>
-                </div>
+                <Box
+                  m={1}
+                  p={1}
+                  textAlign='left'
+                  >
+                  {
+                    country.tracks.map((track, i) => {
+                      const trackData = music[track-1]
+                      return (
+                        <Text
+                          key={track-1}
+                          pb={1}
+                          fontSize={12}
+                          >
+                          <Link
+                            onClick={() => {
+                              setTrack(music[track-1])
+                              history.push(country.path)
+                            }}
+                            style={{color:'black', textDecoration: 'underline', fontWeight: 'bold'}}
+                            >
+                            {i+1}. {trackData.Piece}
+                          </Link>
+                          <Text fontSize={10}>{trackData.Composer}</Text>
+                        </Text>
+                      )
+                    })
+                  }
+                </Box>
               }
               />
           )
