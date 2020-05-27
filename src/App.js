@@ -9,6 +9,7 @@ import {
 import World from './components/World'
 import Country from './components/Country'
 import countries from './countries'
+import music from './music'
 
 
 export default function AppRouter() {
@@ -37,6 +38,7 @@ function ValidateCountry({ mapHeight, setMapHeight }) {
         valid ? (
           <Country
             country={country.toUpperCase()}
+            initialTrack={music[(countries[country.toUpperCase()].tracks[0])-1]}
             mapHeight={mapHeight}
             setMapHeight={setMapHeight}
             />

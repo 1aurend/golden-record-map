@@ -9,7 +9,8 @@ import {
   Link,
   useHistory
 } from 'react-router-dom'
-import countries from '../countries.js'
+import countries from '../countries'
+import music from '../music'
 
 
 const style = <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/semantic-ui@2.4.1/dist/semantic.min.css'/>
@@ -34,10 +35,11 @@ const Shrinker = styled(Button)`
 `
 
 
-export default function Map({ height, highlight }) {
+export default function Map({ height, highlight, setTrack }) {
   const history = useHistory()
 
   const onSelectCountry = (e) => {
+    setTrack(music[(countries[e.target.value].tracks[0])-1])
     history.push(countries[e.target.value].path)
   }
 

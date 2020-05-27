@@ -9,13 +9,16 @@ import Sidebar from './Sidebar'
 import InfoPane from './InfoPane'
 
 
-export default function Country({ country, mapHeight, setMapHeight }) {
+export default function Country({ country, mapHeight, setMapHeight, initialTrack }) {
+  const [currentTrack, setTrack] = useState(initialTrack)
+
   useEffect(() => {
     const delay = setTimeout(() => {
       setMapHeight('65vh')
     }, 200)
     return () => clearTimeout(delay)
   }, [setMapHeight])
+
   return (
     <>
     <Flex
@@ -23,11 +26,11 @@ export default function Country({ country, mapHeight, setMapHeight }) {
       >
       <MapNav />
       <Box>
-        <Map height={mapHeight} highlight={country}/>
-        <InfoPane mapHeight={mapHeight} country={country}/>
+        <Map height={mapHeight} highlight={country} setTrack={setTrack}/>
+        <InfoPane mapHeight={mapHeight} track={currentTrack}/>
       </Box>
       <Box>
-        <Sidebar country={country}/>
+        <Sidebar country={country} setTrack={setTrack}/>
       </Box>
     </Flex>
     </>
