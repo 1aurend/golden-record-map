@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   Flex,
   Box
@@ -9,6 +9,13 @@ import Sidebar from './Sidebar'
 
 
 export default function World() {
+  const [height, setHeight] = useState('100vh')
+  useEffect(() => {
+    const delay = setTimeout(() => {
+      setHeight('65vh')
+    }, 200)
+    return () => clearTimeout(delay)
+  }, [])
   return (
     <Flex
       width={'100vw'}

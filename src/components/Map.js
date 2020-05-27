@@ -10,6 +10,7 @@ import {
   useHistory
 } from 'react-router-dom'
 import countries from '../countries.js'
+import globeIcon from '../assets/globe_icon.svg'
 
 const style = <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/semantic-ui@2.4.1/dist/semantic.min.css'/>
 
@@ -31,21 +32,26 @@ const Shrinker = styled(Button)`
     filter: ${props => props.highlight ? '' : 'brightness(150%)' };
   }
 `
-
+const SvgButton = styled(Button)`
+  display: flex;
+  flex-direction: row;
+  justifyContent: center;
+  width: 3vw;
+  height: 3vw;
+  position: fixed;
+  left: 3vw;
+  top: 4vw;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+`
 
 
 export default function Map({ height, highlight }) {
   const history = useHistory()
 
   const onSelectCountry = (e) => {
-    switch (e.target.value) {
-    case '-----':
-      history.push('/')
-      break
-    default:
-      history.push(countries[e.target.value].path)
-      break
-    }
+    history.push(countries[e.target.value].path)
   }
 
   return (
@@ -61,6 +67,13 @@ export default function Map({ height, highlight }) {
       alignContent='flex-start'
       >
       {style}
+      <SvgButton onClick={() => history.push('/')}>
+        <img
+          src={globeIcon}
+          alt='globe-icon'
+          style={{display: 'block'}}
+          />
+      </SvgButton>
       {
         Object.entries(countries).map(([key, country]) => {
           // QUESTION: should this be conditional and omit the popup if country is currently selected?

@@ -58,11 +58,10 @@ export default function Sidebar({ country }) {
           id='country'
           name='country'
           width={'20vw'}
-          defaultValue={country ? countries[country].name : '-----'}
-          value={country ? countries[country].name : '-----'}
+          value={country ? countries[country].name : ''}
           onChange={onSelectCountry}
           >
-          <option key='-'>-----</option>
+          <option key='empty'></option>
           {Object.entries(countries).map(([ key, country ]) => (
             <option
               key={key}>
