@@ -102,7 +102,7 @@ export default function Sidebar({ country, setTrack }) {
       }
       <Heading
         fontFamily='sans-serif'
-        pb={3}
+        pb={4}
         pt={3}
         fontSize={24}
         textAlign='center'
@@ -112,19 +112,28 @@ export default function Sidebar({ country, setTrack }) {
       </Heading>
       {country?
         <Box
-          pl={4}
-          pr={4}
+          ml={4}
+          mr={4}
           pb={5}
+          textAlign='left'
+          width='20vw'
           >
           {
             countries[country].tracks.map((track, i) => {
+              const trackData = music[track-1]
               return (
                 <Text
                   key={track-1}
-                  pb={3}
+                  pb={4}
+                  fontSize={20}
                   >
-                  <Link onClick={() => setTrack(music[track-1])}>{i+1}.</Link>
-                   {JSON.stringify(music[track-1], null, 2)}
+                  <Link
+                    onClick={() => setTrack(music[track-1])}
+                    style={{color:'black', textDecoration: 'underline'}}
+                    >
+                    {i+1}. {trackData.Piece}
+                  </Link>
+                  <Text fontSize={14}>{trackData.Composer}</Text>
                 </Text>
               )
             })

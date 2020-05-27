@@ -11,7 +11,7 @@ import PauseIcon from '@material-ui/icons/Pause'
 
 
 const Player = styled(Flex)`
-  width: 25vw;
+  width: 20vw;
   height: 30vh;
   margin-right: 2vw;
   flex-direction: column;

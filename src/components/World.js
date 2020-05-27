@@ -8,7 +8,7 @@ import MapNav from './MapNav'
 import Sidebar from './Sidebar'
 
 
-export default function World({ mapHeight, setMapHeight }) {
+export default function World({ mapHeight, setMapHeight, setTrack }) {
   useEffect(() => {
     if (mapHeight !== '100vh') {
       const delay = setTimeout(() => {
@@ -24,7 +24,7 @@ export default function World({ mapHeight, setMapHeight }) {
       >
       <MapNav />
       <Box>
-        <Map height={mapHeight} setTrack={null}/>
+        <Map height={mapHeight} setTrack={setTrack}/>
       </Box>
       <Box>
         <Sidebar data={'prop or context?'}/>

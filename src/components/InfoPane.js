@@ -30,6 +30,7 @@ const ContentBox = styled(Flex)`
 `
 const TrackInfo = styled(Flex)`
   flex-direction: column;
+  width: 35vw;
 `
 
 

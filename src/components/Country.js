@@ -9,9 +9,7 @@ import Sidebar from './Sidebar'
 import InfoPane from './InfoPane'
 
 
-export default function Country({ country, mapHeight, setMapHeight, initialTrack }) {
-  const [currentTrack, setTrack] = useState(initialTrack)
-
+export default function Country({ country, mapHeight, setMapHeight, setTrack, currentTrack }) {
   useEffect(() => {
     const delay = setTimeout(() => {
       setMapHeight('65vh')
