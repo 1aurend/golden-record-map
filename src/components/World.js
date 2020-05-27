@@ -8,20 +8,21 @@ import MapNav from './MapNav'
 import Sidebar from './Sidebar'
 
 
-export default function World() {
-  const [height, setHeight] = useState('100vh')
+export default function World({ mapHeight, setMapHeight }) {
   useEffect(() => {
-    const delay = setTimeout(() => {
-      setHeight('65vh')
-    }, 200)
-    return () => clearTimeout(delay)
-  }, [])
+    if (mapHeight !== '100vh') {
+      const delay = setTimeout(() => {
+        setMapHeight('100vh')
+      }, 200)
+      return () => clearTimeout(delay)
+    }
+  }, [setMapHeight, mapHeight])
   return (
     <Flex
       width={'100vw'}
       >
       <Box>
-        <Map height='100vh'/>
+        <Map height={mapHeight}/>
       </Box>
     {/*  <MapNav /> */}
       <Box>

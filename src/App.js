@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,14 +12,15 @@ import countries from './countries'
 
 
 export default function AppRouter() {
+  const [mapHeight, setMapHeight] = useState('100vh')
   return (
     <Router>
       <Switch>
         <Route exact path='/'>
-          <World />
+          <World mapHeight={mapHeight} setMapHeight={setMapHeight}/>
         </Route>
         <Route path='/:country'>
-          <ValidateCountry />
+          <ValidateCountry mapHeight={mapHeight} setMapHeight={setMapHeight}/>
         </Route>
       </Switch>
     </Router>
@@ -27,14 +28,18 @@ export default function AppRouter() {
 }
 
 
-function ValidateCountry() {
+function ValidateCountry({ mapHeight, setMapHeight }) {
   const { country } = useParams()
   const valid = Object.keys(countries).includes(country.toUpperCase())
   return (
     <Route
       render={() =>
         valid ? (
-          <Country country={country.toUpperCase()}/>
+          <Country
+            country={country.toUpperCase()}
+            mapHeight={mapHeight}
+            setMapHeight={setMapHeight}
+            />
         ) : (
           <Redirect to='/'/>
         )

@@ -9,22 +9,21 @@ import Sidebar from './Sidebar'
 import InfoPane from './InfoPane'
 
 
-export default function Country({ country }) {
-  const [height, setHeight] = useState('100vh')
+export default function Country({ country, mapHeight, setMapHeight }) {
   useEffect(() => {
     const delay = setTimeout(() => {
-      setHeight('65vh')
+      setMapHeight('65vh')
     }, 200)
     return () => clearTimeout(delay)
-  }, [])
+  }, [setMapHeight])
   return (
     <>
     <Flex
       width={'100vw'}
       >
       <Box>
-        <Map height={height} highlight={country}/>
-        <InfoPane mapHeight={height} country={country}/>
+        <Map height={mapHeight} highlight={country}/>
+        <InfoPane mapHeight={mapHeight} country={country}/>
       </Box>
     {/*  <MapNav /> */}
       <Box>
