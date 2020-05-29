@@ -34,7 +34,7 @@ export default function Svg20200528Map(props) {
         </style>
       </defs>
       <g style={{ isolation: "isolate" }}>
-        {/*{background}*/}
+        {background}
         <India onClick={() => alert('India')}/>
         <China onClick={() => alert('China')}/>
         <SolomonIl onClick={() => alert('SI')}/>
