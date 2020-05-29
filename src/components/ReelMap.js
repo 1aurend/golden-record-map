@@ -11,10 +11,10 @@ import {
   TileLayer
 } from 'react-leaflet'
 import styled from 'styled-components'
-import Svg20200528Map from '../assets/20200528map'
+import Svg20200528Map from './20200528map'
 
 const MapBox = styled(Box)`
-  min-width: 75vw;
+  width: 75vw;
   height: 100vh;
 `
 

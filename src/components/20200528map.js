@@ -1,6 +1,6 @@
 import React from 'react'
 import countries from '../countries'
-import background from './background'
+import background from '../assets/background'
 import Borders from '../countries/Borders'
 import Australia from '../countries/Australia'
 import India from '../countries/India'
@@ -8,7 +8,6 @@ import China from '../countries/China'
 import SolomonIl from '../countries/SolomonIl'
 import Bulgaria from '../countries/Bulgaria'
 import Azerbaijan from '../countries/Azerbaijan'
-import Belgium from '../countries/Belgium'
 import Benin from '../countries/Benin'
 import DRC from '../countries/DRC'
 import Georgia from '../countries/Georgia'
@@ -37,7 +36,6 @@ export default function Svg20200528Map({ view = [1165, 0, 6975, 4650], setView }
         <Azerbaijan onClick={setView}/>
         <Peru onClick={setView}/>
         <Georgia onClick={setView}/>
-        <Belgium onClick={setView}/>
         <Japan onClick={setView}/>
         <PapaNewGuinea onClick={setView}/>
         <USA onClick={setView}/>

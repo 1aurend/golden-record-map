@@ -26,8 +26,7 @@ export default function World({ mapHeight, setMapHeight, setTrack }) {
       >
       <MapNav />
       <Box>
-      <Map height={mapHeight} setTrack={setTrack}/>
-        {/*<ReelMap />*/}
+        <ReelMap />
       </Box>
       <Box>
         <Sidebar data={'prop or context?'}/>
