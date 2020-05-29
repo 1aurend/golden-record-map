@@ -13,7 +13,17 @@ import {
 import styled from 'styled-components'
 import Svg20200528Map from '../assets/20200528map'
 
+const MapBox = styled(Box)`
+  min-width: 75vw;
+  height: 100vh;
+`
+
+const zoomAll = [1165, 0, 6975, 4650]
 
 export default function ReelMap() {
-  return <Svg20200528Map />
+  return (
+    <MapBox>
+      <Svg20200528Map view={zoomAll}/>
+    </MapBox>
+  )
 }

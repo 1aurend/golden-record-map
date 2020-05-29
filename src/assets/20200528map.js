@@ -1,5 +1,6 @@
 import * as React from 'react'
 import background from './background'
+import Borders from '../countries/Borders'
 import Australia from '../countries/Australia'
 import India from '../countries/India'
 import China from '../countries/China'
@@ -20,21 +21,18 @@ import UK from '../countries/UK'
 import USA from '../countries/USA'
 import USSR from '../countries/USSR'
 import Austria from '../countries/Austria'
+import styled from 'styled-components'
 
 
 
-export default function Svg20200528Map(props) {
+export default Svg20200528Map
+
+function Svg20200528Map(props) {
   return (
-    <svg viewBox="0 0 9300 4650" {...props}>
-      <defs>
-        <style>
-          {
-            ".20200528map_svg__cls-2{fill:#e89a24;mix-blend-mode:color}.20200528map_svg__cls-3{fill:none;stroke:#fff;stroke-linejoin:round}"
-          }
-        </style>
-      </defs>
-      <g style={{ isolation: "isolate" }}>
+    <svg viewBox={props.view} {...props}>
+      <g>
         {background}
+        <USSR onClick={() => alert('USSR')}/>
         <India onClick={() => alert('India')}/>
         <China onClick={() => alert('China')}/>
         <SolomonIl onClick={() => alert('SI')}/>
@@ -54,8 +52,8 @@ export default function Svg20200528Map(props) {
         <Austria onClick={() => alert('Austria')}/>
         <UK onClick={() => alert('UK')}/>
         <Germany onClick={() => alert('Germany')}/>
-        <USSR onClick={() => alert('USSR')}/>
       </g>
+      <Borders/>
     </svg>
   )
 }
