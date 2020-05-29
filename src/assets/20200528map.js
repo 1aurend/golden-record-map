@@ -29,26 +29,26 @@ export default function Svg20200528Map({ view = [1165, 0, 6975, 4650], setView }
     <svg viewBox={view}>
       <g>
         {background}
-        <USSR onClick={() => setView(countries.USSR.view)}/>
-        <India onClick={() => alert('India')}/>
-        <China onClick={() => alert('China')}/>
-        <SolomonIl onClick={() => alert('SI')}/>
-        <Bulgaria onClick={() => alert('Bulgaria')}/>
-        <Azerbaijan onClick={() => alert('AZ')}/>
-        <Peru onClick={() => alert('Peru')}/>
-        <Georgia onClick={() => alert('Georgia')}/>
-        <Belgium onClick={() => alert('Belgium')}/>
-        <Japan onClick={() => alert('Japan')}/>
-        <PapaNewGuinea onClick={() => alert('PNG')}/>
-        <USA onClick={() => alert('USA')}/>
-        <Mexico onClick={() => alert('Mexico')}/>
-        <Australia onClick={() => alert('Aus')}/>
-        <Indonesia onClick={() => alert('Indonesia')}/>
-        <DRC onClick={() => alert('DRC')}/>
-        <Benin onClick={() => alert('Benin')}/>
-        <Austria onClick={() => alert('Austria')}/>
-        <UK onClick={() => alert('UK')}/>
-        <Germany onClick={() => alert('Germany')}/>
+        <USSR onClick={setView}/>
+        <India onClick={setView}/>
+        <China onClick={setView}/>
+        <SolomonIl onClick={setView}/>
+        <Bulgaria onClick={setView}/>
+        <Azerbaijan onClick={setView}/>
+        <Peru onClick={setView}/>
+        <Georgia onClick={setView}/>
+        <Belgium onClick={setView}/>
+        <Japan onClick={setView}/>
+        <PapaNewGuinea onClick={setView}/>
+        <USA onClick={setView}/>
+        <Mexico onClick={setView}/>
+        <Australia onClick={setView}/>
+        <Indonesia onClick={setView}/>
+        <DRC onClick={setView}/>
+        <Benin onClick={setView}/>
+        <Austria onClick={setView}/>
+        <UK onClick={setView}/>
+        <Germany onClick={setView}/>
       </g>
       <Borders/>
     </svg>
