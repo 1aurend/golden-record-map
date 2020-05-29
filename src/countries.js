@@ -1,8 +1,10 @@
+import React from 'react'
+
 const countries = {
   GERMANY: {
     path: '/germany',
     name: 'Germany',
-    tracks: [1, 10, 17, 18, 27]
+    tracks: [1, 10, 17, 18, 27],
   },
   INDONESIA: {
     path: '/indonesia',
@@ -32,7 +34,7 @@ const countries = {
   USA: {
     path: '/usa',
     name: 'United States of America',
-    tracks: [7, 14, 20, 26]
+    tracks: [7, 14, 20, 26],
   },
   PAPUANEWGUINEA: {
     path: '/papuanewguinea',
@@ -92,7 +94,7 @@ const countries = {
   INDIA: {
     path: '/india',
     name: 'India',
-    tracks: [25]
+    tracks: [25],
   }
 }
 
