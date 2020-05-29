@@ -6,6 +6,8 @@ import {
   useParams,
   Redirect
  } from 'react-router-dom'
+import styled, {ThemeProvider} from 'styled-components'
+import theme from './theme'
 import World from './components/World'
 import Country from './components/Country'
 import countries from './countries'
@@ -16,26 +18,28 @@ export default function AppRouter() {
   const [mapHeight, setMapHeight] = useState('100vh')
   const [currentTrack, setTrack] = useState(null)
   return (
-    <Router>
-      <Switch>
-        <Route exact path='/'>
-          <World
-            mapHeight={mapHeight}
-            setMapHeight={setMapHeight}
-            currentTrack={currentTrack}
-            setTrack={setTrack}
-            />
-        </Route>
-        <Route path='/:country'>
-          <ValidateCountry
-            mapHeight={mapHeight}
-            setMapHeight={setMapHeight}
-            currentTrack={currentTrack}
-            setTrack={setTrack}
-            />
-        </Route>
-      </Switch>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <Switch>
+          <Route exact path='/'>
+            <World
+              mapHeight={mapHeight}
+              setMapHeight={setMapHeight}
+              currentTrack={currentTrack}
+              setTrack={setTrack}
+              />
+          </Route>
+          <Route path='/:country'>
+            <ValidateCountry
+              mapHeight={mapHeight}
+              setMapHeight={setMapHeight}
+              currentTrack={currentTrack}
+              setTrack={setTrack}
+              />
+          </Route>
+        </Switch>
+      </Router>
+    </ThemeProvider>
   )
 }
 

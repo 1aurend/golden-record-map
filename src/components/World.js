@@ -22,11 +22,12 @@ export default function World({ mapHeight, setMapHeight, setTrack }) {
   return (
     <Flex
       width={'100vw'}
+      bg='black'
       >
       <MapNav />
       <Box>
-      {  /*<Map height={mapHeight} setTrack={setTrack}/>*/}
-        <ReelMap />
+      <Map height={mapHeight} setTrack={setTrack}/>
+        {/*<ReelMap />*/}
       </Box>
       <Box>
         <Sidebar data={'prop or context?'}/>

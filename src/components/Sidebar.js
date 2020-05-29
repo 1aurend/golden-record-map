@@ -9,14 +9,80 @@ import {
   Select,
   Label
 } from '@rebass/forms'
+import styled from 'styled-components'
 import { useHistory, Link } from 'react-router-dom'
 import countries from '../countries'
 import music from '../music'
 
+const SideFlex = styled(Flex)`
+  width: 25vw;
+  height: 100vh;
+  background-color: ${props => props.theme.colors.white};
+  align-items:center;
+  flex-direction:column;
+  overflow: scroll;
+  padding: 10% 15%
+`
+
+const Title = styled(Text)`
+  font-family: ${props => props.theme.fonts.heading};
+  font-size: 42px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 48px;
+`
+
+const Subtitle = styled(Text)`
+  font-family: ${props => props.theme.fonts.heading};
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-align: center;
+`
+
+const PrettySelect = styled(Select)`
+  font-family: ${props => props.theme.fonts.body};
+  font-size: 16px;
+  width: 13vw;
+  margin: 15% 0;
+  border-color: ${props => props.theme.colors.gold}
+`
+
+const PrettyText = styled(Text)`
+  font-family: ${props => props.theme.fonts.body};
+  font-size: 14px;
+  margin-top: 10%;
+`
+
+const PlayList = styled(Box)`
+  margin-top: 10%;
+  font-family: ${props => props.theme.fonts.body};
+`
+
+const TrackText = styled(Text)`
+  font-size: 20px;
+  line-height: 22px;
+  margin-bottom: 20px;
+  > a {
+    text-decoration: none;
+    color: ${props => props.theme.colors.gold};
+    &:hover {
+      color: ${props => props.theme.colors.green}
+    }
+  }
+`
+
+const ComposerText = styled(Text)`
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: ${props => props.theme.colors.grey};
+  margin-top: 5px;
+`
+
 
 export default function Sidebar({ country, setTrack }) {
   const history = useHistory()
-
   const onSelectCountry = (e) => {
     switch (e.target.value) {
     case '-----':
@@ -32,26 +98,14 @@ export default function Sidebar({ country, setTrack }) {
       break
     }
   }
-
   return (
-    <Flex
-      width={'25vw'}
-      height={'100vh'}
-      bg='gray'
-      pt={5}
-      alignItems='center'
-      flexDirection='column'
-      overflow='scroll'
-      >
+    <SideFlex>
       {country &&
-        <Box
-          pb={5}
-          >
-          <Label htmlFor='country'>Select a Country...</Label>
-          <Select
+        <Box>
+          <Label htmlFor='country'></Label>
+          <PrettySelect
             id='country'
             name='country'
-            width={'20vw'}
             value={country ? countries[country].name : ''}
             onChange={onSelectCountry}
             >
@@ -63,33 +117,22 @@ export default function Sidebar({ country, setTrack }) {
               </option>
             ))}
             >
-          </Select>
+          </PrettySelect>
         </Box>
       }
-      <Heading
-        fontFamily='sans-serif'
-        fontSize={32}
-        textAlign='center'
-        height={80}
-        pr={4}
-        pl={4}
-        >
+      <Title>
         {country? countries[country].name : 'Voyager Golden Record'}
-      </Heading>
+      </Title>
       {!country &&
         <Box
-          pt={5}
-          pb={5}
           >
-          <Label htmlFor='country'>Select a Country...</Label>
-          <Select
+          <PrettySelect
             id='country'
             name='country'
-            width={'20vw'}
             value={country ? countries[country].name : ''}
             onChange={onSelectCountry}
             >
-            <option key='empty'></option>
+            <option key='empty'>Start Exploring...</option>
             {Object.entries(countries).map(([ key, country ]) => (
               <option
                 key={key}>
@@ -97,64 +140,42 @@ export default function Sidebar({ country, setTrack }) {
               </option>
             ))}
             >
-          </Select>
+          </PrettySelect>
         </Box>
       }
-      <Heading
-        fontFamily='sans-serif'
-        pb={4}
-        pt={3}
-        fontSize={24}
-        textAlign='center'
-        height={30}
-        >
+      <Subtitle>
         {country? '' : 'About This Map'}
-      </Heading>
+      </Subtitle>
       {country?
-        <Box
-          ml={4}
-          mr={4}
-          pb={5}
-          textAlign='left'
-          width='20vw'
-          >
+        <PlayList>
           {
             countries[country].tracks.map((track, i) => {
               const trackData = music[track-1]
               return (
-                <Text
+                <TrackText
                   key={track-1}
-                  pb={4}
-                  fontSize={20}
                   >
                   <Link
                     onClick={() => setTrack(music[track-1])}
-                    style={{color:'black', textDecoration: 'underline'}}
                     >
                     {i+1}. {trackData.Piece}
                   </Link>
-                  <Text fontSize={14}>{trackData.Composer}</Text>
-                </Text>
+                  <ComposerText>{trackData.Composer}</ComposerText>
+                </TrackText>
               )
             })
           }
-        </Box>
+        </PlayList>
         :
         <>
-          <Text
-          p={4}
-          pt={3}
+          <PrettyText
           >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pulvinar elementum integer enim neque volutpat. Pretium quam vulputate dignissim suspendisse in est ante in. Fusce id velit ut tortor pretium viverra suspendisse potenti. Luctus venenatis lectus magna fringilla urna porttitor. Neque volutpat ac tincidunt vitae semper quis lectus nulla at. Donec enim diam vulputate ut pharetra. Feugiat scelerisque varius morbi enim nunc faucibus a. Metus vulputate eu scelerisque felis imperdiet. Turpis egestas maecenas pharetra convallis posuere morbi leo urna molestie. Eros in cursus turpis massa tincidunt.
-        </Text>
-        <Text
-          pr={4}
-          pl={4}
-          >
+
           Mattis rhoncus urna neque viverra justo. Eu nisl nunc mi ipsum faucibus. Sodales ut etiam sit amet nisl purus in mollis nunc. Vel pretium lectus quam id. Massa massa ultricies mi quis. Quam vulputate dignissim suspendisse in est ante in nibh. Nam aliquam sem et tortor consequat id porta nibh. Dolor purus non enim praesent elementum facilisis leo vel. Rhoncus mattis rhoncus urna neque viverra justo nec ultrices. Amet aliquam id diam maecenas. Est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat. Non odio euismod lacinia at quis. Laoreet id donec ultrices tincidunt arcu non sodales.
-        </Text>
+        </PrettyText>
       </>
     }
-    </Flex>
+    </SideFlex>
   )
 }

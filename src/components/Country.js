@@ -21,6 +21,7 @@ export default function Country({ country, mapHeight, setMapHeight, setTrack, cu
     <>
     <Flex
       width={'100vw'}
+      bg='black'
       >
       <MapNav />
       <Box>
