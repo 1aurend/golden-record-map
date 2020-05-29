@@ -1,4 +1,5 @@
-import * as React from 'react'
+import React from 'react'
+import styled from 'styled-components'
 import background from './background'
 import Australia from '../countries/Australia'
 import India from '../countries/India'
@@ -21,9 +22,29 @@ import USA from '../countries/USA'
 import USSR from '../countries/USSR'
 import Austria from '../countries/Austria'
 
+const StyledMap = styled(Svg20200528Map)`
+  path {
+      fill: ${props => props.fill || '#e89a24'};
+      mix-blend-mode: color;
+      &:hover {
+        fill: #ec8148;
+      }
+      &.20200528map_svg__cls-3 {
+        fill: none;
+        stroke: #fff;
+        stroke-linejoin: round;
+      }
+    }
+  #20200528map_svg__INDIA_FILL {
+    fill: purple;
+  }
+  #20200528map_svg__INDIA_STROKE {
+    fill: none;
+  }
+`
+export default StyledMap
 
-
-export default function Svg20200528Map(props) {
+function Svg20200528Map(props) {
   return (
     <svg viewBox="0 0 9300 4650" {...props}>
       <defs>
@@ -35,7 +56,7 @@ export default function Svg20200528Map(props) {
       </defs>
       <g style={{ isolation: "isolate" }}>
         {background}
-        <India onClick={() => alert('India')}/>
+        <India onClick={() => alert('India')} fill='purple'/>
         <China onClick={() => alert('China')}/>
         <SolomonIl onClick={() => alert('SI')}/>
         <Bulgaria onClick={() => alert('Bulgaria')}/>
