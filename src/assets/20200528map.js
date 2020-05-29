@@ -1,4 +1,5 @@
-import * as React from 'react'
+import React from 'react'
+import countries from '../countries'
 import background from './background'
 import Borders from '../countries/Borders'
 import Australia from '../countries/Australia'
@@ -21,18 +22,14 @@ import UK from '../countries/UK'
 import USA from '../countries/USA'
 import USSR from '../countries/USSR'
 import Austria from '../countries/Austria'
-import styled from 'styled-components'
 
 
-
-export default Svg20200528Map
-
-function Svg20200528Map(props) {
+export default function Svg20200528Map({ view = [1165, 0, 6975, 4650], setView }) {
   return (
-    <svg viewBox={props.view} {...props}>
+    <svg viewBox={view}>
       <g>
         {background}
-        <USSR onClick={() => alert('USSR')}/>
+        <USSR onClick={() => setView(countries.USSR.view)}/>
         <India onClick={() => alert('India')}/>
         <China onClick={() => alert('China')}/>
         <SolomonIl onClick={() => alert('SI')}/>
