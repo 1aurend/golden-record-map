@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import countries from '../countries'
 
 const StyledGroup = styled.g`
   mix-blend-mode: color;
@@ -12,7 +11,7 @@ const StyledGroup = styled.g`
 
 export default function Country({ onClick, fill, path, id }) {
   return (
-    <StyledGroup id={id} onClick={() => onClick(countries[id].view)} fill={fill}>
+    <StyledGroup id={id} onClick={() => onClick(id)} fill={fill}>
       <path d={path} />
       </StyledGroup>
     )

@@ -6,7 +6,7 @@ import {
   useParams,
   Redirect
  } from 'react-router-dom'
-import styled, {ThemeProvider} from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 import theme from './theme'
 import Interface from './components/Interface'
 import countries from './countries'
