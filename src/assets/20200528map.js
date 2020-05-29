@@ -1,6 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
+import countries from '../countries'
 import background from './background'
+import Borders from '../countries/Borders'
 import Australia from '../countries/Australia'
 import India from '../countries/India'
 import China from '../countries/China'
@@ -22,41 +23,14 @@ import USA from '../countries/USA'
 import USSR from '../countries/USSR'
 import Austria from '../countries/Austria'
 
-const StyledMap = styled(Svg20200528Map)`
-  path {
-      fill: ${props => props.fill || '#e89a24'};
-      mix-blend-mode: color;
-      &:hover {
-        fill: #ec8148;
-      }
-      &.20200528map_svg__cls-3 {
-        fill: none;
-        stroke: #fff;
-        stroke-linejoin: round;
-      }
-    }
-  #20200528map_svg__INDIA_FILL {
-    fill: purple;
-  }
-  #20200528map_svg__INDIA_STROKE {
-    fill: none;
-  }
-`
-export default StyledMap
 
-function Svg20200528Map(props) {
+export default function Svg20200528Map({ view = [1165, 0, 6975, 4650], setView }) {
   return (
-    <svg viewBox="0 0 9300 4650" {...props}>
-      <defs>
-        <style>
-          {
-            ".20200528map_svg__cls-2{fill:#e89a24;mix-blend-mode:color}.20200528map_svg__cls-3{fill:none;stroke:#fff;stroke-linejoin:round}"
-          }
-        </style>
-      </defs>
-      <g style={{ isolation: "isolate" }}>
+    <svg viewBox={view}>
+      <g>
         {background}
-        <India onClick={() => alert('India')} fill='purple'/>
+        <USSR onClick={() => setView(countries.USSR.view)}/>
+        <India onClick={() => alert('India')}/>
         <China onClick={() => alert('China')}/>
         <SolomonIl onClick={() => alert('SI')}/>
         <Bulgaria onClick={() => alert('Bulgaria')}/>
@@ -75,8 +49,8 @@ function Svg20200528Map(props) {
         <Austria onClick={() => alert('Austria')}/>
         <UK onClick={() => alert('UK')}/>
         <Germany onClick={() => alert('Germany')}/>
-        <USSR onClick={() => alert('USSR')}/>
       </g>
+      <Borders/>
     </svg>
   )
 }
