@@ -22,6 +22,7 @@ export default function World({ mapHeight, setMapHeight, setTrack }) {
   return (
     <Flex
       width={'100vw'}
+      bg='black'
       >
       <MapNav />
       <Box>

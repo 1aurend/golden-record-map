@@ -11,14 +11,13 @@ import RecordPlayer from './RecordPlayer'
 const Pane = styled(Flex)`
   width: 75vw;
   height: ${props => props.mapHeight === '65vh' ? '35vh' : 0};
-  background: white;
   display: ${props => props.mapHeight === '65vh' ? '' : 'none'};
   transition: height 2s;
   padding-left: 10vh;
   padding-right: 10vh;
   padding-top: 5vh;
   padding-bottom: 5vh;
-  overflow: scroll;
+  overflow: auto;
   justify-content: flex-start;
   flex-direction: column;
 `
@@ -31,6 +30,7 @@ const ContentBox = styled(Flex)`
 const TrackInfo = styled(Flex)`
   flex-direction: column;
   width: 35vw;
+  color: ${props => props.theme.colors.white}
 `
 
 const TrackTitle = styled(Text)`
@@ -61,7 +61,7 @@ const DataKey = styled(Text)`
 
 const DataValue = styled(Text)`
   font-size: 16px;
-  color: ${props => props.theme.colors.black};
+  color: ${props => props.theme.colors.white};
   flex-basis: 500px;
 `
 
