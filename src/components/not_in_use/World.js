@@ -6,7 +6,7 @@ import {
 import Map from './Map'
 import MapNav from './MapNav'
 import Sidebar from './Sidebar'
-import ReelMap from './ReelMap'
+import MapMap from './MapMap'
 
 
 export default function World({ mapHeight, setMapHeight, setTrack }) {
@@ -26,7 +26,7 @@ export default function World({ mapHeight, setMapHeight, setTrack }) {
       >
       <MapNav />
       <Box>
-        <ReelMap />
+        <MapMap />
       </Box>
       <Box>
         <Sidebar data={'prop or context?'}/>

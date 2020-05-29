@@ -8,8 +8,7 @@ import {
  } from 'react-router-dom'
 import styled, {ThemeProvider} from 'styled-components'
 import theme from './theme'
-import World from './components/World'
-import Country from './components/Country'
+import Interface from './components/Interface'
 import countries from './countries'
 import music from './music'
 
@@ -22,7 +21,7 @@ export default function AppRouter() {
       <Router>
         <Switch>
           <Route exact path='/'>
-            <World
+            <Interface
               mapHeight={mapHeight}
               setMapHeight={setMapHeight}
               currentTrack={currentTrack}
@@ -58,7 +57,7 @@ function ValidateCountry({ mapHeight, setMapHeight, currentTrack, setTrack }) {
     <Route
       render={() =>
         valid ? (
-          <Country
+          <Interface
             country={country.toUpperCase()}
             currentTrack={currentTrack || music[(countries[country.toUpperCase()].tracks[0])-1]}
             setTrack={setTrack}

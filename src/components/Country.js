@@ -1,37 +1,19 @@
-import React, { useEffect, useState } from 'react'
-import {
-  Flex,
-  Box
-} from 'rebass'
-import Map from './Map'
-import MapNav from './MapNav'
-import Sidebar from './Sidebar'
-import InfoPane from './InfoPane'
+import React from 'react'
+import styled from 'styled-components'
+import countries from '../countries'
 
+const StyledGroup = styled.g`
+  mix-blend-mode: color;
+  fill: ${props => props.fill || '#e89a24'};
+  &:hover {
+    fill: #ec8148;
+  }
+`
 
-export default function Country({ country, mapHeight, setMapHeight, setTrack, currentTrack }) {
-  useEffect(() => {
-    const delay = setTimeout(() => {
-      setMapHeight('65vh')
-    }, 200)
-    return () => clearTimeout(delay)
-  }, [setMapHeight])
-
+export default function Country({ onClick, fill, path, id }) {
   return (
-    <>
-    <Flex
-      width={'100vw'}
-      bg='black'
-      >
-      <MapNav />
-      <Box>
-        <Map height={mapHeight} highlight={country} setTrack={setTrack}/>
-        <InfoPane mapHeight={mapHeight} track={currentTrack}/>
-      </Box>
-      <Box>
-        <Sidebar country={country} setTrack={setTrack}/>
-      </Box>
-    </Flex>
-    </>
-  )
-}
+    <StyledGroup id={id} onClick={() => onClick(countries[id].view)} fill={fill}>
+      <path d={path} />
+      </StyledGroup>
+    )
+  }

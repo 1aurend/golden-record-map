@@ -95,7 +95,7 @@ export default function Map({ height, highlight, setTrack }) {
                           <Link
                             onClick={() => {
                               setTrack(music[track-1])
-                              history.push(country.path)
+                              history.push(country.url)
                             }}
                             style={{color:'black', textDecoration: 'underline', fontWeight: 'bold'}}
                             >
