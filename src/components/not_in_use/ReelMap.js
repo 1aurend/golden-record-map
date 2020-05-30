@@ -4,12 +4,6 @@ import {
   Box,
   Image
 } from 'rebass'
-import {
-  Map,
-  Marker,
-  Popup,
-  TileLayer
-} from 'react-leaflet'
 import styled from 'styled-components'
 import Svg20200528Map from './20200528map'
 import MapMap from './MapMap'

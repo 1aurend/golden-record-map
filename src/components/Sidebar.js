@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
   Flex,
   Box,
-  Heading,
   Text
 } from 'rebass'
 import {
@@ -48,9 +47,9 @@ const PrettySelect = styled(Select)`
   border-color: ${props => props.theme.colors.gold};
 `
 
-const PrettyOption = styled.option`
-  background-color: red;
-`
+// const PrettyOption = styled.option`
+//   background-color: red;
+// `
 
 const PrettyText = styled(Text)`
   font-family: ${props => props.theme.fonts.body};

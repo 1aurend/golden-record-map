@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import {
   Button,
   Flex,
-  Box
 } from 'rebass'
 import { useHistory, useLocation } from 'react-router-dom'
 import { ReactComponent as Globe } from '../assets/nav_globe.svg'

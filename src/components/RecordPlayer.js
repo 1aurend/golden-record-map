@@ -4,14 +4,7 @@ import {
   Flex,
   Box,
   Button,
-  Text,
-  Image
 } from 'rebass'
-import PlayArrowIcon from '@material-ui/icons/PlayArrow'
-import PauseIcon from '@material-ui/icons/Pause'
-import { ReactComponent as Globe } from '../assets/nav_globe.svg'
-import { ReactComponent as ArrowLeft } from '../assets/nav_larrow.svg'
-import { ReactComponent as ArrowRight } from '../assets/nav_rarrow.svg'
 import { ReactComponent as TrackNext } from '../assets/controls_ntrack.svg'
 import { ReactComponent as TrackPrev } from '../assets/controls_ptrack.svg'
 import { ReactComponent as PlayOverlay } from '../assets/controls_play_overlay.svg'

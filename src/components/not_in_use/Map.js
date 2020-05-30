@@ -6,7 +6,6 @@ import {
   Text
 } from 'rebass'
 import styled from 'styled-components'
-import Popup from '@bit/semantic-org.semantic-ui-react.popup'
 import {
   Link,
   useHistory
@@ -14,8 +13,6 @@ import {
 import countries from '../countries'
 import music from '../music'
 
-
-const style = <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/semantic-ui@2.4.1/dist/semantic.min.css'/>
 
 const Slider = styled(Flex)`
   height: ${props => props.height || '100vh'};
