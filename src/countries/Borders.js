@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const StyledGroup = styled.g`
   stroke: ${props => props.stroke || '#ffffff'};
-  stroke-width: ${props => props.strokewidth || '2'};
+  stroke-width: ${props => props.strokewidth || '1'};
   fill: None;
 `
 

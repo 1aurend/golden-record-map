@@ -1,0 +1,11 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #000;
+      }
+    </style>
+  </defs>
+  <title>controls</title>
+  <path  d="M50,24.4A25.6,25.6,0,1,0,75.6,50,25.6,25.6,0,0,0,50,24.4Zm0,43.7A18.1,18.1,0,1,1,68.1,50,18.1,18.1,0,0,1,50,68.1ZM45.8,41.2,58.4,50,45.8,58.8Z"/>
+</svg>

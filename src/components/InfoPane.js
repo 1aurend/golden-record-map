@@ -7,36 +7,39 @@ import {
   Text
 } from 'rebass'
 import RecordPlayer from './RecordPlayer'
+import MapNav from './MapNav'
+
 
 const Pane = styled(Flex)`
   width: 75vw;
-  height: ${props => props.mapHeight === '65vh' ? '35vh' : 0};
-  display: ${props => props.mapHeight === '65vh' ? '' : 'none'};
+  height: 280px;
+  position: fixed;
+  bottom: ${props => props.mapHeight === '65vh' ? '60px' : '-200px'};*/}
   transition: height 2s;
-  padding-left: 10vh;
-  padding-right: 10vh;
-  padding-top: 5vh;
-  padding-bottom: 5vh;
-  overflow: auto;
-  justify-content: flex-start;
-  flex-direction: column;
-`
-const ContentBox = styled(Flex)`
-  width: 55vw;
+  overflow: hidden;
   flex-direction: row;
+  z-index: 99;
   justify-content: flex-start;
+  align-items: flex-end;
+`
+
+const ControlsFlex = styled(Flex)`
+  flex-direction: column;
+  align-items: center;
+  margin: 0px 40px 0px 100px;
+  margin-bottom: 10px;
 `
 
 const TrackInfo = styled(Flex)`
   flex-direction: column;
   width: 35vw;
-  color: ${props => props.theme.colors.white}
 `
 
 const TrackTitle = styled(Text)`
   font-family: ${props => props.theme.fonts.body};
+  color: ${props => props.theme.colors.gold};
   letter-spacing: 0.5px;
-  font-size: 28px;
+  font-size: 32px;
   line-height: 28px;
   font-weight: 700;
   margin-bottom: 20px;
@@ -46,7 +49,7 @@ const DataBox = styled(Flex)`
   font-family: ${props => props.theme.fonts.body};
   flex-direction: row;
   > *{
-    margin: 5px 3px;
+    margin: 3px 6px;
   }
 `
 
@@ -62,33 +65,34 @@ const DataKey = styled(Text)`
 const DataValue = styled(Text)`
   font-size: 16px;
   color: ${props => props.theme.colors.white};
-  flex-basis: 500px;
+  flex-basis: 600px;
 `
 
 
 export default function InfoPane({ mapHeight, track }) {
   return (
     <Pane mapHeight={mapHeight}>
-      <ContentBox>
+      <ControlsFlex>
+        <MapNav />
+        <TrackTitle>
+          {track.Piece}
+        </TrackTitle>
         <RecordPlayer track={track} />
-        <TrackInfo>
-          <TrackTitle>
-            {track.Piece}
-          </TrackTitle>
-          {
-            Object.entries(track)
-            .filter(([key, value]) => {return key !== 'Country' && key !== 'Piece'})
-            .map(([key, value]) => {
-              return (
-                <DataBox>
-                  <DataKey>{key}:</DataKey>
-                  <DataValue>{value}</DataValue>
-                </DataBox>
-              )
-            })
-          }
-        </TrackInfo>
-      </ContentBox>
+      </ControlsFlex>
+      <TrackInfo>
+        {
+          Object.entries(track)
+          .filter(([key, value]) => {return key !== 'Country' && key !== 'Piece'})
+          .map(([key, value]) => {
+            return (
+              <DataBox>
+                <DataKey>{key}:</DataKey>
+                <DataValue>{value}</DataValue>
+              </DataBox>
+            )
+          })
+        }
+      </TrackInfo>
     </Pane>
   )
 }

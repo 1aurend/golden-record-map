@@ -4,7 +4,6 @@ import {
   Box
 } from 'rebass'
 import Map from './Map'
-import MapNav from './MapNav'
 import Sidebar from './Sidebar'
 import InfoPane from './InfoPane'
 
@@ -23,7 +22,6 @@ export default function Country({ country, mapHeight, setMapHeight, setTrack, cu
       width={'100vw'}
       bg='black'
       >
-      <MapNav />
       <Box>
         <Map height={mapHeight} highlight={country} setTrack={setTrack}/>
         <InfoPane mapHeight={mapHeight} track={currentTrack}/>

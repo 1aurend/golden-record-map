@@ -4,7 +4,6 @@ import {
   Box
 } from 'rebass'
 import Map from './Map'
-import MapNav from './MapNav'
 import Sidebar from './Sidebar'
 import ReelMap from './ReelMap'
 
@@ -24,7 +23,6 @@ export default function World({ mapHeight, setMapHeight, setTrack }) {
       width={'100vw'}
       bg='black'
       >
-      <MapNav />
       <Box>
         <ReelMap />
       </Box>
