@@ -23,6 +23,8 @@ const Pane = styled(Flex)`
   justify-content: flex-start;
   align-items: flex-end;
   pointer-events: none;
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.9), rgba(0,0,0,1));
+  padding-top: 10px;
 `
 
 const ControlsFlex = styled(Flex)`
