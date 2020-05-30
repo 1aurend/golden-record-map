@@ -12,10 +12,11 @@ import MapNav from './MapNav'
 
 const Pane = styled(Flex)`
   width: 75vw;
-  height: 280px;
+  height: ${props => props.mapHeight === '65vh' ? 'auto' : 0};
   position: fixed;
-  bottom: ${props => props.mapHeight === '65vh' ? '60px' : '-200px'};*/}
-  transition: height 2s;
+  display: ${props => props.mapHeight === '65vh' ? '' : 'none'};
+  bottom: 60px;
+  transition: height 2s ease-out;
   overflow: hidden;
   flex-direction: row;
   z-index: 99;
@@ -28,6 +29,7 @@ const ControlsFlex = styled(Flex)`
   align-items: center;
   margin: 0px 40px 0px 100px;
   margin-bottom: 10px;
+  width: 300px;
 `
 
 const TrackInfo = styled(Flex)`
@@ -40,7 +42,7 @@ const TrackTitle = styled(Text)`
   color: ${props => props.theme.colors.gold};
   letter-spacing: 0.5px;
   font-size: 32px;
-  line-height: 28px;
+  line-height: 36px;
   font-weight: 700;
   margin-bottom: 20px;
 `
@@ -58,7 +60,7 @@ const DataKey = styled(Text)`
   text-transform: uppercase;
   letter-spacing: 1.5px;
   color: ${props => props.theme.colors.grey};
-  flex-basis: 250px;
+  flex-basis: 100px;
   text-align: right;
 `
 
@@ -74,12 +76,12 @@ export default function InfoPane({ mapHeight, track }) {
     <Pane mapHeight={mapHeight}>
       <ControlsFlex>
         <MapNav />
-        <TrackTitle>
-          {track.Piece}
-        </TrackTitle>
         <RecordPlayer track={track} />
       </ControlsFlex>
       <TrackInfo>
+        <TrackTitle>
+          {track.Piece}
+        </TrackTitle>
         {
           Object.entries(track)
           .filter(([key, value]) => {return key !== 'Country' && key !== 'Piece'})

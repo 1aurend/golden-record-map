@@ -21,7 +21,7 @@ const SideFlex = styled(Flex)`
   align-items:center;
   flex-direction:column;
   overflow: scroll;
-  padding: 10% 15%
+  padding: 10% 10%
 `
 
 const Title = styled(Text)`
