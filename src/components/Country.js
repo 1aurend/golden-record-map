@@ -2,8 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 
 const StyledGroup = styled.g`
+  cursor: pointer;
   mix-blend-mode: color;
   fill: ${props => props.fill || '#e89a24'};
+  transition: fill 0.75s;
   &:hover {
     fill: ${props => props.fill || '#ec8148'};
   }

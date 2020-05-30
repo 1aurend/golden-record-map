@@ -7,37 +7,46 @@ import {
   Text
 } from 'rebass'
 import RecordPlayer from './RecordPlayer'
+import MapNav from './MapNav'
+
 
 const Pane = styled(Flex)`
   width: 75vw;
-  height: ${props => props.mapHeight === '65vh' ? '35vh' : 0};
+  height: ${props => props.mapHeight === '65vh' ? 'auto' : 0};
+  position: fixed;
   display: ${props => props.mapHeight === '65vh' ? '' : 'none'};
-  transition: height 2s;
-  padding-left: 10vh;
-  padding-right: 10vh;
-  padding-top: 5vh;
-  padding-bottom: 5vh;
-  overflow: auto;
-  justify-content: flex-start;
-  flex-direction: column;
-`
-const ContentBox = styled(Flex)`
-  width: 55vw;
+  bottom: 60px;
+  transition: height 2s ease-out;
+  overflow: hidden;
   flex-direction: row;
+  z-index: 99;
   justify-content: flex-start;
+  align-items: flex-end;
+  pointer-events: none;
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.9), rgba(0,0,0,1));
+  padding-top: 10px;
+`
+
+const ControlsFlex = styled(Flex)`
+  flex-direction: column;
+  align-items: center;
+  margin: 0px 40px 0px 100px;
+  margin-bottom: 10px;
+  width: 300px;
+  pointer-events: all;
 `
 
 const TrackInfo = styled(Flex)`
   flex-direction: column;
   width: 35vw;
-  color: ${props => props.theme.colors.white}
 `
 
 const TrackTitle = styled(Text)`
   font-family: ${props => props.theme.fonts.body};
+  color: ${props => props.theme.colors.gold};
   letter-spacing: 0.5px;
-  font-size: 28px;
-  line-height: 28px;
+  font-size: 32px;
+  line-height: 36px;
   font-weight: 700;
   margin-bottom: 20px;
 `
@@ -46,7 +55,7 @@ const DataBox = styled(Flex)`
   font-family: ${props => props.theme.fonts.body};
   flex-direction: row;
   > *{
-    margin: 5px 3px;
+    margin: 3px 6px;
   }
 `
 
@@ -55,40 +64,41 @@ const DataKey = styled(Text)`
   text-transform: uppercase;
   letter-spacing: 1.5px;
   color: ${props => props.theme.colors.grey};
-  flex-basis: 250px;
+  flex-basis: 100px;
   text-align: right;
 `
 
 const DataValue = styled(Text)`
   font-size: 16px;
   color: ${props => props.theme.colors.white};
-  flex-basis: 500px;
+  flex-basis: 600px;
 `
 
 
 export default function InfoPane({ mapHeight, track }) {
   return (
     <Pane mapHeight={mapHeight}>
-      <ContentBox>
+      <ControlsFlex>
+        <MapNav />
         <RecordPlayer track={track} />
-        <TrackInfo>
-          <TrackTitle>
-            {track.Piece}
-          </TrackTitle>
-          {
-            Object.entries(track)
-            .filter(([key, value]) => {return key !== 'Country' && key !== 'Piece'})
-            .map(([key, value]) => {
-              return (
-                <DataBox>
-                  <DataKey>{key}:</DataKey>
-                  <DataValue>{value}</DataValue>
-                </DataBox>
-              )
-            })
-          }
-        </TrackInfo>
-      </ContentBox>
+      </ControlsFlex>
+      <TrackInfo>
+        <TrackTitle>
+          {track.Piece}
+        </TrackTitle>
+        {
+          Object.entries(track)
+          .filter(([key, value]) => {return key !== 'Country' && key !== 'Piece'})
+          .map(([key, value]) => {
+            return (
+              <DataBox>
+                <DataKey>{key}:</DataKey>
+                <DataValue>{value}</DataValue>
+              </DataBox>
+            )
+          })
+        }
+      </TrackInfo>
     </Pane>
   )
 }

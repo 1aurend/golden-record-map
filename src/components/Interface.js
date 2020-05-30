@@ -4,7 +4,6 @@ import {
   Box
 } from 'rebass'
 import MapMap from './MapMap'
-import MapNav from './MapNav'
 import Sidebar from './Sidebar'
 import InfoPane from './InfoPane'
 import HoverPopup from './Popup'
@@ -32,7 +31,6 @@ export default function Interface({ country, mapHeight, setMapHeight, setTrack, 
       width={'100vw'}
       bg='black'
       >
-      <MapNav setTrack={setTrack}/>
       <Box>
         <MapMap height={mapHeight} highlight={country} setTrack={setTrack} view={view} setPopup={setPopup}/>
         {country && <InfoPane mapHeight={mapHeight} track={currentTrack}/>}

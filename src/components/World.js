@@ -5,7 +5,7 @@ import {
 } from 'rebass'
 import Map from './Map'
 import Sidebar from './Sidebar'
-import MapMap from './MapMap'
+import ReelMap from './ReelMap'
 
 
 export default function World({ mapHeight, setMapHeight, setTrack }) {
@@ -24,7 +24,7 @@ export default function World({ mapHeight, setMapHeight, setTrack }) {
       bg='black'
       >
       <Box>
-        <MapMap />
+        <ReelMap />
       </Box>
       <Box>
         <Sidebar data={'prop or context?'}/>
