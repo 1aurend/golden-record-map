@@ -96,7 +96,7 @@ export default function Sidebar({ country, setTrack }) {
     default:
       Object.entries(countries).forEach(([ key, country ]) => {
         if (country.name === e.target.value) {
-          history.push(country.path)
+          history.push(country.url)
           return
         }
       })
