@@ -22,6 +22,7 @@ const Pane = styled(Flex)`
   z-index: 99;
   justify-content: flex-start;
   align-items: flex-end;
+  pointer-events: none;
 `
 
 const ControlsFlex = styled(Flex)`
@@ -30,6 +31,7 @@ const ControlsFlex = styled(Flex)`
   margin: 0px 40px 0px 100px;
   margin-bottom: 10px;
   width: 300px;
+  pointer-events: all;
 `
 
 const TrackInfo = styled(Flex)`
