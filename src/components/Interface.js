@@ -8,7 +8,7 @@ import Sidebar from './Sidebar'
 import InfoPane from './InfoPane'
 
 
-export default function Interface({ country, mapHeight, setMapHeight, setTrack, currentTrack }) {
+export default function Interface({ country, mapHeight, setMapHeight, setTrack, currentTrack, view }) {
   useEffect(() => {
     if (mapHeight !== '100vh' && !country) {
       const delay = setTimeout(() => {
@@ -29,7 +29,7 @@ export default function Interface({ country, mapHeight, setMapHeight, setTrack, 
       bg='black'
       >
       <Box>
-        <MapMap height={mapHeight} highlight={country} setTrack={setTrack}/>
+        <MapMap height={mapHeight} highlight={country} setTrack={setTrack} view={view}/>
         {country && <InfoPane mapHeight={mapHeight} track={currentTrack}/>}
       </Box>
       <Box>

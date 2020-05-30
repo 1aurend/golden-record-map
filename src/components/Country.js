@@ -7,7 +7,7 @@ const StyledGroup = styled.g`
   fill: ${props => props.fill || '#e89a24'};
   transition: fill 0.75s;
   &:hover {
-    fill: #ec8148;
+    fill: ${props => props.fill || '#ec8148'};
   }
 `
 
