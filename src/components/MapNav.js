@@ -47,6 +47,8 @@ const Arrow = styled(Button)`
   cursor: pointer;
 `
 
+// TODO: Add onClick for arrows!
+//  
 export default function MapNav() {
   const history = useHistory()
 
