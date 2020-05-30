@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Flex,
   Box
@@ -6,9 +6,12 @@ import {
 import MapMap from './MapMap'
 import Sidebar from './Sidebar'
 import InfoPane from './InfoPane'
+import HoverPopup from './Popup'
 
 
 export default function Interface({ country, mapHeight, setMapHeight, setTrack, currentTrack, view }) {
+  const [popup, setPopup] = useState(null)
+
   useEffect(() => {
     if (mapHeight !== '100vh' && !country) {
       const delay = setTimeout(() => {
@@ -29,8 +32,9 @@ export default function Interface({ country, mapHeight, setMapHeight, setTrack, 
       bg='black'
       >
       <Box>
-        <MapMap height={mapHeight} highlight={country} setTrack={setTrack} view={view}/>
+        <MapMap height={mapHeight} highlight={country} setTrack={setTrack} view={view} setPopup={setPopup}/>
         {country && <InfoPane mapHeight={mapHeight} track={currentTrack}/>}
+        {!country && <HoverPopup country={popup} setTrack={setTrack} />}
       </Box>
       <Box>
         <Sidebar country={country} setTrack={setTrack}/>

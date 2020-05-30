@@ -18,15 +18,15 @@ const MapBox = styled(Box)`
 `
 
 
-export default function MapMap({ highlight, setTrack, view = [1165, 0, 6975, 4650] }) {
-  const [viewbox, setView] = useState(view)
+export default function MapMap({ highlight, setTrack, view = [1165, 0, 6975, 4650], setPopup }) {
+  // const [viewbox, setView] = useState(view)
   const history = useHistory()
 
   const onSelectCountry = (country) => {
     if (setTrack) {
       setTrack(music[(countries[country].tracks[0])-1])
     }
-    setView(countries[country].view)
+    // setView(countries[country].view)
     history.push(countries[country].url)
   }
 
@@ -38,6 +38,7 @@ export default function MapMap({ highlight, setTrack, view = [1165, 0, 6975, 465
         fill={fill}
         path={data.path}
         id={country}
+        setPopup={setPopup}
       />
     )
   })
