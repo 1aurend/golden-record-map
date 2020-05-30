@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
 import {
-  Box,
-  Text
+  Box
  } from 'rebass'
 import {
-  Link,
   useHistory
  } from 'react-router-dom'
 import styled from 'styled-components'
@@ -20,8 +18,8 @@ const MapBox = styled(Box)`
 `
 
 
-export default function MapMap({ highlight, setTrack }) {
-  const [view, setView] = useState([1165, 0, 6975, 4650])
+export default function MapMap({ highlight, setTrack, view = [1165, 0, 6975, 4650] }) {
+  const [viewbox, setView] = useState(view)
   const history = useHistory()
 
   const onSelectCountry = (country) => {

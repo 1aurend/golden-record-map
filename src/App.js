@@ -63,6 +63,7 @@ function ValidateCountry({ mapHeight, setMapHeight, currentTrack, setTrack }) {
             setTrack={setTrack}
             mapHeight={mapHeight}
             setMapHeight={setMapHeight}
+            view={countries[country.toUpperCase()].view}
             />
         ) : (
           <Redirect to='/'/>

@@ -5,7 +5,7 @@ const StyledGroup = styled.g`
   mix-blend-mode: color;
   fill: ${props => props.fill || '#e89a24'};
   &:hover {
-    fill: #ec8148;
+    fill: ${props => props.fill || '#ec8148'};
   }
 `
 
