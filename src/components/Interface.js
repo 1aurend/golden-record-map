@@ -33,7 +33,7 @@ export default function Interface({ country, mapHeight, setMapHeight, setTrack, 
       >
       <Box>
         <MapMap height={mapHeight} highlight={country} setTrack={setTrack} view={view} setPopup={setPopup}/>
-        {country && <InfoPane mapHeight={mapHeight} track={currentTrack}/>}
+        {country && <InfoPane mapHeight={mapHeight} track={currentTrack} setTrack={setTrack}/>}
         {!country && <HoverPopup country={popup} setTrack={setTrack} />}
       </Box>
       <Box>

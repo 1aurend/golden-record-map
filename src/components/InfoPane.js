@@ -75,11 +75,11 @@ const DataValue = styled(Text)`
 `
 
 
-export default function InfoPane({ mapHeight, track }) {
+export default function InfoPane({ mapHeight, track, setTrack }) {
   return (
     <Pane mapHeight={mapHeight}>
       <ControlsFlex>
-        <MapNav />
+        <MapNav  setTrack={setTrack}/>
         <RecordPlayer track={track} />
       </ControlsFlex>
       <TrackInfo>
