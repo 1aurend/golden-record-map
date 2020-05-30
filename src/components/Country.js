@@ -9,9 +9,15 @@ const StyledGroup = styled.g`
   }
 `
 
-export default function Country({ onClick, fill, path, id }) {
+export default function Country({ onClick, fill, path, id, setPopup }) {
   return (
-    <StyledGroup id={id} onClick={() => onClick(id)} fill={fill}>
+    <StyledGroup
+      id={id}
+      onClick={() => onClick(id)}
+      onMouseEnter={() => setPopup(id)}
+      onMouseLeave={() => setPopup(null)}
+      fill={fill}
+      >
       <path d={path} />
       </StyledGroup>
     )
