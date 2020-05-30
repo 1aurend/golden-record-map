@@ -65,11 +65,14 @@ const PlayList = styled(Box)`
 `
 
 const TrackText = styled(Text)`
-  font-size: 20px;
-  line-height: 22px;
-  margin-bottom: 20px;
+  margin-bottom: 60px;
+  text-align: center;
+
   > a {
     text-decoration: none;
+    line-height: 36px;
+    font-size: 32px;
+    font-weight: 700;
     color: ${props => props.theme.colors.gold};
     &:hover {
       color: ${props => props.theme.colors.green}
@@ -78,11 +81,12 @@ const TrackText = styled(Text)`
 `
 
 const ComposerText = styled(Text)`
-  font-size: 12px;
+  font-size: 15px;
+  font-weight: 400;
+  margin-top: 10px;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   color: ${props => props.theme.colors.grey};
-  margin-top: 5px;
 `
 
 
