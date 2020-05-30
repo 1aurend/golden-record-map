@@ -5,9 +5,11 @@ import {
   Flex,
   Box
 } from 'rebass'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 import globeIcon from '../assets/globe_icon.svg'
 import arrowIcon from '../assets/left-arrow.svg'
+import countries from '../countries'
+import music from '../music'
 
 
 const NavContainer = styled(Flex)`
@@ -48,9 +50,54 @@ const Arrow = styled(Button)`
 `
 
 // TODO: Add onClick for arrows!
-//  
-export default function MapNav() {
+//
+export default function MapNav({ setTrack }) {
   const history = useHistory()
+  const location = useLocation()
+
+  const moveLeft = () => {
+    if (location.pathname === '/') {
+      setTrack(music[15])
+      history.push('/ussr')
+      return
+    }
+    const order = Object.entries(countries)
+    order.forEach(([country, data], i) => {
+      if (location.pathname === data.url) {
+        if (i !== 0) {
+          const next = order[i-1][1].url
+          setTrack(music[(countries[order[i-1][0]].tracks[0])-1])
+          history.push(next)
+        } else {
+          const next = order[order.length-1][1].url
+          setTrack(music[(countries[order[order.length-1][0]].tracks[0])-1])
+          history.push(next)
+        }
+      }
+    })
+  }
+
+  const moveRight = () => {
+    if (location.pathname === '/') {
+      setTrack(music[7])
+      history.push('/usa')
+      return
+    }
+    const order = Object.entries(countries)
+    order.forEach(([country, data], i) => {
+      if (location.pathname === data.url) {
+        if (i < order.length-1) {
+          const next = order[i+1][1].url
+          setTrack(music[(countries[order[i+1][0]].tracks[0])-1])
+          history.push(next)
+        } else {
+          const next = order[0][1].url
+          setTrack(music[(countries[order[0][0]].tracks[0])-1])
+          history.push(next)
+        }
+      }
+    })
+  }
 
   return (
     <NavContainer>
@@ -64,7 +111,9 @@ export default function MapNav() {
           />
       </GlobeButton>
       <ArrowButtons>
-        <Arrow>
+        <Arrow
+          onClick={moveLeft}
+          >
           <img
             src={arrowIcon}
             alt='arrow-left'
@@ -72,7 +121,9 @@ export default function MapNav() {
             style={{display: 'block'}}
             />
         </Arrow>
-        <Arrow>
+        <Arrow
+          onClick={moveRight}
+          >
           <img
             src={arrowIcon}
             alt='right-left'

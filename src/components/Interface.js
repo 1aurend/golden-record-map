@@ -12,7 +12,6 @@ import HoverPopup from './Popup'
 
 export default function Interface({ country, mapHeight, setMapHeight, setTrack, currentTrack, view }) {
   const [popup, setPopup] = useState(null)
-  console.log(popup)
 
   useEffect(() => {
     if (mapHeight !== '100vh' && !country) {
@@ -33,7 +32,7 @@ export default function Interface({ country, mapHeight, setMapHeight, setTrack, 
       width={'100vw'}
       bg='black'
       >
-      <MapNav />
+      <MapNav setTrack={setTrack}/>
       <Box>
         <MapMap height={mapHeight} highlight={country} setTrack={setTrack} view={view} setPopup={setPopup}/>
         {country && <InfoPane mapHeight={mapHeight} track={currentTrack}/>}
