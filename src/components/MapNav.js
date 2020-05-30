@@ -6,79 +6,49 @@ import {
   Box
 } from 'rebass'
 import { useHistory } from 'react-router-dom'
-import globeIcon from '../assets/globe_icon.svg'
-import arrowIcon from '../assets/left-arrow.svg'
+import { ReactComponent as Globe } from '../assets/nav_globe.svg'
+import { ReactComponent as ArrowLeft } from '../assets/nav_larrow.svg'
+import { ReactComponent as ArrowRight } from '../assets/nav_rarrow.svg'
 
 
 const NavContainer = styled(Flex)`
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
-  width: 6vw;
-  height: 6vw;
-  position: fixed;
-  left: 3vw;
-  top: 4vw;
+  height: 38px;
+  width: auto;
+  margin: 20px;
 `
 const GlobeButton = styled(Button)`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 3vw;
-  height: 3vw;
-  background: none;
+  width: 38px;
+  height: 38px;
   padding: 0;
   cursor: pointer;
+  background: none;
 `
-const ArrowButtons = styled(Box)`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  width: 6vw;
-  height: 3vw;
-  background: none;
+
+const ArrowButton = styled(Button)`
+  width: 17px;
+  height: 38px;
   padding: 0;
   cursor: pointer;
-`
-const Arrow = styled(Button)`
-  display: block;
-  padding: 0;
   background: none;
-  cursor: pointer;
 `
 
 export default function MapNav() {
   const history = useHistory()
-
   return (
     <NavContainer>
+      <ArrowButton>
+        <ArrowLeft />
+      </ArrowButton>
       <GlobeButton
         onClick={() => history.push('/')}
         >
-        <img
-          src={globeIcon}
-          alt='globe-icon'
-          style={{display: 'block'}}
-          />
+        <Globe />
       </GlobeButton>
-      <ArrowButtons>
-        <Arrow>
-          <img
-            src={arrowIcon}
-            alt='arrow-left'
-            width='30px'
-            style={{display: 'block'}}
-            />
-        </Arrow>
-        <Arrow>
-          <img
-            src={arrowIcon}
-            alt='right-left'
-            width='30px'
-            style={{display: 'block', transform: 'rotate(180deg)'}}
-            />
-        </Arrow>
-      </ArrowButtons>
+      <ArrowButton>
+        <ArrowRight />
+      </ArrowButton>
     </NavContainer>
   )
 }

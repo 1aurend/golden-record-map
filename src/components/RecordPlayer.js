@@ -4,61 +4,83 @@ import {
   Flex,
   Box,
   Button,
-  Text
+  Text,
+  Image
 } from 'rebass'
 import PlayArrowIcon from '@material-ui/icons/PlayArrow'
 import PauseIcon from '@material-ui/icons/Pause'
+import { ReactComponent as Globe } from '../assets/nav_globe.svg'
+import { ReactComponent as ArrowLeft } from '../assets/nav_larrow.svg'
+import { ReactComponent as ArrowRight } from '../assets/nav_rarrow.svg'
+import { ReactComponent as TrackNext } from '../assets/controls_ntrack.svg'
+import { ReactComponent as TrackPrev } from '../assets/controls_ptrack.svg'
+import { ReactComponent as PlayOverlay } from '../assets/controls_play_overlay.svg'
+import { ReactComponent as PauseOverlay } from '../assets/controls_pause_overlay.svg'
+import recordPng from '../assets/record.png'
 
 
-const Player = styled(Flex)`
-  width: 20vw;
-  height: 30vh;
-  margin-right: 2vw;
-  flex-direction: column;
-  align-items: center;
-`
 const rotate = keyframes`
   from {
     transform: rotate(0deg);
   }
-
   to {
     transform: rotate(360deg);
   }
 `
 const rotateRecord = css`
-  animation: ${rotate} 2s linear infinite;
+  animation: ${rotate} 10s linear infinite;
 `
-const MockRecord = styled(Box)`
-  border: 7vh groove gold;
-  border-radius: 100%;
-  background: black;
-  height: 18vh;
-  width: 18vh;
+
+const ControlsFlex = styled(Flex)`
+  flex-direction: row;
+  align-items: center;
+`
+
+const Skip = styled(Button)`
+  height: 32px;
+  width: 24px;
+  cursor: pointer;
+  background: none;
+  padding: 5px;
+`
+
+const Record = styled(Box)`
+  height: 120px;
+  width: 120px;
   ${props => props.rotate? rotateRecord : 'animation: none;'};
+  background-size: cover;
+  background-image: url(${recordPng});
 `
 const PlayPause = styled(Button)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: black;
-  margin-top: 1vh;
-  padding: 0;
-  height: 3vh;
-  width: 4vw;
+  height: auto;
+  width: auto;
   cursor: pointer;
+  background: none;
+  padding: 0px;
+  margin: 10px;
 `
 
 
 export default function RecordPlayer() {
   const [isPlaying, setIsPlaying] = useState(false)
-  return (
-    <Player>
-      <Text>0:00</Text>
-      <MockRecord rotate={isPlaying}/>
+  if (isPlaying){
+    return (
+      <ControlsFlex>
+        <Skip><TrackPrev/></Skip>
+        <PlayPause onClick={() => setIsPlaying(!isPlaying)}>
+            <Record rotate={isPlaying}><PauseOverlay/></Record>
+        </PlayPause>
+        <Skip><TrackNext/></Skip>
+      </ControlsFlex>
+    )
+  }
+  else return (
+    <ControlsFlex>
+      <Skip><TrackPrev/></Skip>
       <PlayPause onClick={() => setIsPlaying(!isPlaying)}>
-        {isPlaying? <PauseIcon /> : <PlayArrowIcon />}
+        <Record rotate={isPlaying}><PlayOverlay/></Record>
       </PlayPause>
-    </Player>
+      <Skip><TrackNext/></Skip>
+    </ControlsFlex>
   )
 }

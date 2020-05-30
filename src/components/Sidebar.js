@@ -21,7 +21,7 @@ const SideFlex = styled(Flex)`
   align-items:center;
   flex-direction:column;
   overflow: scroll;
-  padding: 10% 15%
+  padding: 10% 10%
 `
 
 const Title = styled(Text)`
@@ -45,13 +45,18 @@ const PrettySelect = styled(Select)`
   font-size: 16px;
   width: 13vw;
   margin: 15% 0;
-  border-color: ${props => props.theme.colors.gold}
+  border-color: ${props => props.theme.colors.gold};
+`
+
+const PrettyOption = styled.option`
+  background-color: red;
 `
 
 const PrettyText = styled(Text)`
   font-family: ${props => props.theme.fonts.body};
   font-size: 14px;
   margin-top: 10%;
+  line-height: 21px;
 `
 
 const PlayList = styled(Box)`
