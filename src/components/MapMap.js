@@ -14,19 +14,17 @@ import music from '../music'
 
 const MapBox = styled(Box)`
   width: 75vw;
-  height: 100vh;
+  height: '100vh';
 `
 
 
 export default function MapMap({ highlight, setTrack, view = [1165, 0, 6975, 4650], setPopup }) {
-  // const [viewbox, setView] = useState(view)
   const history = useHistory()
 
   const onSelectCountry = (country) => {
     if (setTrack) {
       setTrack(music[(countries[country].tracks[0])-1])
     }
-    // setView(countries[country].view)
     history.push(countries[country].url)
   }
 
@@ -34,6 +32,7 @@ export default function MapMap({ highlight, setTrack, view = [1165, 0, 6975, 465
     const fill = country === highlight ? 'purple' : ''
     return (
       <Country
+        key={country}
         onClick={onSelectCountry}
         fill={fill}
         path={data.path}

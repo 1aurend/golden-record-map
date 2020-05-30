@@ -79,7 +79,7 @@ export default function InfoPane({ mapHeight, track, setTrack }) {
   return (
     <Pane mapHeight={mapHeight}>
       <ControlsFlex>
-        <MapNav  setTrack={setTrack}/>
+        <MapNav setTrack={setTrack}/>
         <RecordPlayer track={track} />
       </ControlsFlex>
       <TrackInfo>
@@ -91,7 +91,9 @@ export default function InfoPane({ mapHeight, track, setTrack }) {
           .filter(([key, value]) => {return key !== 'Country' && key !== 'Piece'})
           .map(([key, value]) => {
             return (
-              <DataBox>
+              <DataBox
+                key={key}
+                >
                 <DataKey>{key}:</DataKey>
                 <DataValue>{value}</DataValue>
               </DataBox>
