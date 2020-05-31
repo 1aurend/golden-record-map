@@ -65,6 +65,9 @@ const PlayList = styled(Box)`
 
 const TrackText = styled(Text)`
   margin-bottom: 60px;
+  line-height: 36px;
+  font-size: 32px;
+  font-weight: 700;
   text-align: center;
 
   > a {
@@ -72,6 +75,8 @@ const TrackText = styled(Text)`
     line-height: 36px;
     font-size: 32px;
     font-weight: 700;
+    display: block;
+    padding-top: 8px;
     color: ${props => props.theme.colors.gold};
     &:hover {
       color: ${props => props.theme.colors.green}
@@ -85,6 +90,7 @@ const ComposerText = styled(Text)`
   margin-top: 10px;
   text-transform: uppercase;
   letter-spacing: 1.5px;
+  line-height: 20px;
   color: ${props => props.theme.colors.grey};
 `
 
@@ -162,11 +168,11 @@ export default function Sidebar({ country, setTrack }) {
               return (
                 <TrackText
                   key={track-1}
-                  >
+                  >{i+1}.&nbsp;
                   <Link
                     onClick={() => setTrack(music[track-1])}
                     >
-                    {i+1}. {trackData.Piece}
+                    {trackData.Piece}
                   </Link>
                   <ComposerText>{trackData.Composer}</ComposerText>
                 </TrackText>

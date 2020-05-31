@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import {
   Box,
+  Flex,
   Text
 } from 'rebass'
 import {
@@ -10,17 +11,54 @@ import {
 import styled from 'styled-components'
 import music from '../music'
 import countries from '../countries'
+import pointer from '../assets/pointer.svg'
 
-const HoverBox = styled(Box)`
+
+
+const HoverFlex = styled(Flex)`
   position: fixed;
+  flex-direction: row;
   z-index: 50;
-  background-color: none;
   display: ${props => props.country ? '' : 'none'}
-  border-radius: 8px;
-  width: 8vw;
-  boxShadow: 0px 3px 8px #A9A9A9;
-  background: white;
+  width: auto;
 `
+
+const PointerBox = styled(Box)`
+  background-image: url(${pointer});
+  width: 36px;
+  height: 24px;
+  background-size: contain;
+`
+
+const InfoBox = styled(Box)`
+  width: auto;
+  font-family: ${props => props.theme.fonts.body};
+  margin-top: -12px;
+  text-shadow: 0px 1px 3px ${props => props.theme.colors.black}
+`
+
+const CountryText = styled(Text)`
+  text-align: left;
+  color: ${props => props.theme.colors.white};
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  font-size: 15px;
+
+`
+
+const TrackText = styled(Text)`
+  padding: 0.5px 15px;
+  text-align: left;
+  > a {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: italic;
+    color: ${props => props.theme.colors.gold};
+  }
+`
+
+
 
 
 export default function HoverPopup({ country, setTrack }) {
@@ -37,43 +75,41 @@ export default function HoverPopup({ country, setTrack }) {
 
   if (country) {
     return (
-      <HoverBox
+      <HoverFlex
         sx={{
-          top:position.posY+5,
+          top:position.posY-25,
           left:position.posX+5
         }}
         country={country}
         >
-        <Box
+        <PointerBox></PointerBox>
+        <InfoBox
           m={1}
           p={1}
           textAlign='left'
           >
+          <CountryText>{countries[country].name}</CountryText>
           {
             countries[country].tracks.map((track, i) => {
               const trackData = music[track-1]
               return (
-                <Text
+                <TrackText
                   key={track-1}
-                  pb={1}
-                  fontSize={12}
                   >
                   <Link
                     onClick={() => {
                       setTrack(music[track-1])
                       history.push(countries[country].url)
                     }}
-                    style={{color:'black', textDecoration: 'underline', fontWeight: 'bold'}}
                     >
-                    {i+1}. {trackData.Piece}
+                    {trackData.Piece}
                   </Link>
-                  <Text fontSize={10}>{trackData.Composer}</Text>
-                </Text>
+                </TrackText>
               )
             })
           }
-        </Box>
-      </HoverBox>
+        </InfoBox>
+      </HoverFlex>
     )
   } else {
     return null

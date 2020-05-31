@@ -64,14 +64,14 @@ const DataKey = styled(Text)`
   text-transform: uppercase;
   letter-spacing: 1.5px;
   color: ${props => props.theme.colors.grey};
-  flex-basis: 100px;
+  flex-basis: 20%;
   text-align: right;
 `
 
 const DataValue = styled(Text)`
   font-size: 16px;
   color: ${props => props.theme.colors.white};
-  flex-basis: 600px;
+  flex-basis: 80%;
 `
 
 
