@@ -28,13 +28,14 @@ const PointerBox = styled(Box)`
   width: 36px;
   height: 24px;
   background-size: contain;
+  background-repeat: no-repeat;
 `
 
 const InfoBox = styled(Box)`
   width: auto;
   font-family: ${props => props.theme.fonts.body};
   margin-top: -12px;
-  text-shadow: 0px 1px 3px ${props => props.theme.colors.black}
+  text-shadow: 1px 1px 3px ${props => props.theme.colors.black}
 `
 
 const CountryText = styled(Text)`
