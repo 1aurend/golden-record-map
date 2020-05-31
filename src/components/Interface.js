@@ -31,14 +31,10 @@ export default function Interface({ country, mapHeight, setMapHeight, setTrack, 
       width={'100vw'}
       bg='black'
       >
-      <Box>
-        <MapMap height={mapHeight} highlight={country} setTrack={setTrack} view={view} setPopup={setPopup}/>
-        {country && <InfoPane mapHeight={mapHeight} track={currentTrack} setTrack={setTrack}/>}
-        {!country && <HoverPopup country={popup} setTrack={setTrack} />}
-      </Box>
-      <Box>
-        <Sidebar country={country} setTrack={setTrack}/>
-      </Box>
+      <MapMap height={mapHeight} highlight={country} setTrack={setTrack} view={view} setPopup={setPopup}/>
+      {country && <InfoPane mapHeight={mapHeight} track={currentTrack} setTrack={setTrack}/>}
+      {!country && <HoverPopup country={popup} setTrack={setTrack} />}
+      <Sidebar country={country} setTrack={setTrack}/>
     </Flex>
   )
 }

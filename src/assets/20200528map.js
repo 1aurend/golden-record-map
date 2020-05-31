@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import countries from '../countries'
 import background from './background'
 import Borders from '../countries/Borders'

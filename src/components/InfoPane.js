@@ -9,13 +9,13 @@ import MapNav from './MapNav'
 
 
 const Pane = styled(Flex)`
-  width: ${props => props.mapHeight === '65vh' ? '75vw' : 0};
+  width: 75vw;
   height: auto;
   position: fixed;
-  bottom: 60px;
-  transition: transform 2s ease-out;
-  transform: ${props => props.mapHeight === '65vh' ? 'ScaleX(1)' : 'ScaleX(0)'};
-  transform-origin: left;
+  bottom: 0px;
+  transition: transform 0.75s ease-in;
+  transform: ${props => props.mapHeight === '65vh' ? 'translateY(0px)' : 'translateY(400px)'};
+  transform-origin: bottom;
   overflow: hidden;
   flex-direction: row;
   z-index: 99;
@@ -24,7 +24,7 @@ const Pane = styled(Flex)`
   pointer-events: none;
   background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.9), rgba(0,0,0,1));
   padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 50px;
 `
 
 const ControlsFlex = styled(Flex)`
