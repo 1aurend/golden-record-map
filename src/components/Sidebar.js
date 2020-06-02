@@ -95,7 +95,7 @@ const ComposerText = styled(Text)`
 `
 
 
-export default function Sidebar({ country, setTrack, stop }) {
+export default function Sidebar({ country, setTrack, setPlaying }) {
   const history = useHistory()
   const onSelectCountry = (e) => {
     switch (e.target.value) {
@@ -171,7 +171,7 @@ export default function Sidebar({ country, setTrack, stop }) {
                   key={track-1}
                   >{i+1}.&nbsp;
                   <Link
-                    onClick={() => {setTrack(music[track-1]);stop()}}
+                    onClick={() => {setTrack(music[track-1]);setPlaying(false)}}
                     >
                     {trackData.Piece}
                   </Link>

@@ -75,12 +75,12 @@ const DataValue = styled(Text)`
 `
 
 
-export default function InfoPane({ mapHeight, track, setTrack, stop, play }) {
+export default function InfoPane({ mapHeight, track, setTrack, setPlaying, playing }) {
   return (
     <Pane mapHeight={mapHeight}>
       <ControlsFlex>
-        <MapNav setTrack={setTrack} stop={stop} />
-        <RecordPlayer play={play} stop={stop} />
+        <MapNav setTrack={setTrack} setPlaying={setPlaying} />
+        <RecordPlayer setPlaying={setPlaying} playing={playing} />
       </ControlsFlex>
       <TrackInfo>
         <TrackTitle>

@@ -57,31 +57,27 @@ const PlayPause = styled(Button)`
 `
 
 
-export default function RecordPlayer({ play, stop }) {
-  const [isPlaying, setIsPlaying] = useState(false)
+export default function RecordPlayer({ setPlaying, playing }) {
   const location = useLocation()
-  const overlay = isPlaying ? <PauseOverlay/> : <PlayOverlay/>
+  const overlay = playing ? <PauseOverlay/> : <PlayOverlay/>
 
   useEffect(() => {
-    stop()
-    setIsPlaying(false)
-  }, [location.pathname, stop])
+    setPlaying(false)
+  }, [location.pathname, setPlaying])
 
   const onPlay = () => {
-    if (isPlaying) {
-      stop()
-      setIsPlaying(false)
+    if (playing) {
+      setPlaying(false)
       return
     }
-    play()
-    setIsPlaying(true)
+    setPlaying(true)
   }
 
   return (
     <ControlsFlex>
       <Skip><TrackPrev/></Skip>
       <PlayPause onClick={onPlay}>
-          <Record rotate={isPlaying}>{overlay}</Record>
+          <Record rotate={playing}>{overlay}</Record>
       </PlayPause>
       <Skip><TrackNext/></Skip>
     </ControlsFlex>
