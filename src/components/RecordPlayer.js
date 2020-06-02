@@ -66,25 +66,25 @@ export default function RecordPlayer({ track }) {
   useEffect(() => {
     stop()
     setIsPlaying(false)
-  }, [location.pathname])
+  }, [location.pathname, track, stop])
 
   const onPlay = () => {
-      if (isPlaying) {
-        stop()
-        setIsPlaying(false)
-        return
-      }
-      play()
-      setIsPlaying(true)
+    if (isPlaying) {
+      stop()
+      setIsPlaying(false)
+      return
     }
+    play()
+    setIsPlaying(true)
+  }
 
-    return (
-      <ControlsFlex>
-        <Skip><TrackPrev/></Skip>
-        <PlayPause onClick={onPlay}>
-            <Record rotate={isPlaying}>{overlay}</Record>
-        </PlayPause>
-        <Skip><TrackNext/></Skip>
-      </ControlsFlex>
-    )
+  return (
+    <ControlsFlex>
+      <Skip><TrackPrev/></Skip>
+      <PlayPause onClick={onPlay}>
+          <Record rotate={isPlaying}>{overlay}</Record>
+      </PlayPause>
+      <Skip><TrackNext/></Skip>
+    </ControlsFlex>
+  )
 }

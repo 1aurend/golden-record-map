@@ -5,7 +5,6 @@ import {
   Route,
   useParams,
   Redirect,
-  useLocation
  } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 import theme from './theme'

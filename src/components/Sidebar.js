@@ -171,7 +171,6 @@ export default function Sidebar({ country, setTrack }) {
                   >{i+1}.&nbsp;
                   <Link
                     onClick={() => setTrack(music[track-1])}
-                    to={null}
                     >
                     {trackData.Piece}
                   </Link>

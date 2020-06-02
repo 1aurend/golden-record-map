@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {
   Flex,
-  Box
 } from 'rebass'
 import MapMap from './MapMap'
 import Sidebar from './Sidebar'
