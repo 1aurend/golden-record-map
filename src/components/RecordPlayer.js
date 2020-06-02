@@ -1,18 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import styled, { keyframes, css } from 'styled-components'
 import {
   Flex,
   Box,
   Button,
 } from 'rebass'
-import useSound from 'use-sound'
 import { useLocation } from 'react-router-dom'
 import { ReactComponent as TrackNext } from '../assets/controls_ntrack.svg'
 import { ReactComponent as TrackPrev } from '../assets/controls_ptrack.svg'
 import { ReactComponent as PlayOverlay } from '../assets/controls_play_overlay.svg'
 import { ReactComponent as PauseOverlay } from '../assets/controls_pause_overlay.svg'
 import recordPng from '../assets/record.png'
-import { IsPlaying, SetPlaying } from '../App.js'
 
 
 const rotate = keyframes`
