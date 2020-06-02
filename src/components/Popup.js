@@ -14,7 +14,6 @@ import countries from '../countries'
 import pointer from '../assets/pointer.svg'
 
 
-
 const HoverFlex = styled(Flex)`
   position: fixed;
   flex-direction: row;
@@ -22,7 +21,6 @@ const HoverFlex = styled(Flex)`
   display: ${props => props.country ? '' : 'none'}
   width: auto;
 `
-
 const PointerBox = styled(Box)`
   background-image: url(${pointer});
   width: 36px;
@@ -30,14 +28,12 @@ const PointerBox = styled(Box)`
   background-size: contain;
   background-repeat: no-repeat;
 `
-
 const InfoBox = styled(Box)`
   width: auto;
   font-family: ${props => props.theme.fonts.body};
   margin-top: -12px;
   text-shadow: 1px 1px 3px ${props => props.theme.colors.black}
 `
-
 const CountryText = styled(Text)`
   text-align: left;
   color: ${props => props.theme.colors.white};
@@ -46,7 +42,6 @@ const CountryText = styled(Text)`
   font-size: 15px;
 
 `
-
 const TrackText = styled(Text)`
   padding: 0.5px 15px;
   text-align: left;
@@ -60,8 +55,6 @@ const TrackText = styled(Text)`
 `
 
 
-
-
 export default function HoverPopup({ country, setTrack }) {
   const history = useHistory()
 
@@ -69,9 +62,9 @@ export default function HoverPopup({ country, setTrack }) {
   const getMousePosition = e => {
     setPosition({posX:e.clientX,posY:e.clientY})
   }
-  useEffect(()=>{
-    window.addEventListener("mousemove",getMousePosition);
-    return()=>window.removeEventListener("mousemove",getMousePosition);
+  useEffect(() => {
+    window.addEventListener("mousemove", getMousePosition)
+    return() => window.removeEventListener("mousemove", getMousePosition)
     },[])
 
   if (country) {

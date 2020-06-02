@@ -6,6 +6,7 @@ import {
   useHistory
  } from 'react-router-dom'
 import styled from 'styled-components'
+import { debounce } from 'lodash'
 import countries from '../countries'
 import background from '../assets/background'
 import Borders from './Borders'
@@ -20,6 +21,7 @@ const MapBox = styled(Box)`
 
 export default function MapMap({ highlight, setTrack, view = [1165, 0, 6975, 4650], setPopup }) {
   const history = useHistory()
+  const debounceHandler = debounce(setPopup, 100, {'leading':false})
 
   const onSelectCountry = (country) => {
     if (setTrack) {
@@ -37,7 +39,7 @@ export default function MapMap({ highlight, setTrack, view = [1165, 0, 6975, 465
         fill={fill}
         path={data.path}
         id={country}
-        setPopup={setPopup}
+        setPopup={debounceHandler}
       />
     )
   })
