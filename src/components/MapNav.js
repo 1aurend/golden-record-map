@@ -36,7 +36,7 @@ const ArrowButton = styled(Button)`
 `
 
 
-export default function MapNav({ setTrack }) {
+export default function MapNav({ setTrack, stop }) {
   const history = useHistory()
   const location = useLocation()
 
@@ -92,7 +92,7 @@ export default function MapNav({ setTrack }) {
         <ArrowLeft />
       </ArrowButton>
       <GlobeButton
-        onClick={() => history.push('/')}
+        onClick={() => {history.push('/');stop()}}
         >
         <Globe />
       </GlobeButton>

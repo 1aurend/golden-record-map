@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import {
   Flex,
 } from 'rebass'
+import useSound from 'use-sound'
 import MapMap from './MapMap'
 import Sidebar from './Sidebar'
 import InfoPane from './InfoPane'
@@ -10,6 +11,7 @@ import HoverPopup from './Popup'
 
 export default function Interface({ country, mapHeight, setMapHeight, setTrack, currentTrack, view }) {
   const [popup, setPopup] = useState(null)
+  const [play, { stop }] = useSound(currentTrack?.Audio)
 
   useEffect(() => {
     if (mapHeight !== '100vh' && !country) {
@@ -31,9 +33,9 @@ export default function Interface({ country, mapHeight, setMapHeight, setTrack, 
       bg='black'
       >
       <MapMap height={mapHeight} highlight={country} setTrack={setTrack} view={view} setPopup={setPopup}/>
-      {country && <InfoPane mapHeight={mapHeight} track={currentTrack} setTrack={setTrack}/>}
+      {country && <InfoPane mapHeight={mapHeight} track={currentTrack} setTrack={setTrack} play={play} stop={stop}/>}
       {!country && <HoverPopup country={popup} setTrack={setTrack} />}
-      <Sidebar country={country} setTrack={setTrack}/>
+      <Sidebar country={country} setTrack={setTrack} stop={stop}/>
     </Flex>
   )
 }

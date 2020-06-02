@@ -57,16 +57,15 @@ const PlayPause = styled(Button)`
 `
 
 
-export default function RecordPlayer({ track }) {
+export default function RecordPlayer({ play, stop }) {
   const [isPlaying, setIsPlaying] = useState(false)
-  const [play, { stop }] = useSound(track)
   const location = useLocation()
   const overlay = isPlaying ? <PauseOverlay/> : <PlayOverlay/>
 
   useEffect(() => {
     stop()
     setIsPlaying(false)
-  }, [location.pathname, track, stop])
+  }, [location.pathname, stop])
 
   const onPlay = () => {
     if (isPlaying) {
