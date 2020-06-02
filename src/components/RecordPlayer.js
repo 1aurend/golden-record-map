@@ -1,15 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled, { keyframes, css } from 'styled-components'
 import {
   Flex,
   Box,
   Button,
 } from 'rebass'
+import useSound from 'use-sound'
+import { useLocation } from 'react-router-dom'
 import { ReactComponent as TrackNext } from '../assets/controls_ntrack.svg'
 import { ReactComponent as TrackPrev } from '../assets/controls_ptrack.svg'
 import { ReactComponent as PlayOverlay } from '../assets/controls_play_overlay.svg'
 import { ReactComponent as PauseOverlay } from '../assets/controls_pause_overlay.svg'
 import recordPng from '../assets/record.png'
+import { IsPlaying, SetPlaying } from '../App.js'
 
 
 const rotate = keyframes`
@@ -54,26 +57,34 @@ const PlayPause = styled(Button)`
 `
 
 
-export default function RecordPlayer() {
+export default function RecordPlayer({ track }) {
   const [isPlaying, setIsPlaying] = useState(false)
-  if (isPlaying){
+  const [play, { stop }] = useSound(track)
+  const location = useLocation()
+  const overlay = isPlaying ? <PauseOverlay/> : <PlayOverlay/>
+
+  useEffect(() => {
+    stop()
+    setIsPlaying(false)
+  }, [location.pathname])
+
+  const onPlay = () => {
+      if (isPlaying) {
+        stop()
+        setIsPlaying(false)
+        return
+      }
+      play()
+      setIsPlaying(true)
+    }
+
     return (
       <ControlsFlex>
         <Skip><TrackPrev/></Skip>
-        <PlayPause onClick={() => setIsPlaying(!isPlaying)}>
-            <Record rotate={isPlaying}><PauseOverlay/></Record>
+        <PlayPause onClick={onPlay}>
+            <Record rotate={isPlaying}>{overlay}</Record>
         </PlayPause>
         <Skip><TrackNext/></Skip>
       </ControlsFlex>
     )
-  }
-  else return (
-    <ControlsFlex>
-      <Skip><TrackPrev/></Skip>
-      <PlayPause onClick={() => setIsPlaying(!isPlaying)}>
-        <Record rotate={isPlaying}><PlayOverlay/></Record>
-      </PlayPause>
-      <Skip><TrackNext/></Skip>
-    </ControlsFlex>
-  )
 }

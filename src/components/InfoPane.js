@@ -80,7 +80,7 @@ export default function InfoPane({ mapHeight, track, setTrack }) {
     <Pane mapHeight={mapHeight}>
       <ControlsFlex>
         <MapNav setTrack={setTrack}/>
-        <RecordPlayer track={track} />
+        <RecordPlayer track={track.Audio} />
       </ControlsFlex>
       <TrackInfo>
         <TrackTitle>
@@ -88,7 +88,7 @@ export default function InfoPane({ mapHeight, track, setTrack }) {
         </TrackTitle>
         {
           Object.entries(track)
-          .filter(([key, value]) => {return key !== 'Country' && key !== 'Piece'})
+          .filter(([key, value]) => {return key !== 'Country' && key !== 'Piece' && key !== 'Audio'})
           .map(([key, value]) => {
             return (
               <DataBox

@@ -4,7 +4,8 @@ import {
   Switch,
   Route,
   useParams,
-  Redirect
+  Redirect,
+  useLocation
  } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 import theme from './theme'
@@ -16,6 +17,7 @@ import music from './music'
 export default function AppRouter() {
   const [mapHeight, setMapHeight] = useState('100vh')
   const [currentTrack, setTrack] = useState(null)
+
   return (
     <ThemeProvider theme={theme}>
       <Router>

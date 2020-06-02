@@ -1,3 +1,32 @@
+import track1 from './music/1-05 Brandenburg Concerto No. 2 In F Major, BWV 1047_ I. Allegro (Johann Sebastian Bach).m4a'
+import track2 from './music/1-06 Ketawang_ Puspåwårnå (Kinds Of Flowers).m4a'
+import track3 from './music/1-07 Cengunmé.m4a'
+import track4 from './music/1-08 Alima Song.m4a'
+import track5 from './music/1-09 Barnumbirr (Morning Star) And Moikoi Song.m4a'
+import track6 from './music/1-10 El Cascabel (Lorenzo Barcelata).m4a'
+import track7 from './music/1-11 Johnny B. Goode.m4a'
+import track8 from './music/1-12 Mariuamangɨ.m4a'
+import track9 from './music/1-13 Sokaku-Reibo (Depicting The Cranes In Their Nest).m4a'
+import track10 from './music/1-14 Partita For Violin Solo No. 3 In E Major, BWV 1006_ III. Gavotte En Rondeau (Johann Sebastian Bach).m4a'
+import track11 from './music/1-15 The Magic Flute (Die Zauberflöte), K. 620, Act II_ Hell_s Vengeance Boils In My Heart (Wolfgang Amadeus Mozart).m4a'
+import track12 from './music/1-16 Chakrulo.m4a'
+import track13 from './music/2-01 Roncadoras And Drums.m4a'
+import track14 from './music/2-02 Melancholy Blues (Marty Bloom_Walter Melrose).m4a'
+import track15 from './music/2-03 Muğam.m4a'
+import track16 from './music/2-04 The Rite Of Spring (Le Sacre Du Printemps), Part II—The Sacrifice_ VI. Sacrificial Dance (The Chosen One) (Igor Stravinsky).m4a'
+import track17 from './music/2-05 The Well-Tempered Clavier, Book II_ Prelude _ Fugue No. 1 In C Major, BWV 870 (Johann Sebastian Bach).m4a'
+import track18 from './music/2-06 Symphony No. 5 In C Minor, Opus 67_ I. Allegro Con Brio (Ludwig Van Beethoven).m4a'
+import track19 from './music/2-07 Izlel E Delyu Haydutin.m4a'
+import track20 from './music/2-08 Navajo Night Chant, Yeibichai Dance.m4a'
+import track21 from './music/2-09 The Fairie Round (Anthony Holborne).m4a'
+import track22 from './music/2-10 Naranaratana Kookokoo (The Cry Of The Megapode Bird).m4a'
+import track23 from './music/2-11 Wedding Song.m4a'
+import track24 from './music/2-12 Liu Shui (Flowing Streams).m4a'
+import track25 from './music/2-13 Bhairavi_ Jaat Kahan Ho.m4a'
+import track26 from './music/2-14 Dark Was The Night, Cold Was The Ground.m4a'
+import track27 from './music/2-15 String Quartet No. 13 In B-Flat Major, Opus 130_ V. Cavatina (Ludwig Van Beethoven).m4a'
+
+
 const music = [
  {
    "Country": "Germany",
@@ -6,7 +35,8 @@ const music = [
    "Performer": "Munich Bach Orchestra/Karl Richter (conductor) featuring Karl-Heinz Schneeberger (violin)",
    "Recorded by / in": "Recorded in Munich, Germany, January 1967",
    "Genre of music": "Classical music / Baroque music",
-   "Length": "4:40"
+   "Length": "4:40",
+   "Audio": track1
  },
  {
    "Country": "Indonesia",
@@ -15,7 +45,8 @@ const music = [
    "Performer": "Pura Paku Alaman Palace Orchestra/K.R.T. Wasitodipuro (director) featuring Niken Larasati and Nji Tasri (vocals)",
    "Recorded by / in": "Recorded by Robert E. Brown in Yogyakarta, Java, Indonesia, on January 10, 1971",
    "Genre of music": "Folk music / Gamelan",
-   "Length": "4:43"
+   "Length": "4:43",
+   "Audio": track2
  },
  {
    "Country": "Benin",
@@ -24,7 +55,8 @@ const music = [
    "Performer": "Mahi musicians of Benin",
    "Recorded by / in": "Recorded by Charles Duvelle in Savalou, Benin, West Africa, January 1963",
    "Genre of music": "Folk music / Percussion",
-   "Length": "2:08"
+   "Length": "2:08",
+   "Audio": track3
  },
  {
    "Country": "Democratic Republic of Congo",
@@ -33,7 +65,8 @@ const music = [
    "Performer": "Mbuti of the Ituri Rainforest",
    "Recorded by / in": "Recorded by Colin Turnbull and Francis S. Chapman in the Ituri Rainforest of the Democratic Republic of Congo, circa 1951",
    "Genre of music": "Folk music",
-   "Length": "0:56"
+   "Length": "0:56",
+   "Audio": track4
  },
  {
    "Country": "Australia",
@@ -42,7 +75,8 @@ const music = [
    "Performer": "Tom Djawa (clapsticks), Mudpo (digeridoo), and Waliparu (vocals)[19]",
    "Recorded by / in": "Recorded by Sandra LeBrun Holmes at Milingimbi Mission on Milingimbi Island, off the coast of Arnhem Land, Northern Territory, Australia, 1962",
    "Genre of music": "Folk music / Indigenous music of Australia",
-   "Length": "1:26"
+   "Length": "1:26",
+   "Audio": track5
  },
  {
    "Country": "Mexico",
@@ -51,7 +85,8 @@ const music = [
    "Performer": "Antonio Maciel and Los Aguilillas with Mariachi México de Pepe Villa/Rafael Carrión (conductor)",
    "Recorded by / in": "Recorded 1957, Musart Records",
    "Genre of music": "Mariachi",
-   "Length": "3:14"
+   "Length": "3:14",
+   "Audio": track6
  },
  {
    "Country": "USA",
@@ -60,7 +95,8 @@ const music = [
    "Performer": "Chuck Berry (vocals, guitar) with Lafayette Leak (piano), Willie Dixon (bass), and Fred Below (drums)",
    "Recorded by / in": "Recorded at Chess Studios, Chicago, Illinois, on January 6, 1958",
    "Genre of music": "Rock and roll",
-   "Length": "2:03"
+   "Length": "2:03",
+   "Audio": track7
  },
  {
    "Country": "Papua New Guinea",
@@ -69,7 +105,8 @@ const music = [
    "Performer": "Pranis Pandang and Kumbui (mariuamangɨ) of the Nyaura Clan",
    "Recorded by / in": "Recorded by Robert MacLennan in the village of Kandɨngei, Middle Sepik, Papua New Guinea, on July 23, 1964",
    "Genre of music": "Folk music",
-   "Length": "1:20"
+   "Length": "1:20",
+   "Audio": track8
  },
  {
    "Country": "Japan / USA",
@@ -78,7 +115,8 @@ const music = [
    "Performer": "Goro Yamaguchi (shakuhachi)",
    "Recorded by / in": "Recorded in New York City, circa 1967, Elektra Entertainment",
    "Genre of music": "Folk music /Honkyoku",
-   "Length": "4:51"
+   "Length": "4:51",
+   "Audio": track9
  },
  {
    "Country": "Germany / Belgium",
@@ -87,7 +125,8 @@ const music = [
    "Performer": "Arthur Grumiaux (violin)",
    "Recorded by / in": "Recorded in Berlin, Germany, November 1960, Decca Music Group Limited",
    "Genre of music": "Classical music / Baroque music",
-   "Length": "2:55"
+   "Length": "2:55",
+   "Audio": track10
  },
  {
    "Country": "Austria / Germany",
@@ -96,7 +135,8 @@ const music = [
    "Performer": "Bavarian State Opera Orchestra and Chorus/Wolfgang Sawallisch (conductor) featuring Edda Moser (soprano)",
    "Recorded by / in": "Recorded in Munich, Germany, August 1972",
    "Genre of music": "Classical music / Opera / Singspiel",
-   "Length": "2:55"
+   "Length": "2:55",
+   "Audio": track11
  },
  {
    "Country": "Georgia",
@@ -105,7 +145,8 @@ const music = [
    "Performer": "Georgian State Merited Ensemble of Folk Song and Dance/Anzor  Kavsadze (director) featuring Ilia Zakaidze (first tenor) and Rostom  Saginashvili (second tenor)[20][21]",
    "Recorded by / in": "Recorded at Melodiya Studio in Tbilisi, Georgia",
    "Genre of music": "Folk music / Choral music",
-   "Length": "2:18"
+   "Length": "2:18",
+   "Audio": track12
  },
  {
    "Country": "Peru",
@@ -114,7 +155,8 @@ const music = [
    "Performer": "Musicians from Ancash",
    "Recorded by / in": "From recordings collected by Jose Maria Arguedas (Casa de la Cultura) in the Ancash Region of Peru, 1964",
    "Genre of music": "Folk music",
-   "Length": "0:52"
+   "Length": "0:52",
+   "Audio": track13
  },
  {
    "Country": "USA",
@@ -123,7 +165,8 @@ const music = [
    "Performer": "Louis Armstrong and His Hot Seven",
    "Recorded by / in": "Recorded in Chicago, Illinois, on May 11, 1927",
    "Genre of music": "Jazz",
-   "Length": "3:05"
+   "Length": "3:05",
+   "Audio": track14
  },
  {
    "Country": "Azerbaijan S.S.R.",
@@ -132,7 +175,8 @@ const music = [
    "Performer": "Kamil Jalilov (balaban)",
    "Recorded by / in": "Recorded by Radio Moscow, circa 1950",
    "Genre of music": "Folk music",
-   "Length": "2:30"
+   "Length": "2:30",
+   "Audio": track15
  },
  {
    "Country": "Soviet Union / USA",
@@ -141,7 +185,8 @@ const music = [
    "Performer": "Columbia Symphony Orchestra/Igor Stravinsky (conductor)",
    "Recorded by / in": "Recorded at the Ballroom of the St. George Hotel, Brooklyn, New York, on January 6, 1960",
    "Genre of music": "Modern classical music / Ballet",
-   "Length": "4:35"
+   "Length": "4:35",
+   "Audio": track16
  },
  {
    "Country": "Germany / Canada / USA",
@@ -150,7 +195,8 @@ const music = [
    "Performer": "Glenn Gould (piano)",
    "Recorded by / in": "Recorded at CBS 30th Street Studio in New York City on August 8, 1966",
    "Genre of music": "Classical music / Baroque music",
-   "Length": "4:48"
+   "Length": "4:48",
+   "Audio": track17
  },
  {
    "Country": "Germany / UK",
@@ -159,7 +205,8 @@ const music = [
    "Performer": "Philharmonia Orchestra/Otto Klemperer (conductor)",
    "Recorded by / in": "Recorded at Kingsway Hall, London, on October 6, 1955",
    "Genre of music": "Classical music / Romantic music",
-   "Length": "7:20"
+   "Length": "7:20",
+   "Audio": track18
  },
  {
    "Country": "Bulgaria",
@@ -168,7 +215,8 @@ const music = [
    "Performer": "Valya Balkanska (vocal), Lazar Kanevski, and Stephan Zahmanov (kaba gaidi)",
    "Recorded by / in": "Recorded by Martin Koenig and Ethel Rain in Smolyan, Bulgaria, 1968",
    "Genre of music": "Folk music",
-   "Length": "4:59"
+   "Length": "4:59",
+   "Audio": track19
  },
  {
    "Country": "USA",
@@ -177,7 +225,8 @@ const music = [
    "Performer": "Ambrose Roan Horse, Chester Roan, and Tom Roan",
    "Recorded by / in": "Recorded by Willard Rhodes in Pine Springs, Arizona, Summer 1942",
    "Genre of music": "Folk music",
-   "Length": "0:57"
+   "Length": "0:57",
+   "Audio": track20
  },
  {
    "Country": "UK",
@@ -186,7 +235,8 @@ const music = [
    "Performer": "Early Music Consort of London/David Munrow (director)",
    "Recorded by / in": "Recorded at Abbey Road Studios, London, September 1973",
    "Genre of music": "Classical music",
-   "Length": "1:17"
+   "Length": "1:17",
+   "Audio": track21
  },
  {
    "Country": "Solomon Islands",
@@ -195,7 +245,8 @@ const music = [
    "Performer": "Maniasinimae and Taumaetarau Chieftain Tribe of Oloha and Palasu'u Village Community in Small Malaita",
    "Recorded by / in": "Recording of Solomon Islands Broadcasting Services (SIBS)",
    "Genre of music": "Folk music",
-   "Length": "1:12"
+   "Length": "1:12",
+   "Audio": track22
  },
  {
    "Country": "Peru",
@@ -204,7 +255,8 @@ const music = [
    "Performer": "Performed by young girl of Huancavelica",
    "Recorded by / in": "Recorded by John and Penny Cohen in Huancavelica, Peru, 1964",
    "Genre of music": "Folk music",
-   "Length": "0:38"
+   "Length": "0:38",
+   "Audio": track23
  },
  {
    "Country": "China",
@@ -213,7 +265,8 @@ const music = [
    "Performer": "Guan Pinghu (guqin)",
    "Recorded by / in": "Recording of Smithsonian Folkways Recordings",
    "Genre of music": "Folk music",
-   "Length": "7:37"
+   "Length": "7:37",
+   "Audio": track24
  },
  {
    "Country": "India",
@@ -222,7 +275,8 @@ const music = [
    "Performer": "Kesarbai Kerkar (vocals) with harmonium and tabla accompaniment",
    "Recorded by / in": "Recorded in Bombay, India, April 1953",
    "Genre of music": "Folk music",
-   "Length": "3:30"
+   "Length": "3:30",
+   "Audio": track25
  },
  {
    "Country": "USA",
@@ -231,7 +285,8 @@ const music = [
    "Performer": "Blind Willie Johnson (slide guitar, vocals)",
    "Recorded by / in": "Recorded in Dallas, Texas, on December 3, 1927",
    "Genre of music": "Blues",
-   "Length": "3:15"
+   "Length": "3:15",
+   "Audio": track26
  },
  {
    "Country": "Germany / Hungary / USA",
@@ -240,7 +295,8 @@ const music = [
    "Performer": "Budapest String Quartet",
    "Recorded by / in": "Recorded at the Library of Congress, Washington, D.C., on April 7, 1960",
    "Genre of music": "Classical music / Romantic music",
-   "Length": "6:37"
+   "Length": "6:37",
+   "Audio": track27
  }
 ]
 
