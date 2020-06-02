@@ -6,7 +6,7 @@ import {
   useHistory
  } from 'react-router-dom'
 import styled from 'styled-components'
-import { debounce } from 'lodash'
+import debounce from 'lodash.debounce'
 import countries from '../countries'
 import background from '../assets/background'
 import Borders from './Borders'

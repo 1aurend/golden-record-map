@@ -105,6 +105,7 @@ export default function Sidebar({ country, setTrack, stop }) {
     default:
       Object.entries(countries).forEach(([ key, country ]) => {
         if (country.name === e.target.value) {
+          setTrack(music[(countries[key].tracks[0])-1])
           history.push(country.url)
           return
         }
