@@ -21,7 +21,7 @@ const MapBox = styled(Box)`
 
 export default function MapMap({ highlight, setTrack, view = [1165, 0, 6975, 4650], setPopup }) {
   const history = useHistory()
-  const debounceHandler = debounce(setPopup, 100, {'leading':false})
+  const debounceHandler = debounce(setPopup, 75, {'leading':false})
 
   const onSelectCountry = (country) => {
     if (setTrack) {
