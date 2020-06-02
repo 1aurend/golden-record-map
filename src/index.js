@@ -1,11 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import AppRouter from './App'
+import HTTPS from 'react-https-redirect'
 import * as serviceWorker from './serviceWorker'
 
 ReactDOM.render(
   <React.StrictMode>
-    <AppRouter />
+    <HTTPS>
+      <AppRouter />
+    </HTTPS>
   </React.StrictMode>,
   document.getElementById('root')
 )
