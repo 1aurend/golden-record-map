@@ -49,7 +49,7 @@ function ValidateCountry({ mapHeight, setMapHeight, currentTrack, setTrack }) {
   const valid = Object.keys(countries).includes(country.toUpperCase())
 
   useEffect(() => {
-    if (valid && !currentTrack) {
+    if (valid && currentTrack !== music[(countries[country.toUpperCase()].tracks[0])-1]) {
       setTrack(music[(countries[country.toUpperCase()].tracks[0])-1])
     }
   }, [country, setTrack, valid, currentTrack])
