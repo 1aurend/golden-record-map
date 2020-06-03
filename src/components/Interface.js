@@ -14,6 +14,12 @@ export default function Interface({ country, mapHeight, setMapHeight, setTrack, 
   const [playing, setPlaying] = useState(false)
 
   useEffect(() => {
+    if (!country) {
+      setPlaying(false)
+    }
+  }, [country])
+
+  useEffect(() => {
     if (mapHeight !== '100vh' && !country) {
       const delay = setTimeout(() => {
         setMapHeight('100vh')
@@ -32,11 +38,43 @@ export default function Interface({ country, mapHeight, setMapHeight, setTrack, 
       width={'100vw'}
       bg='black'
       >
-      <MapMap height={mapHeight} highlight={country} setTrack={setTrack} view={view} setPopup={setPopup}/>
-      {country && <InfoPane mapHeight={mapHeight} track={currentTrack} setTrack={setTrack} setPlaying={setPlaying} playing={playing}/>}
-      {!country && <HoverPopup country={popup} setTrack={setTrack} />}
-      <Sidebar country={country} setTrack={setTrack} setPlaying={setPlaying}/>
-      {currentTrack && <Howler src={currentTrack.Audio} preload={true} html5={true} playing={playing}/>}
+      <MapMap
+        height={mapHeight}
+        highlight={country}
+        setTrack={setTrack}
+        view={view}
+        setPopup={setPopup}
+        setPlaying={setPlaying}
+        />
+      {country &&
+        <InfoPane
+          mapHeight={mapHeight}
+          track={currentTrack}
+          setTrack={setTrack}
+          setPlaying={setPlaying}
+          playing={playing}
+          country={country}
+          />
+      }
+      {!country &&
+        <HoverPopup
+          country={popup}
+          setTrack={setTrack}
+          />
+      }
+      <Sidebar
+        country={country}
+        setTrack={setTrack}
+        setPlaying={setPlaying}
+        />
+      {currentTrack &&
+        <Howler
+          src={currentTrack.Audio}
+          preload={true}
+          html5={true}
+          playing={playing}
+          />
+      }
     </Flex>
   )
 }

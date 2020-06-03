@@ -206,8 +206,8 @@ const music = [
    "Recorded by / in": "Recorded at Kingsway Hall, London, on October 6, 1955",
    "Genre of music": "Classical music / Romantic music",
    "Length": "7:20",
-   "Audio": track18
-  },
+   "Audio": track18,
+ },
  {
    "Country": "Bulgaria",
    "Piece": "Izlel E Delyo Haydutin",
