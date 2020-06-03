@@ -1,16 +1,18 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled, { keyframes, css } from 'styled-components'
 import {
   Flex,
   Box,
   Button,
 } from 'rebass'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useHistory } from 'react-router-dom'
 import { ReactComponent as TrackNext } from '../assets/controls_ntrack.svg'
 import { ReactComponent as TrackPrev } from '../assets/controls_ptrack.svg'
 import { ReactComponent as PlayOverlay } from '../assets/controls_play_overlay.svg'
 import { ReactComponent as PauseOverlay } from '../assets/controls_pause_overlay.svg'
 import recordPng from '../assets/record.png'
+import music from '../music'
+import countries from '../countries'
 
 
 const rotate = keyframes`
@@ -55,29 +57,77 @@ const PlayPause = styled(Button)`
 `
 
 
-export default function RecordPlayer({ setPlaying, playing }) {
+export default function RecordPlayer({ setPlaying, playing, setTrack, country, track }) {
   const location = useLocation()
+  const history = useHistory()
   const overlay = playing ? <PauseOverlay/> : <PlayOverlay/>
 
-  useEffect(() => {
-    setPlaying(false)
-  }, [location.pathname, setPlaying])
-
-  const onPlay = () => {
-    if (playing) {
-      setPlaying(false)
-      return
+  const prevTrack = () => {
+    const multiTrack = countries[country].tracks.length > 1
+    if (multiTrack) {
+      const order = countries[country].tracks
+      const trackNum = music.indexOf(track)+1
+      const currentIndex = order.indexOf(trackNum)
+      if (currentIndex !== 0) {
+        const nextTrack = order[currentIndex-1]
+        setTrack(music[nextTrack-1])
+        return
+      }
     }
-    setPlaying(true)
+    const order = Object.entries(countries)
+    order.forEach(([country, data], i) => {
+      if (location.pathname === data.url) {
+        if (i !== 0) {
+          const next = order[i-1][1].url
+          const trackList = countries[order[i-1][0]].tracks
+          setTrack(music[(countries[order[i-1][0]].tracks[trackList.length-1])-1])
+          history.push(next)
+        } else {
+          const next = order[order.length-1][1].url
+          const trackList = countries[order[order.length-1][0]].tracks
+          setTrack(music[(countries[order[order.length-1][0]].tracks[trackList.length-1])-1])
+          history.push(next)
+        }
+      }
+    })
   }
+
+  const nextTrack = () => {
+    const multiTrack = countries[country].tracks.length > 1
+    if (multiTrack) {
+      const order = countries[country].tracks
+      const trackNum = music.indexOf(track)+1
+      const currentIndex = order.indexOf(trackNum)
+      if (currentIndex !== order.length-1) {
+        const nextTrack = order[currentIndex+1]
+        setTrack(music[nextTrack-1])
+        return
+      }
+    }
+    const order = Object.entries(countries)
+    order.forEach(([country, data], i) => {
+      if (location.pathname === data.url) {
+        if (i < order.length-1) {
+          const next = order[i+1][1].url
+          setTrack(music[(countries[order[i+1][0]].tracks[0])-1])
+          history.push(next)
+        } else {
+          const next = order[0][1].url
+          setTrack(music[(countries[order[0][0]].tracks[0])-1])
+          history.push(next)
+        }
+      }
+    })
+  }
+
 
   return (
     <ControlsFlex>
-      <Skip><TrackPrev/></Skip>
-      <PlayPause onClick={onPlay}>
+      <Skip onClick={prevTrack}><TrackPrev/></Skip>
+      <PlayPause onClick={() => {setPlaying(!playing)}}>
           <Record rotate={playing}>{overlay}</Record>
       </PlayPause>
-      <Skip><TrackNext/></Skip>
+      <Skip onClick={nextTrack}><TrackNext/></Skip>
     </ControlsFlex>
   )
 }

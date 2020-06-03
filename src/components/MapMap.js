@@ -19,13 +19,14 @@ const MapBox = styled(Box)`
 `
 
 
-export default function MapMap({ highlight, setTrack, view = [1165, 0, 6975, 4650], setPopup }) {
+export default function MapMap({ highlight, setTrack, view = [1165, 0, 6975, 4650], setPopup, setPlaying }) {
   const history = useHistory()
   const debounceHandler = debounce(setPopup, 75, {'leading':false})
 
   const onSelectCountry = (country) => {
     if (setTrack) {
       setTrack(music[(countries[country].tracks[0])-1])
+      setPlaying(false)
     }
     history.push(countries[country].url)
   }

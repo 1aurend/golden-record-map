@@ -43,6 +43,7 @@ export default function MapNav({ setTrack, setPlaying }) {
   const moveLeft = () => {
     if (location.pathname === '/') {
       setTrack(music[15])
+      setPlaying(false)
       history.push('/ussr')
       return
     }
@@ -52,10 +53,12 @@ export default function MapNav({ setTrack, setPlaying }) {
         if (i !== 0) {
           const next = order[i-1][1].url
           setTrack(music[(countries[order[i-1][0]].tracks[0])-1])
+          setPlaying(false)
           history.push(next)
         } else {
           const next = order[order.length-1][1].url
           setTrack(music[(countries[order[order.length-1][0]].tracks[0])-1])
+          setPlaying(false)
           history.push(next)
         }
       }
@@ -65,6 +68,7 @@ export default function MapNav({ setTrack, setPlaying }) {
   const moveRight = () => {
     if (location.pathname === '/') {
       setTrack(music[7])
+      setPlaying(false)
       history.push('/usa')
       return
     }
@@ -74,10 +78,12 @@ export default function MapNav({ setTrack, setPlaying }) {
         if (i < order.length-1) {
           const next = order[i+1][1].url
           setTrack(music[(countries[order[i+1][0]].tracks[0])-1])
+          setPlaying(false)
           history.push(next)
         } else {
           const next = order[0][1].url
           setTrack(music[(countries[order[0][0]].tracks[0])-1])
+          setPlaying(false)
           history.push(next)
         }
       }
