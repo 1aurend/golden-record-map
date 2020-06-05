@@ -2,6 +2,7 @@
 
 ## Responsiveness
 
+- Add aspect ration hook [**done 6/5**]
 - Move sidebar to top for any vh > vw
   - Also do this at some breakpoint for small horizontal windows?
 - Scale font sizes
@@ -21,6 +22,7 @@
 
 - Widen the sidebar and/or the country dropdown so that long country names don't get cut off at smaller screen sizes
   - Could also show abbreviations of country names at smaller sizes
+- Git rid of delay before detail panel animation [**done 6/5** so much better! :)]
 
 ## Sound
 
@@ -29,9 +31,10 @@
 
 ## Data
 
- - Reorder countries? There's a weird jump with going from Australia to USSR
+ - Reorder countries? There's a weird jump with going from Australia to USSR [**done 6/5**]
  - Rename categories in song detail for clarity
  - Data cleaning to match revised track list
+ - Add shortName value to each country
 
 # Future
 

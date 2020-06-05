@@ -10,7 +10,7 @@ import HoverPopup from './Popup'
 import useAspectRatio from '../useAspectRatio'
 
 
-export default function Interface({ country, mapHeight, setMapHeight, setTrack, currentTrack, view }) {
+export default function Interface({ country, detailVisible, setDetailVisible, setTrack, currentTrack, view }) {
   const [popup, setPopup] = useState(null)
   const [playing, setPlaying] = useState(false)
   const layout = useAspectRatio()
@@ -18,22 +18,11 @@ export default function Interface({ country, mapHeight, setMapHeight, setTrack, 
   useEffect(() => {
     if (!country) {
       setPlaying(false)
+      setDetailVisible(false)
+      return
     }
-  }, [country])
-
-  useEffect(() => {
-    if (mapHeight !== '100vh' && !country) {
-      const delay = setTimeout(() => {
-        setMapHeight('100vh')
-      }, 200)
-      return () => clearTimeout(delay)
-    } else if (country) {
-      const delay = setTimeout(() => {
-        setMapHeight('65vh')
-      }, 200)
-      return () => clearTimeout(delay)
-    }
-  }, [setMapHeight, mapHeight, country])
+    setDetailVisible(true)
+  }, [country, setDetailVisible])
 
   return (
     <Flex
@@ -41,7 +30,7 @@ export default function Interface({ country, mapHeight, setMapHeight, setTrack, 
       bg='black'
       >
       <MapMap
-        height={mapHeight}
+        height={detailVisible}
         highlight={country}
         setTrack={setTrack}
         view={view}
@@ -50,7 +39,7 @@ export default function Interface({ country, mapHeight, setMapHeight, setTrack, 
         />
       {country &&
         <InfoPane
-          mapHeight={mapHeight}
+          detailVisible={detailVisible}
           track={currentTrack}
           setTrack={setTrack}
           setPlaying={setPlaying}

@@ -8,15 +8,15 @@ import Sidebar from './Sidebar'
 import MapMap from './MapMap'
 
 
-export default function World({ mapHeight, setMapHeight, setTrack }) {
+export default function World({ detailVisible, setDetailVisible, setTrack }) {
   useEffect(() => {
-    if (mapHeight !== '100vh') {
+    if (detailVisible !== '100vh') {
       const delay = setTimeout(() => {
-        setMapHeight('100vh')
+        setDetailVisible('100vh')
       }, 200)
       return () => clearTimeout(delay)
     }
-  }, [setMapHeight, mapHeight])
+  }, [setDetailVisible, detailVisible])
 
   return (
     <Flex

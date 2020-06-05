@@ -14,7 +14,7 @@ const Pane = styled(Flex)`
   position: fixed;
   bottom: 0px;
   transition: transform 0.75s ease-in;
-  transform: ${props => props.mapHeight === '65vh' ? 'translateY(0px)' : 'translateY(400px)'};
+  transform: ${props => props.detailVisible ? 'translateY(0px)' : 'translateY(400px)'};
   transform-origin: bottom;
   overflow: hidden;
   flex-direction: row;
@@ -75,9 +75,9 @@ const DataValue = styled(Text)`
 `
 
 
-export default function InfoPane({ mapHeight, track, setTrack, setPlaying, playing, country }) {
+export default function InfoPane({ detailVisible, track, setTrack, setPlaying, playing, country }) {
   return (
-    <Pane mapHeight={mapHeight}>
+    <Pane detailVisible={detailVisible}>
       <ControlsFlex>
         <MapNav
           setTrack={setTrack}

@@ -14,7 +14,7 @@ import music from './music'
 
 
 export default function AppRouter() {
-  const [mapHeight, setMapHeight] = useState('100vh')
+  const [detailVisible, setDetailVisible] = useState(false)
   const [currentTrack, setTrack] = useState(null)
 
   return (
@@ -23,16 +23,16 @@ export default function AppRouter() {
         <Switch>
           <Route exact path='/'>
             <Interface
-              mapHeight={mapHeight}
-              setMapHeight={setMapHeight}
+              detailVisible={detailVisible}
+              setDetailVisible={setDetailVisible}
               currentTrack={currentTrack}
               setTrack={setTrack}
               />
           </Route>
           <Route path='/:country'>
             <ValidateCountry
-              mapHeight={mapHeight}
-              setMapHeight={setMapHeight}
+              detailVisible={detailVisible}
+              setDetailVisible={setDetailVisible}
               currentTrack={currentTrack}
               setTrack={setTrack}
               />
@@ -44,7 +44,7 @@ export default function AppRouter() {
 }
 
 
-function ValidateCountry({ mapHeight, setMapHeight, currentTrack, setTrack }) {
+function ValidateCountry({ detailVisible, setDetailVisible, currentTrack, setTrack }) {
   const { country } = useParams()
   const valid = Object.keys(countries).includes(country.toUpperCase())
 
@@ -52,7 +52,7 @@ function ValidateCountry({ mapHeight, setMapHeight, currentTrack, setTrack }) {
     if (valid && !currentTrack) {
       setTrack(music[(countries[country.toUpperCase()].tracks[0])-1])
     }
-  }, [country, setTrack, valid, currentTrack])
+  }, [country, setTrack, valid, currentTrack, setDetailVisible])
 
   return (
     <Route
@@ -62,8 +62,8 @@ function ValidateCountry({ mapHeight, setMapHeight, currentTrack, setTrack }) {
             country={country.toUpperCase()}
             currentTrack={currentTrack || music[(countries[country.toUpperCase()].tracks[0])-1]}
             setTrack={setTrack}
-            mapHeight={mapHeight}
-            setMapHeight={setMapHeight}
+            detailVisible={detailVisible}
+            setDetailVisible={setDetailVisible}
             view={countries[country.toUpperCase()].view}
             />
         ) : (
