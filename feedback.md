@@ -3,7 +3,7 @@
 ## Responsiveness
 
 - Move sidebar to top for any vh > vw
-- Also do this at some breakpoint for small horizontal windows?
+  - Also do this at some breakpoint for small horizontal windows?
 - Scale font sizes
 - Test song detail pane animation at different screen sizes
 
@@ -32,3 +32,19 @@
  - Reorder countries? There's a weird jump with going from Australia to USSR
  - Rename categories in song detail for clarity
  - Data cleaning to match revised track list
+
+# Future
+
+## Map
+
+- Animate viewbox transitions
+- Rotate map in each country view so country is vertical
+- Responsive viewbox sizes and centers
+
+## Sound
+
+- Fade songs in and out for autoplay mode
+
+## Native App
+
+- Feasibility test creating a native version
