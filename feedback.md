@@ -32,9 +32,9 @@
 ## Data
 
  - Reorder countries? There's a weird jump with going from Australia to USSR [**done 6/5**]
- - Rename categories in song detail for clarity
- - Data cleaning to match revised track list
- - Add shortName value to each country
+ - Rename categories in song detail for clarity [**done 6/5**]
+ - Data cleaning to match revised track list [**done 6/5**]
+ - Add shortName value to each country [**done 6/5** but could change them all to country codes?]
 
 # Future
 

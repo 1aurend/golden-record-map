@@ -14,6 +14,9 @@ export default function Interface({ country, detailVisible, setDetailVisible, se
   const [popup, setPopup] = useState(null)
   const [playing, setPlaying] = useState(false)
   const layout = useAspectRatio()
+  if (layout === 'vertical') {
+    console.log('stack please!')
+  }
 
   useEffect(() => {
     if (!country) {
