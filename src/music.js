@@ -34,7 +34,7 @@ const music = [
    "Composer": "Johann Sebastian Bach",
    "Performer": "Munich Bach Orchestra (featuring Karl-Heinz Schneeberger, violin), conducted by Karl Richter",
    "Recorded": "Munich, Germany, January 1967",
-   "Genre": "Classical music",
+   "Genre": "Classical",
    "Length": "4:40",
    "Audio": track1
  },
@@ -44,7 +44,7 @@ const music = [
    "Composer": "Mangkunegara IV",
    "Performer": "Pura Paku Alaman Palace Orchestra/K.R.T. Wasitodipuro (director) featuring Niken Larasati and Nji Tasti (vocals)",
    "Recorded": "Robert E. Brown in Yogyakarta, Java, Indonesia, January 10, 1971",
-   "Genre": "Folk music / Gamelan",
+   "Genre": "Folk / Gamelan",
    "Length": "4:43",
    "Audio": track2
  },
@@ -54,7 +54,7 @@ const music = [
    "Composer": "Traditional",
    "Performer": "Mahi musicians of Benin",
    "Recorded": "Charles Duvelle in Savalou, Benin, January 1963",
-   "Genre": "Folk music / Percussion",
+   "Genre": "Folk / Percussion",
    "Length": "2:08",
    "Audio": track3
  },
@@ -64,7 +64,7 @@ const music = [
    "Composer": "Traditional",
    "Performer": "Mbuti of the Ituri Rainforest",
    "Recorded": "Colin Turnbull and Francis S. Chapman in the Ituri Rainforest of the Democratic Republic of Congo (Zaire), circa 1951",
-   "Genre": "Folk music",
+   "Genre": "Folk",
    "Length": "0:56",
    "Audio": track4
  },
@@ -74,7 +74,7 @@ const music = [
    "Composer": "Traditional",
    "Performer": "Tom Djawa (clapsticks), Mudpo (digeridoo), and Waliparu (vocals)",
    "Recorded": "Sandra LeBrun Holmes at Milingimbi Mission on Milingimbi Island, off the coast of Arnhem Land, Northern Territory, Australia, 1962",
-   "Genre": "Folk music / Indigenous music of Australia",
+   "Genre": "Folk / Indigenous music of Australia",
    "Length": "1:26",
    "Audio": track5
  },
@@ -94,7 +94,7 @@ const music = [
    "Composer": "Chuck Berry",
    "Performer": "Chuck Berry (vocals, guitar) with Lafayette Leak (piano), Willie Dixon (bass), and Fred Below (drums)",
    "Recorded": "Chess Studios, Chicago, IL, January 6, 1958",
-   "Genre": "Rock and roll",
+   "Genre": "Rock and Roll",
    "Length": "2:38",
    "Audio": track7
  },
@@ -104,7 +104,7 @@ const music = [
    "Composer": "Traditional",
    "Performer": "Pranis Pandang and Kumbui (mariuamangɨ) of the Nyaura Clan",
    "Recorded": "Robert MacLennan in the village of Kandɨngei, Middle Sepik, Papua New Guinea, July 23, 1964",
-   "Genre": "Folk music",
+   "Genre": "Folk",
    "Length": "1:20",
    "Audio": track8
  },
@@ -114,7 +114,7 @@ const music = [
    "Composer": "Arranged by Kinko Kurosawa",
    "Performer": "Goro Yamaguchi (shakuhachi)",
    "Recorded": "New York City, circa 1967",
-   "Genre": "Folk music / Honkyoku",
+   "Genre": "Folk / Honkyoku",
    "Length": "4:51",
    "Audio": track9
  },
@@ -124,7 +124,7 @@ const music = [
    "Composer": "Johann Sebastian Bach",
    "Performer": "Arthur Grumiaux",
    "Recorded": "Berlin, Germany, November 1960",
-   "Genre": "Classical music",
+   "Genre": "Classical",
    "Length": "2:55",
    "Audio": track10
  },
@@ -134,7 +134,7 @@ const music = [
    "Composer": "Wolfgang Amadeus Mozart",
    "Performer": "Bavarian State Opera Orchestra and Chorus featuring Edda Moser (soprano), conducted by Wolfgang Sawallisch",
    "Recorded": "Munich, Germany, August 1972",
-   "Genre": "Classical music / Opera / Singspiel",
+   "Genre": "Classical / Opera / Singspiel",
    "Length": "2:55",
    "Audio": track11
  },
@@ -144,7 +144,7 @@ const music = [
    "Composer": "Traditional",
    "Performer": "Georgian State Merited Ensemble of Folk Song and Dance, featuring Ilia Zakaidze (first tenor) and Rostom Saginashvili (second tenor), directed by Anzor Kavsadze",
    "Recorded": "Melodiya Studio in Tbilisi, Georgia",
-   "Genre": "Folk music / Choral music",
+   "Genre": "Folk / Choral",
    "Length": "2:18",
    "Audio": track12
  },
@@ -154,7 +154,7 @@ const music = [
    "Composer": "Traditional",
    "Performer": "Musicians from Ancash",
    "Recorded": "From recordings collected by Jose Maria Arguedas (Casa de la Cultura, Lima) in the Ancash Region of Peru, circa 1964",
-   "Genre": "Folk music",
+   "Genre": "Folk",
    "Length": "0:52",
    "Audio": track13
  },
@@ -174,7 +174,7 @@ const music = [
    "Composer": "Traditional",
    "Performer": "Kamil Jalilov (balaban)",
    "Recorded": "Radio Moscow, circa 1950",
-   "Genre": "Folk music",
+   "Genre": "Folk",
    "Length": "2:30",
    "Audio": track15
  },
@@ -184,7 +184,7 @@ const music = [
    "Composer": "Igor Stravinsky",
    "Performer": "Columbia Symphony Orchestra, conducted by Igor Stravinsky",
    "Recorded": "Ballroom of the St. George Hotel, Brooklyn, New York, January 6, 1960",
-   "Genre": "Modern classical music / Ballet",
+   "Genre": "Modern Classical / Ballet",
    "Length": "4:35",
    "Audio": track16
  },
@@ -194,7 +194,7 @@ const music = [
    "Composer": "Johann Sebastian Bach",
    "Performer": "Glenn Gould (piano)",
    "Recorded": "CBS 30th Street Studio in New York City, August 8, 1966",
-   "Genre": "Classical music",
+   "Genre": "Classical",
    "Length": "4:48",
    "Audio": track17
  },
@@ -204,7 +204,7 @@ const music = [
    "Composer": "Ludwig van Beethoven",
    "Performer": "The Philharmonia Orchestra conucted by Otto Klemperer",
    "Recorded": "Kingsway Hall, London, UK, October 6, 1955",
-   "Genre": "Classical music",
+   "Genre": "Classical",
    "Length": "7:20",
    "Audio": track18,
  },
@@ -214,7 +214,7 @@ const music = [
    "Composer": "Traditional",
    "Performer": "Valya Balkanska (vocal), Lazar Kanevski, and Stephan Zahmanov (kaba gaidi)",
    "Recorded": "Martin Koenig and Ethel Raim, Smolyan, Bulgaria, 1968",
-   "Genre": "Folk music",
+   "Genre": "Folk",
    "Length": "4:59",
    "Audio": track19
  },
@@ -224,7 +224,7 @@ const music = [
    "Composer": "Traditional",
    "Performer": "Ambrose Roan Horse, Chester Roan, and Tom Roan",
    "Recorded": "Willard Rhodes, Pine Springs, Arizona, Summer 1942",
-   "Genre": "Folk music",
+   "Genre": "Folk",
    "Length": "0:57",
    "Audio": track20
  },
@@ -234,7 +234,7 @@ const music = [
    "Composer": "Anthony Holborne",
    "Performer": "Early Music Consort of London directed by David Munrow",
    "Recorded": "Abbey Road Studios, London, UK, September 1973",
-   "Genre": "Classical music",
+   "Genre": "Classical",
    "Length": "1:17",
    "Audio": track21
  },
@@ -244,7 +244,7 @@ const music = [
    "Composer": "Traditional",
    "Performer": "Maniasinimae and Taumaetarau Chieftain Tribe of Oloha and Palasu'u Village community in Small Malaita",
    "Recorded": "Solomon Islands Broadcasting Services",
-   "Genre": "Folk music",
+   "Genre": "Folk",
    "Length": "1:12",
    "Audio": track22
  },
@@ -254,7 +254,7 @@ const music = [
    "Composer": "Traditional",
    "Performer": "Young girl of Huancavelica",
    "Recorded": "John and Penny Cohen, Huancavelica, Peru, 1964",
-   "Genre": "Folk music",
+   "Genre": "Folk",
    "Length": "0:38",
    "Audio": track23
  },
@@ -264,7 +264,7 @@ const music = [
    "Composer": "Unknown",
    "Performer": "Guan Pinghu (guqin)",
    "Recorded": "Before 1977",
-   "Genre": "Folk music",
+   "Genre": "Folk",
    "Length": "7:37",
    "Audio": track24
  },
@@ -274,7 +274,7 @@ const music = [
    "Composer": "Traditional",
    "Performer": "Kesarbai Kerkar (vocals) with harmonium and tabla accompaniment",
    "Recorded": "Bombay (Mumbai), India, April 1953",
-   "Genre": "Folk music",
+   "Genre": "Folk",
    "Length": "3:30",
    "Audio": track25
  },
@@ -294,7 +294,7 @@ const music = [
    "Composer": "Ludwig van Beethoven",
    "Performer": "Budapest String Quartet",
    "Recorded": "Library of Congress, Washington, D.C., April 7, 1960",
-   "Genre": "Classical music",
+   "Genre": "Classical",
    "Length": "6:37",
    "Audio": track27
  }
