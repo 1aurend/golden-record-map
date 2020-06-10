@@ -5,22 +5,19 @@ import {
 import {
   useHistory
  } from 'react-router-dom'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 import debounce from 'lodash.debounce'
 import countries from '../countries'
 import background from '../assets/background'
 import Borders from './Borders'
 import Country from './Country'
 import music from '../music'
-
-const MapBox = styled(Box)`
-  width: 75vw;
-  height: '100vh';
-`
+import useAspectRatio from '../useAspectRatio'
 
 
 export default function MapMap({ highlight, setTrack, view = [1165, 0, 6975, 4650], setPopup, setPlaying }) {
   const history = useHistory()
+  const layout = useAspectRatio()
   const debounceHandler = debounce(setPopup, 75, {'leading':false})
 
   const onSelectCountry = (country) => {
@@ -46,7 +43,13 @@ export default function MapMap({ highlight, setTrack, view = [1165, 0, 6975, 465
   })
 
   return (
-    <MapBox>
+    <Box
+      sx = {{
+        width: layout === 'h' ? '75vw' : '100vw',
+        height: layout === 'h' ? '100vh' : '70vh',
+        order: layout === 'h' ? 1 : 2
+      }}
+      >
       <svg viewBox={view}>
         <g>
           {background}
@@ -54,6 +57,6 @@ export default function MapMap({ highlight, setTrack, view = [1165, 0, 6975, 465
         </g>
         <Borders/>
       </svg>
-    </MapBox>
+    </Box>
     )
   }

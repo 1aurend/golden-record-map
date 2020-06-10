@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import styled, { keyframes, css } from 'styled-components'
+import styled from '@emotion/styled'
+import { css, keyframes} from '@emotion/core'
 import {
   Flex,
   Box,
@@ -13,6 +14,7 @@ import { ReactComponent as PauseOverlay } from '../assets/controls_pause_overlay
 import recordPng from '../assets/record.png'
 import music from '../music'
 import countries from '../countries'
+import useAspectRatio from '../useAspectRatio'
 
 
 const rotate = keyframes`
@@ -41,8 +43,8 @@ const Skip = styled(Button)`
 `
 
 const Record = styled(Box)`
-  height: 120px;
-  width: 120px;
+  height: 60px;
+  width: 60px;
   ${props => props.rotate? rotateRecord : 'animation: none;'};
   background-size: cover;
   background-image: url(${recordPng});
@@ -59,6 +61,7 @@ const PlayPause = styled(Button)`
 
 export default function RecordPlayer({ setPlaying, playing, setTrack, country, track }) {
   const location = useLocation()
+  const layout = useAspectRatio()
   const history = useHistory()
   const overlay = playing ? <PauseOverlay/> : <PlayOverlay/>
 

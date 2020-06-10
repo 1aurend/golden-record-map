@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 import {
   Button,
   Flex,
@@ -17,11 +17,10 @@ const NavContainer = styled(Flex)`
   align-items: center;
   height: 38px;
   width: auto;
-  margin: 20px;
 `
 const GlobeButton = styled(Button)`
-  width: 38px;
-  height: 38px;
+  width: 24px;
+  height: 24px;
   padding: 0;
   cursor: pointer;
   background: none;

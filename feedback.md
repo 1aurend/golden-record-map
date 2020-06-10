@@ -3,9 +3,9 @@
 ## Responsiveness
 
 - Add aspect ration hook [**done 6/5**]
-- Move sidebar to top for any vh > vw
-  - Also do this at some breakpoint for small horizontal windows?
-- Scale font sizes
+- Move sidebar to top for any vh > vw [**done 6/10**]
+  - Also do this at some breakpoint for small horizontal windows? [**done 6/10**]
+- Scale font sizes [**done 6/10**]
 - Test song detail pane animation at different screen sizes
 
 ## Buttons
@@ -13,14 +13,14 @@
 - Play button should be larger or otherwise more discoverable
   - Option = separate record image from play Button
 - Enlarge clickable area around next/prev track buttons; it's too easy to accidentally click pause rather than next
-- Add map navigation buttons to the sidebar both so users can get back to the world map from there and also to indicate that the map arrows and the dropdown have related functions
-  - Do we need map navigation in the song detail panel at all? Is it confusing? If the globe/arrows move to the sidebar and users can also click on countries?
+- Add map navigation buttons to the sidebar both so users can get back to the world map from there and also to indicate that the map arrows and the dropdown have related functions [**mitigated? 6/10**]
+  - Do we need map navigation in the song detail panel at all? Is it confusing? If the globe/arrows move to the sidebar and users can also click on countries? [**see previous**]
 - Test a variety of button colors on users; does consistency in color help indicate which things are buttons?
  - Or use tooltips as indicators
 
 ## Layout
 
-- Widen the sidebar and/or the country dropdown so that long country names don't get cut off at smaller screen sizes
+- Widen the sidebar and/or the country dropdown so that long country names don't get cut off at smaller screen sizes [**done 6/10**]
   - Could also show abbreviations of country names at smaller sizes
 - Git rid of delay before detail panel animation [**done 6/5** so much better! :)]
 

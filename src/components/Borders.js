@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 const StyledGroup = styled.g`
   stroke: ${props => props.stroke || '#ffffff'};

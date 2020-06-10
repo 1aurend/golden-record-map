@@ -7,7 +7,7 @@ export default function useAspectRatio() {
                                                 height: window.innerHeight,
                                                 ratio: window.innerWidth/window.innerHeight
                                               })
-  const layout = dimensions.ratio > 1.333 ? 'horizontal' : 'vertical'
+  const layout = dimensions.ratio > 1.333 ? 'h' : 'v'
   const handleResize = () => {
     setDimensions({
                     width: window.innerWidth,

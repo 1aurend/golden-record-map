@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {
-  Flex,
+  Flex
 } from 'rebass'
 import Howler from 'react-howler'
 import MapMap from './MapMap'
@@ -14,9 +14,18 @@ export default function Interface({ country, detailVisible, setDetailVisible, se
   const [popup, setPopup] = useState(null)
   const [playing, setPlaying] = useState(false)
   const layout = useAspectRatio()
-  if (layout === 'vertical') {
-    console.log('stack please!')
-  }
+  const flexDir = layout === 'h' ? 'row' : 'column'
+
+  // const [flexDir, setFlexDir] = useState(null)
+  //
+  // useEffect(() => {
+  //   if (layout) {
+  //     setFlexDir('column')
+  //   }
+  //   else {
+  //     setFlexDir('row')
+  //   }
+  // })
 
   useEffect(() => {
     if (!country) {
@@ -29,8 +38,11 @@ export default function Interface({ country, detailVisible, setDetailVisible, se
 
   return (
     <Flex
-      width={'100vw'}
-      bg='black'
+      sx = {{
+        width:'100vw',
+        bg:'black',
+        flexDirection:flexDir
+      }}
       >
       <MapMap
         height={detailVisible}
