@@ -46,8 +46,8 @@ export default function MapMap({ highlight, setTrack, view = [1165, 0, 6975, 465
     <Box
       sx = {{
         width: layout === 'h' ? '75vw' : '100vw',
-        height: layout === 'h' ? '100vh' : '70vh',
-        order: layout === 'h' ? 1 : 2
+        height: layout === 'h' ? '100vh' : '65vh',
+        order: layout === 'h' ? 1 : 2,
       }}
       >
       <svg viewBox={view}>

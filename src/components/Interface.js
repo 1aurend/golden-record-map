@@ -40,8 +40,10 @@ export default function Interface({ country, detailVisible, setDetailVisible, se
     <Flex
       sx = {{
         width:'100vw',
+        height:'100vh',
         bg:'black',
-        flexDirection:flexDir
+        flexDirection:flexDir,
+        overflow: 'hidden',
       }}
       >
       <MapMap
@@ -72,6 +74,7 @@ export default function Interface({ country, detailVisible, setDetailVisible, se
         country={country}
         setTrack={setTrack}
         setPlaying={setPlaying}
+        currentTrack={currentTrack}
         />
       {currentTrack &&
         <Howler

@@ -10,13 +10,13 @@
 
 ## Buttons
 
-- Play button should be larger or otherwise more discoverable
-  - Option = separate record image from play Button
-- Enlarge clickable area around next/prev track buttons; it's too easy to accidentally click pause rather than next
+- Play button should be larger or otherwise more discoverable [**done 6/11**]
+  - Option = separate record image from play Button [**done 6/11**]
+- Enlarge clickable area around next/prev track buttons; it's too easy to accidentally click pause rather than next [**done 6/11**]
 - Add map navigation buttons to the sidebar both so users can get back to the world map from there and also to indicate that the map arrows and the dropdown have related functions [**mitigated? 6/10**]
   - Do we need map navigation in the song detail panel at all? Is it confusing? If the globe/arrows move to the sidebar and users can also click on countries? [**see previous**]
 - Test a variety of button colors on users; does consistency in color help indicate which things are buttons?
- - Or use tooltips as indicators
+ - Or use tooltips as indicators [**done 6/11**]
 
 ## Layout
 

@@ -4,7 +4,7 @@ import {
   Flex,
   Text
 } from 'rebass'
-import RecordPlayer from './RecordPlayer'
+import SimplePlayer from './SimplePlayer'
 import useAspectRatio from '../useAspectRatio'
 
 
@@ -27,17 +27,17 @@ export default function InfoPane({ detailVisible, track, setTrack, setPlaying, p
         flexDirection: layout === 'h' ? 'row' : 'column',
         zIndex: '99',
         justifyContent: 'flex-start',
-        alignItems: 'center',
+        alignItems: layout === 'h' ? 'flex-end' : 'center',
         pointerEvents: 'none',
-        backgroundImage: 'linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.9), rgba(0,0,0,1))',
-        padding: '1.5% 3%',
+        backgroundColor: 'black',
+        padding: '3% 3%',
       }}
       >
 
       <Flex
         sx={{
           flexDirection: 'column',
-          width: layout === 'h' ? '50vw' : '100vw',
+          width: layout === 'h' ? '50vw' : '80vw',
           order: layout === 'h' ? 2 : 1,
         }}>
         {
@@ -85,8 +85,9 @@ export default function InfoPane({ detailVisible, track, setTrack, setPlaying, p
         sx={{
           pointerEvents: 'all',
           order: layout === 'h' ? 1 : 2,
+          margin: '0% 3%'
         }}>
-        <RecordPlayer
+        <SimplePlayer
           setPlaying={setPlaying}
           playing={playing}
           country={country}

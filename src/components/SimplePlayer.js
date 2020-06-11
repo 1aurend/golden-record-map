@@ -16,6 +16,32 @@ import countries from '../countries'
 import useAspectRatio from '../useAspectRatio'
 
 
+
+const STrackNext = styled(TrackNext)`
+  &:hover{
+    filter: hue-rotate(137deg) brightness(0.72) saturate(1.18)
+  }
+`
+
+const STrackPrev = styled(TrackPrev)`
+  &:hover{
+    filter: hue-rotate(137deg) brightness(0.72) saturate(1.18)
+  }
+`
+
+const SPlayOverlay = styled(PlayOverlay)`
+  &:hover{
+    filter: hue-rotate(137deg) brightness(0.72) saturate(1.18)
+  }
+`
+
+const SPauseOverlay = styled(PauseOverlay)`
+  &:hover{
+    filter: hue-rotate(137deg) brightness(0.72) saturate(1.18)
+  }
+`
+
+
 const rotate = keyframes`
   from {
     transform: rotate(0deg);
@@ -34,27 +60,15 @@ const ControlsFlex = styled(Flex)`
 `
 
 const Skip = styled(Button)`
-  height: 32px;
-  width: 24px;
   cursor: pointer;
   background: none;
-  padding: 5px;
+  padding: 3px;
 `
 
-const Record = styled(Box)`
-  height: 60px;
-  width: 60px;
-  ${props => props.rotate? rotateRecord : 'animation: none;'};
-  background-size: cover;
-  background-image: url(${recordPng});
-`
 const PlayPause = styled(Button)`
-  height: auto;
-  width: auto;
   cursor: pointer;
   background: none;
   padding: 0px;
-  margin: 10px;
 `
 
 
@@ -62,7 +76,7 @@ export default function RecordPlayer({ setPlaying, playing, setTrack, country, t
   const location = useLocation()
   const layout = useAspectRatio()
   const history = useHistory()
-  const overlay = playing ? <PauseOverlay/> : <PlayOverlay/>
+  const overlay = playing ? <SPauseOverlay/> : <SPlayOverlay/>
 
   const prevTrack = () => {
     const multiTrack = countries[country].tracks.length > 1
@@ -125,11 +139,27 @@ export default function RecordPlayer({ setPlaying, playing, setTrack, country, t
 
   return (
     <ControlsFlex>
-      <Skip onClick={prevTrack}><TrackPrev/></Skip>
-      <PlayPause onClick={() => {setPlaying(!playing)}}>
-          <Record rotate={playing}>{overlay}</Record>
+      <Skip
+        sx={{
+          height: layout === 'h' ? ['8vh', '6vh', '4vh'] : ['8vw', '6vw', '5vw'],
+          width: layout === 'h' ? ['6vh', '4.5vh', '3vh'] : ['6vw', '4.5vw', '3.75vw']
+        }}
+        onClick={prevTrack}><STrackPrev/></Skip>
+      <PlayPause
+        sx={{
+          height: layout === 'h' ? ['15vh', '12vh', '9vh'] : ['18vw', '15vw', '12vw'],
+          width: layout === 'h' ? ['15vh', '12vh', '9vh'] : ['18vw', '15vw', '12vw'],
+          margin: layout === 'h' ? '1.5vh' : '1.5vw'
+        }}
+        onClick={() => {setPlaying(!playing)}}>
+          {overlay}
       </PlayPause>
-      <Skip onClick={nextTrack}><TrackNext/></Skip>
+      <Skip
+        sx={{
+          height: layout === 'h' ? ['8vh', '6vh', '4vh'] : ['8vw', '6vw', '5vw'],
+          width: layout === 'h' ? ['6vh', '4.5vh', '3vh'] : ['6vw', '4.5vw', '3.75vw']
+        }}
+        onClick={nextTrack}><STrackNext/></Skip>
     </ControlsFlex>
   )
 }

@@ -17,7 +17,7 @@ import MapNav from './MapNav'
 
 
 
-export default function Sidebar({ country, setTrack, setPlaying }) {
+export default function Sidebar({ country, setTrack, setPlaying, currentTrack }) {
   const history = useHistory()
   const layout = useAspectRatio()
   const onSelectCountry = (e) => {
@@ -41,12 +41,13 @@ export default function Sidebar({ country, setTrack, setPlaying }) {
     <Flex
       sx={{
         width: layout === 'h' ? '25vw' : '100vw',
-        height: layout === 'h' ? '100vh' : 'auto',
+        height: layout === 'h' ? '100vh' : '35vh',
         bg: 'white',
         alignItems:'center',
         flexDirection:'column',
         padding: layout === 'h' ? '1% 2%':'2%',
         order: layout === 'h' ? 3 : 1,
+        zIndex: '99'
       }}
       >
       <MapNav
@@ -133,6 +134,9 @@ export default function Sidebar({ country, setTrack, setPlaying }) {
         <Box
           sx={{
             fontFamily: 'body',
+            overflow: 'auto',
+            maxHeight: layout === 'h' ? '100vh' : '20vh',
+            width: layout === 'h' ? 'auto' : '100%',
           }}>
           {
             countries[country].tracks.map((track, i) => {
@@ -141,21 +145,21 @@ export default function Sidebar({ country, setTrack, setPlaying }) {
                 <Text
                   key={track-1}
                   sx={{
-                    margin: ['10px 0px','16px 0px','22px 0px'],
+                    margin: ['8px 0px','12px 0px','16px 0px'],
                     lineHeight: layout === 'h' ? ['18px','24px','32px'] : ['20px','28px','40px'],
                     fontSize: layout === 'h' ? ['14px','20px','28px'] : ['16px','20px','36px'],
                     fontWeight: '700',
                     textAlign: 'center',
                     '& > a' : {
                       textDecoration: 'none',
-                      color: 'gold',
-                      '&:hover': {
+                      color: currentTrack.Piece === trackData.Piece ? 'gold' : 'teal',
+                      '&: hover': {
                         color: 'green'
                       }
                     }
                   }}>{i+1}.&nbsp;
                   <Link
-                    onClick={() => {setTrack(music[track-1]);setPlaying(false)}}
+                    onClick={() => {setTrack(music[track-1]);setPlaying(true)}}
                     >
                     {trackData.Piece}
                   </Link>
@@ -184,7 +188,7 @@ export default function Sidebar({ country, setTrack, setPlaying }) {
               fontSize: ['12px','14px','16px'],
               padding: '0% 4%',
               lineHeight: ['18px','21px','24px'],
-              overflow: 'scroll',
+              overflow: 'auto',
             }}
 
           >

@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import {
   Button,
   Flex,
+  Text
 } from 'rebass'
 import { useHistory, useLocation } from 'react-router-dom'
 import { ReactComponent as Globe } from '../assets/nav_globe.svg'
@@ -15,7 +16,7 @@ import music from '../music'
 const NavContainer = styled(Flex)`
   flex-direction: row;
   align-items: center;
-  height: 38px;
+  height: 50px;
   width: auto;
 `
 const GlobeButton = styled(Button)`
@@ -26,18 +27,61 @@ const GlobeButton = styled(Button)`
   background: none;
 `
 
-const ArrowButton = styled(Button)`
-  width: 17px;
-  height: 38px;
-  padding: 0;
+const LArrowButton = styled(Flex)`
+  width: 80px;
+  height: auto;
+  padding: 0px;
   cursor: pointer;
-  background: none;
+  justify-content: flex-end;
 `
+
+const RArrowButton = styled(Flex)`
+  width: 80px;
+  height: auto;
+  padding: 0px;
+  cursor: pointer;
+  justify-content: flex-start;
+`
+
+
+const SArrowLeft = styled(ArrowLeft)`
+  width: 27px;
+  height: 38px;
+`
+
+const SArrowRight = styled(ArrowRight)`
+  width: 27px;
+  height: 38px;
+`
+
+const ToolTipLeft = styled(Text)`
+  color: ${props => props.theme.colors.black};
+  margin-right: 10px;
+  font-family: ${props => props.theme.fonts.body};
+  font-weight: 700;
+  letter-spacing: 0.5px;
+`
+
+const ToolTipRight = styled(Text)`
+  color: ${props => props.theme.colors.black};
+  margin-left: 10px;
+  font-family: ${props => props.theme.fonts.body};
+  font-weight: 700;
+  letter-spacing: 0.5px;
+
+`
+
 
 
 export default function MapNav({ setTrack, setPlaying }) {
   const history = useHistory()
   const location = useLocation()
+
+  const [lHover, setLHover] = useState(false)
+  const [rHover, setRHover] = useState(false)
+
+  const leftarrow = lHover ? <ToolTipLeft>back</ToolTipLeft> : <SArrowLeft/>
+  const rightarrow = rHover ? <ToolTipRight>next</ToolTipRight> : <SArrowRight/>
 
   const moveLeft = () => {
     if (location.pathname === '/') {
@@ -91,21 +135,25 @@ export default function MapNav({ setTrack, setPlaying }) {
 
   return (
     <NavContainer>
-      <ArrowButton
+      <LArrowButton
         onClick={moveLeft}
+        onMouseEnter={()=>setLHover(true)}
+        onMouseLeave={()=>setLHover(false)}
         >
-        <ArrowLeft />
-      </ArrowButton>
+        {leftarrow}
+      </LArrowButton>
       <GlobeButton
         onClick={() => {history.push('/');setPlaying(false)}}
         >
         <Globe />
       </GlobeButton>
-      <ArrowButton
+      <RArrowButton
         onClick={moveRight}
+        onMouseEnter={()=>setRHover(true)}
+        onMouseLeave={()=>setRHover(false)}
         >
-        <ArrowRight />
-      </ArrowButton>
+        {rightarrow}
+      </RArrowButton>
     </NavContainer>
   )
 }
