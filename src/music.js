@@ -1,5 +1,5 @@
-import track1 from './music/1-05 Brandenburg Concerto No. 2 In F Major, BWV 1047_ I. Allegro (Johann Sebastian Bach).m4a'
-import track2 from './music/1-06 Ketawang.m4a'
+// import track1 from './music/1-05 Brandenburg Concerto No. 2 In F Major, BWV 1047_ I. Allegro (Johann Sebastian Bach).m4a'
+// import track2 from './music/1-06 Ketawang.m4a'
 import track3 from './music/1-07 Cengunme.m4a'
 import track4 from './music/1-08 Alima Song.m4a'
 import track5 from './music/1-09 Barnumbirr (Morning Star) And Moikoi Song.m4a'
@@ -36,7 +36,7 @@ const music = [
    "Recorded": "Munich, Germany, January 1967",
    "Genre": "Classical",
    "Length": "4:40",
-   "Audio": track1
+   "Audio": import('./music/1-05 Brandenburg Concerto No. 2 In F Major, BWV 1047_ I. Allegro (Johann Sebastian Bach).m4a').then(track1 => track1)
  },
  {
    "Country": "Indonesia",
@@ -46,7 +46,7 @@ const music = [
    "Recorded": "Robert E. Brown in Yogyakarta, Java, Indonesia, January 10, 1971",
    "Genre": "Folk / Gamelan",
    "Length": "4:43",
-   "Audio": track2
+   "Audio": import('./music/1-06 Ketawang.m4a').then(track2 => track2)
  },
  {
    "Country": "Benin",

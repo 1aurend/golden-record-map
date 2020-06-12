@@ -10,7 +10,6 @@ import { ThemeProvider } from 'styled-components'
 import theme from './theme'
 import Interface from './components/Interface'
 import countries from './countries'
-import music from './music'
 
 
 export default function AppRouter() {
@@ -47,12 +46,13 @@ export default function AppRouter() {
 function ValidateCountry({ detailVisible, setDetailVisible, currentTrack, setTrack }) {
   const { country } = useParams()
   const valid = Object.keys(countries).includes(country.toUpperCase())
+  const music = import('./music').then(music => music)
 
   useEffect(() => {
     if (valid && !currentTrack) {
       setTrack(music[(countries[country.toUpperCase()].tracks[0])-1])
     }
-  }, [country, setTrack, valid, currentTrack, setDetailVisible])
+  }, [country, setTrack, valid, currentTrack, setDetailVisible, music])
 
   return (
     <Route
