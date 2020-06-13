@@ -113,7 +113,7 @@ export default function MapNav({ setTrack, setPlaying }) {
 
   const moveRight = () => {
     if (location.pathname === '/') {
-      setTrack(music[7])
+      setTrack(music[6])
       setPlaying(false)
       history.push('/usa')
       return

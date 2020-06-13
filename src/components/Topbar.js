@@ -2,14 +2,12 @@ import React from 'react'
 import {
   Flex,
   Box,
-  Text
 } from 'rebass'
 import {
   Select,
   Label
 } from '@rebass/forms'
-import styled from '@emotion/styled'
-import { useHistory, Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import countries from '../countries'
 import music from '../music'
 import useAspectRatio from '../useAspectRatio'
@@ -17,46 +15,26 @@ import MapNav from './MapNav'
 import RecordSpinner from './RecordSpinner'
 
 
-
-
 export default function Sidebar({ country, setTrack, setPlaying, playing, currentTrack }) {
   const history = useHistory()
-  const [layout, dimensions] = useAspectRatio()
+  const layout = useAspectRatio()[0]
+
   const onSelectCountry = (e) => {
-    switch (e.target.value) {
-    case '-----':
-      history.push('/')
-      break
-    default:
-      Object.entries(countries).forEach(([ key, country ]) => {
-        if (country.name === e.target.value) {
-          setTrack(music[(countries[key].tracks[0])-1])
-          setPlaying(false)
-          history.push(country.url)
-          return
-        }
-      })
-      break
-    }
+    Object.entries(countries).forEach(([ key, country ]) => {
+      if (country.name === e.target.value) {
+        setTrack(music[(countries[key].tracks[0])-1])
+        setPlaying(false)
+        history.push(country.url)
+        return
+      }
+    })
   }
   const onSelectTrack = (e) => {
-    switch (e.target.value) {
-    case '-----':
-      history.push('/')
-      break
-    default:
-      Object.entries(countries).forEach(([ key, country ]) => {
-        if (country.name === e.target.value) {
-          setTrack(music[(countries[key].tracks[0])-1])
-          setPlaying(false)
-          history.push(country.url)
-          return
-        }
-      })
-      break
-    }
+    const selectedIndex = e.target.options.selectedIndex
+    const selectedTrack = countries[country].tracks[selectedIndex-1]
+    setTrack(music[selectedTrack-1])
+    setPlaying(false)
   }
-
 
   return (
     <Flex
@@ -83,70 +61,15 @@ export default function Sidebar({ country, setTrack, setPlaying, playing, curren
           setTrack={setTrack}
           setPlaying={setPlaying}
           />
-          {country &&
-            <Flex
-              sx={{
-                flexDirection: layout === 'h' ? 'row' : 'column',
-              }}>
-              <Box
-                sx={{
-                  margin: '1vmin'
-                }}>
-                <Select
-                  id='country'
-                  name='country'
-                  value={country ? countries[country].name : ''}
-                  onChange={onSelectCountry}
-                  sx={{
-                    fontSize: ['14px','15px','16px'],
-                    width: layout === 'h' ? '35vw' : '70vw',
-                    fontFamily: 'body',
-                    borderColor: 'gold',
-                    height: 'auto',
-                  }}>
-                  <option key='empty'></option>
-                  {Object.entries(countries).map(([ key, country ]) => (
-                    <option
-                      key={key}>
-                      {country.name}
-                    </option>
-                  ))}
-                  >
-                </Select>
-              </Box>
-              <Box
-                sx={{
-                  margin: '1vmin'
-                }}>
-                <Select
-                  id='track'
-                  name='track'
-                  value={currentTrack ? currentTrack.Piece : ''}
-                  onChange= {onSelectTrack}
-                  sx={{
-                    fontSize: ['14px','15px','16px'],
-                    width: layout === 'h' ? '35vw' : '70vw',
-                    fontFamily: 'body',
-                    borderColor: 'gold',
-                    height: 'auto',
-                  }}>
-                  <option key='empty'></option>
-                  {Object.entries(countries).map(([ key, country ]) => (
-                    <option
-                      key={key}>
-                      {country.name}
-                    </option>
-                  ))}
-                  >
-                </Select>
-              </Box>
-            </Flex>
-          }
-        {!country &&
+        <Flex
+          sx={{
+            flexDirection: layout === 'h' ? 'row' : 'column',
+          }}>
           <Box
             sx={{
               margin: '1vmin'
             }}>
+            <Label htmlFor='country'></Label>
             <Select
               id='country'
               name='country'
@@ -154,12 +77,13 @@ export default function Sidebar({ country, setTrack, setPlaying, playing, curren
               onChange={onSelectCountry}
               sx={{
                 fontSize: ['14px','15px','16px'],
+                fontWeight: 'bold',
                 width: layout === 'h' ? '35vw' : '70vw',
                 fontFamily: 'body',
                 borderColor: 'gold',
                 height: 'auto',
               }}>
-              <option key='empty'>Start Exploring...</option>
+              <option key='empty'>{country? '' : 'Start Exploring...'}</option>
               {Object.entries(countries).map(([ key, country ]) => (
                 <option
                   key={key}>
@@ -169,7 +93,38 @@ export default function Sidebar({ country, setTrack, setPlaying, playing, curren
               >
             </Select>
           </Box>
-        }
+          {country &&
+            <Box
+              sx={{
+                margin: '1vmin'
+              }}>
+              <Label htmlFor='track'></Label>
+              <Select
+                id='track'
+                name='track'
+                value={currentTrack ? currentTrack.Piece : ''}
+                onChange={onSelectTrack}
+                sx={{
+                  fontSize: ['14px','15px','16px'],
+                  fontWeight: 'bold',
+                  width: layout === 'h' ? '35vw' : '70vw',
+                  fontFamily: 'body',
+                  borderColor: 'gold',
+                  height: 'auto',
+                }}>
+                <option key='empty'></option>
+                {(countries[country].tracks).map((track, i) => (
+                  <option
+                    key={i}
+                    >
+                    {music[track-1].Piece}
+                  </option>
+                ))}
+                >
+              </Select>
+            </Box>
+          }
+        </Flex>
       </Flex>
       <Box
         sx={{
