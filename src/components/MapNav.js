@@ -5,6 +5,7 @@ import {
   Flex,
   Text
 } from 'rebass'
+import debounce from 'lodash.debounce'
 import { useHistory, useLocation } from 'react-router-dom'
 import { ReactComponent as Globe } from '../assets/nav_globe.svg'
 import { ReactComponent as ArrowLeft } from '../assets/nav_larrow.svg'
@@ -28,7 +29,7 @@ const GlobeButton = styled(Button)`
 `
 
 const LArrowButton = styled(Flex)`
-  width: 80px;
+  width: 55px;
   height: auto;
   padding: 0px;
   cursor: pointer;
@@ -36,7 +37,7 @@ const LArrowButton = styled(Flex)`
 `
 
 const RArrowButton = styled(Flex)`
-  width: 80px;
+  width: 55px;
   height: auto;
   padding: 0px;
   cursor: pointer;
@@ -79,6 +80,8 @@ export default function MapNav({ setTrack, setPlaying }) {
 
   const [lHover, setLHover] = useState(false)
   const [rHover, setRHover] = useState(false)
+  const debounceLeft = debounce(setLHover, 75, {'leading':false})
+  const debounceRight = debounce(setRHover, 75, {'leading':false})
 
   const leftarrow = lHover ? <ToolTipLeft>back</ToolTipLeft> : <SArrowLeft/>
   const rightarrow = rHover ? <ToolTipRight>next</ToolTipRight> : <SArrowRight/>
@@ -137,8 +140,8 @@ export default function MapNav({ setTrack, setPlaying }) {
     <NavContainer>
       <LArrowButton
         onClick={moveLeft}
-        onMouseEnter={()=>setLHover(true)}
-        onMouseLeave={()=>setLHover(false)}
+        onMouseEnter={()=>debounceLeft(true)}
+        onMouseLeave={()=>debounceLeft(false)}
         >
         {leftarrow}
       </LArrowButton>
@@ -149,8 +152,8 @@ export default function MapNav({ setTrack, setPlaying }) {
       </GlobeButton>
       <RArrowButton
         onClick={moveRight}
-        onMouseEnter={()=>setRHover(true)}
-        onMouseLeave={()=>setRHover(false)}
+        onMouseEnter={()=>debounceRight(true)}
+        onMouseLeave={()=>debounceRight(false)}
         >
         {rightarrow}
       </RArrowButton>

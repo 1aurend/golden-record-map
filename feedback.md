@@ -7,6 +7,17 @@
   - Also do this at some breakpoint for small horizontal windows? [**done 6/10**]
 - Scale font sizes [**done 6/10**]
 - Test song detail pane animation at different screen sizes
+- Top bar: golden record and title, two dropdowns
+  - dropdowns stack in portrait
+- do metadata as grid not flex
+- debounce mapnav
+- change aspect ratio cutoff
+- dynamically change map viewbox to prevent ugly cropping
+- golden record spinner
+- increase padding of mapnav arrows
+- bring back the song title in infopane as well as gradient
+
+
 
 ## Buttons
 
@@ -43,6 +54,8 @@
 - Animate viewbox transitions
 - Rotate map in each country view so country is vertical
 - Responsive viewbox sizes and centers
+- Function to convert colors in theme prop
+
 
 ## Sound
 

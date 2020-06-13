@@ -1,6 +1,8 @@
 import React from 'react'
 import {
-  Box
+  Box,
+  Flex,
+  Text
  } from 'rebass'
 import {
   useHistory
@@ -14,11 +16,18 @@ import Country from './Country'
 import music from '../music'
 import useAspectRatio from '../useAspectRatio'
 
-
-export default function MapMap({ highlight, setTrack, view = [1165, 0, 6975, 4650], setPopup, setPlaying }) {
+export default function MapMap({ country, highlight, setTrack, view = [1165, 0, 6975, 4650], setPopup, setPlaying, playing }) {
   const history = useHistory()
-  const layout = useAspectRatio()
+  const [layout, dimensions] = useAspectRatio()
   const debounceHandler = debounce(setPopup, 75, {'leading':false})
+
+  const vw = dimensions.width
+  const vh = dimensions.height
+  const yOffset = (view[2] - view[3])/2
+  // const yCorrection = (view[2] - view[2]/vw*vh)/2
+  const scaledViewNormal = [ view[0], view[1]+yOffset, view[2], view[2]]
+  const scaledViewPortrait = [ view[0], view[1]-yOffset, view[2], view[2]/vw*vh]
+  const scaledView = layout === 'h' ? scaledViewNormal : scaledViewPortrait
 
   const onSelectCountry = (country) => {
     if (setTrack) {
@@ -45,18 +54,40 @@ export default function MapMap({ highlight, setTrack, view = [1165, 0, 6975, 465
   return (
     <Box
       sx = {{
-        width: layout === 'h' ? '75vw' : '100vw',
-        height: layout === 'h' ? '100vh' : '65vh',
-        order: layout === 'h' ? 1 : 2,
+        width: '100vw',
+        height: layout === 'h' ? '100vh' : '80vh',
+        position: 'absolute',
+        bottom:'0px',
+        zIndex: 1,
       }}
       >
-      <svg viewBox={view}>
+      <Text
+        sx={{
+          fontFamily: 'body',
+          fontSize: ['3vmin','2.5vmin','2vmin'],
+          lineHeight: ['4vmin','3.5vmin','3vmin'],
+          color: 'white',
+          width: '50vw',
+          overflow: 'auto',
+          position: 'fixed',
+          zIndex: 5,
+          height: '200px',
+          bottom: '0',
+          textAlign: 'center',
+          right:'25vw',
+
+        }}
+      >{country? '' :
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pulvinar elementum integer enim neque volutpat. Pretium quam vulputate dignissim suspendisse in est ante in. '}
+      </Text>
+      <svg viewBox={scaledView} >
         <g>
           {background}
           {svgCountries}
         </g>
         <Borders/>
       </svg>
+
     </Box>
     )
   }

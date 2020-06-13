@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import {
+  Box,
   Flex,
   Text
 } from 'rebass'
@@ -11,12 +12,12 @@ import useAspectRatio from '../useAspectRatio'
 
 
 export default function InfoPane({ detailVisible, track, setTrack, setPlaying, playing, country }) {
-  const layout = useAspectRatio()
+  const [layout, dimensions] = useAspectRatio()
   return (
     <Flex
       detailVisible={detailVisible}
       sx={{
-        width: layout === 'h' ? '75vw' : '100vw',
+        width: '100vw',
         height: 'auto',
         position: 'fixed',
         bottom: '0px',
@@ -27,74 +28,83 @@ export default function InfoPane({ detailVisible, track, setTrack, setPlaying, p
         flexDirection: layout === 'h' ? 'row' : 'column',
         zIndex: '99',
         justifyContent: 'flex-start',
-        alignItems: layout === 'h' ? 'flex-end' : 'center',
+        alignItems: layout === 'h' ? 'stretch' : 'center',
         pointerEvents: 'none',
-        backgroundColor: 'black',
-        padding: '3% 3%',
+        backgroundImage: 'linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.9), rgba(0,0,0,1))',
+        padding: '2% 3% 3% 3%',
       }}
       >
-
-      <Flex
-        sx={{
-          flexDirection: 'column',
-          width: layout === 'h' ? '50vw' : '80vw',
-          order: layout === 'h' ? 2 : 1,
-        }}>
-        {
-          Object.entries(track)
-          .filter(([key, value]) => {return key !== 'Country' && key !== 'Piece' && key !== 'Audio'})
-          .map(([key, value]) => {
-            return (
-              <Flex
-                key={key}
-                sx={{
-                  fontFamily: 'body',
-                }}
-                >
-                <Text
-                  sx={{
-                    fontSize: ['9px','10px','13px'],
-                    lineHeight: ['14px','16px','18px'],
-                    textTransform: 'uppercase',
-                    letterSpacing:  ['1px','1.25px','1.5px'],
-                    color: 'grey',
-                    flexBasis: '20%',
-                    textAlign: 'right',
-                    margin: ['2px 4px','2.5px 5px','3px 6px'],
-                  }}
-                >
-                {key}:
-                </Text>
-                <Text
-                  sx={{
-                    fontSize: ['12px','13px','16px'],
-                    lineHeight: ['14px','16px','18px'],
-                    color: 'white',
-                    flexBasis: '80%',
-                    margin: ['2px 4px','2.5px 5px','3px 6px'],
-                    fontWeight: '400',
-                  }}>
-                {value}
-                </Text>
-              </Flex>
-            )
+        <Flex
+          sx={{
+            flexDirection: 'column',
+            width: layout === 'h' ? '40vw' : '90vw',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            marginBottom: '2%'
+          }}>
+          <Text
+            sx={{
+              marginBottom: '2%',
+              lineHeight: 'auto',
+              fontSize: ['5vmin','4.5vmin','4vmin'],
+              fontWeight: '700',
+              textAlign: 'center',
+              textDecoration: 'none',
+              color: 'gold'
+            }}>{track.Piece}
+          </Text>
+          <Box
+            sx={{pointerEvents: 'all'}}>
+            <SimplePlayer
+              setPlaying={setPlaying}
+              playing={playing}
+              country={country}
+              track={track}
+              setTrack={setTrack}
+              />
+          </Box>
+        </Flex>
+        <Box
+          sx={{
+            fontFamily: 'body',
+            display: 'grid',
+            gridGap: '1vmin',
+            gridTemplateColumns: '1fr 3fr',
+            width: layout === 'h' ? '60vw' : '90vw',
+          }}
+          >
+          {
+            Object.entries(track)
+            .filter(([key, value]) => {return key !== 'Country' && key !== 'Piece' && key !== 'Audio'})
+            .map(([key, value]) => {
+              return (
+                <>
+                  <Text
+                    sx={{
+                      fontSize: ['3vmin','2.5vmin','2vmin'],
+                      lineHeight: 'auto',
+                      textTransform: 'uppercase',
+                      letterSpacing:  ['0.5vmin','0.4vmin','0.3vmin'],
+                      color: 'grey',
+                      textAlign: 'right',
+                    }}
+                  >
+                  {key}:
+                  </Text>
+                  <Text
+                    sx={{
+                      fontSize: ['3vmin','2.5vmin','2vmin'],
+                      lineHeight: 'auto',
+                      color: 'white',
+                      fontWeight: '400',
+                    }}>
+                  {value}
+                  </Text>
+                </>
+              )
           })
         }
-      </Flex>
-      <Flex
-        sx={{
-          pointerEvents: 'all',
-          order: layout === 'h' ? 1 : 2,
-          margin: '0% 3%'
-        }}>
-        <SimplePlayer
-          setPlaying={setPlaying}
-          playing={playing}
-          country={country}
-          track={track}
-          setTrack={setTrack}
-          />
-      </Flex>
+      </Box>
     </Flex>
   )
 }

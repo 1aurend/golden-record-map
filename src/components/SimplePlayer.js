@@ -54,27 +54,27 @@ const rotateRecord = css`
   animation: ${rotate} 10s linear infinite;
 `
 
-const ControlsFlex = styled(Flex)`
-  flex-direction: row;
-  align-items: center;
-`
-
 const Skip = styled(Button)`
   cursor: pointer;
   background: none;
   padding: 3px;
+  width: 15%;
+  height: 15%;
 `
 
 const PlayPause = styled(Button)`
   cursor: pointer;
   background: none;
   padding: 0px;
+  width: 50%;
+  height: 50%;
+  margin: 0% 10%;
 `
 
 
 export default function RecordPlayer({ setPlaying, playing, setTrack, country, track }) {
   const location = useLocation()
-  const layout = useAspectRatio()
+  const [layout, dimensions] = useAspectRatio()
   const history = useHistory()
   const overlay = playing ? <SPauseOverlay/> : <SPlayOverlay/>
 
@@ -138,28 +138,20 @@ export default function RecordPlayer({ setPlaying, playing, setTrack, country, t
 
 
   return (
-    <ControlsFlex>
+    <Flex
+      sx={{
+        flexDirection: 'row',
+        alignItems: 'center',
+        width: '30vmin',
+      }}>
       <Skip
-        sx={{
-          height: layout === 'h' ? ['8vh', '6vh', '4vh'] : ['8vw', '6vw', '5vw'],
-          width: layout === 'h' ? ['6vh', '4.5vh', '3vh'] : ['6vw', '4.5vw', '3.75vw']
-        }}
         onClick={prevTrack}><STrackPrev/></Skip>
       <PlayPause
-        sx={{
-          height: layout === 'h' ? ['15vh', '12vh', '9vh'] : ['18vw', '15vw', '12vw'],
-          width: layout === 'h' ? ['15vh', '12vh', '9vh'] : ['18vw', '15vw', '12vw'],
-          margin: layout === 'h' ? '1.5vh' : '1.5vw'
-        }}
         onClick={() => {setPlaying(!playing)}}>
           {overlay}
       </PlayPause>
       <Skip
-        sx={{
-          height: layout === 'h' ? ['8vh', '6vh', '4vh'] : ['8vw', '6vw', '5vw'],
-          width: layout === 'h' ? ['6vh', '4.5vh', '3vh'] : ['6vw', '4.5vw', '3.75vw']
-        }}
         onClick={nextTrack}><STrackNext/></Skip>
-    </ControlsFlex>
+    </Flex>
   )
 }
