@@ -1,13 +1,11 @@
 import React from 'react'
 import {
   Box,
-  Flex,
   Text
  } from 'rebass'
 import {
   useHistory
  } from 'react-router-dom'
-import styled from '@emotion/styled'
 import debounce from 'lodash.debounce'
 import countries from '../countries'
 import background from '../assets/background'
@@ -32,7 +30,7 @@ export default function MapMap({ country, highlight, setTrack, view = [1165, -10
   const onSelectCountry = (country) => {
     if (setTrack) {
       setTrack(music[(countries[country].tracks[0])-1])
-      setPlaying(false)
+      // setPlaying(false)
     }
     history.push(countries[country].url)
   }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled from '@emotion/styled'
 import { css, keyframes} from '@emotion/core'
 import {
@@ -13,7 +13,6 @@ import { ReactComponent as PlayOverlay } from '../assets/controls_play_overlay.s
 import { ReactComponent as PauseOverlay } from '../assets/controls_pause_overlay.svg'
 import music from '../music'
 import countries from '../countries'
-import useAspectRatio from '../useAspectRatio'
 
 
 const rotate = keyframes`
@@ -27,12 +26,10 @@ const rotate = keyframes`
 const rotateRecord = css`
   animation: ${rotate} 10s linear infinite;
 `
-
 const ControlsFlex = styled(Flex)`
   flex-direction: row;
   align-items: center;
 `
-
 const Skip = styled(Button)`
   height: 32px;
   width: 24px;
@@ -40,13 +37,11 @@ const Skip = styled(Button)`
   background: none;
   padding: 5px;
 `
-
 const Record = styled(Box)`
   height: 60px;
   width: 60px;
   ${props => props.rotate? rotateRecord : 'animation: none;'};
   background-size: cover;
-  background-image: url(${recordPng});
 `
 const PlayPause = styled(Button)`
   height: auto;
@@ -60,7 +55,6 @@ const PlayPause = styled(Button)`
 
 export default function RecordPlayer({ setPlaying, playing, setTrack, country, track }) {
   const location = useLocation()
-  const layout = useAspectRatio()
   const history = useHistory()
   const overlay = playing ? <PauseOverlay/> : <PlayOverlay/>
 
@@ -127,7 +121,7 @@ export default function RecordPlayer({ setPlaying, playing, setTrack, country, t
     <ControlsFlex>
       <Skip onClick={prevTrack}><TrackPrev/></Skip>
       <PlayPause onClick={() => {setPlaying(!playing)}}>
-          <Record rotate={playing}>{overlay}</Record>
+        <Record rotate={playing}>{overlay}</Record>
       </PlayPause>
       <Skip onClick={nextTrack}><TrackNext/></Skip>
     </ControlsFlex>

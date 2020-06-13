@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled from '@emotion/styled'
 import { css, keyframes} from '@emotion/core'
 import {
   Flex,
-  Box,
   Button,
 } from 'rebass'
 import { useLocation, useHistory } from 'react-router-dom'
@@ -16,32 +15,26 @@ import countries from '../countries'
 import useAspectRatio from '../useAspectRatio'
 
 
-
 const STrackNext = styled(TrackNext)`
   &:hover{
     filter: hue-rotate(137deg) brightness(0.72) saturate(1.18)
   }
 `
-
 const STrackPrev = styled(TrackPrev)`
   &:hover{
     filter: hue-rotate(137deg) brightness(0.72) saturate(1.18)
   }
 `
-
 const SPlayOverlay = styled(PlayOverlay)`
   &:hover{
     filter: hue-rotate(137deg) brightness(0.72) saturate(1.18)
   }
 `
-
 const SPauseOverlay = styled(PauseOverlay)`
   &:hover{
     filter: hue-rotate(137deg) brightness(0.72) saturate(1.18)
   }
 `
-
-
 const rotate = keyframes`
   from {
     transform: rotate(0deg);
@@ -53,7 +46,6 @@ const rotate = keyframes`
 const rotateRecord = css`
   animation: ${rotate} 10s linear infinite;
 `
-
 const Skip = styled(Button)`
   cursor: pointer;
   background: none;
@@ -61,7 +53,6 @@ const Skip = styled(Button)`
   width: 15%;
   height: 15%;
 `
-
 const PlayPause = styled(Button)`
   cursor: pointer;
   background: none;
@@ -74,7 +65,7 @@ const PlayPause = styled(Button)`
 
 export default function RecordPlayer({ setPlaying, playing, setTrack, country, track }) {
   const location = useLocation()
-  const [layout, dimensions] = useAspectRatio()
+  const layout = useAspectRatio()[0]
   const history = useHistory()
   const overlay = playing ? <SPauseOverlay/> : <SPlayOverlay/>
 

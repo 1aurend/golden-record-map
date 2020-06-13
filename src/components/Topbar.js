@@ -23,7 +23,7 @@ export default function Sidebar({ country, setTrack, setPlaying, playing, curren
     Object.entries(countries).forEach(([ key, country ]) => {
       if (country.name === e.target.value) {
         setTrack(music[(countries[key].tracks[0])-1])
-        setPlaying(false)
+        // setPlaying(false)
         history.push(country.url)
         return
       }
@@ -33,7 +33,7 @@ export default function Sidebar({ country, setTrack, setPlaying, playing, curren
     const selectedIndex = e.target.options.selectedIndex
     const selectedTrack = countries[country].tracks[selectedIndex-1]
     setTrack(music[selectedTrack-1])
-    setPlaying(false)
+    // setPlaying(false)
   }
 
   return (

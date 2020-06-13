@@ -7,14 +7,11 @@ import MapMap from './MapMap'
 import Topbar from './Topbar'
 import InfoPane from './InfoPane'
 import HoverPopup from './Popup'
-import useAspectRatio from '../useAspectRatio'
 
 
 export default function Interface({ country, detailVisible, setDetailVisible, setTrack, currentTrack, view }) {
   const [popup, setPopup] = useState(null)
   const [playing, setPlaying] = useState(false)
-  const [layout, dimensions] = useAspectRatio()
-
 
   useEffect(() => {
     if (!country) {

@@ -73,7 +73,6 @@ const ToolTipRight = styled(Text)`
 `
 
 
-
 export default function MapNav({ setTrack, setPlaying }) {
   const history = useHistory()
   const location = useLocation()
@@ -99,12 +98,12 @@ export default function MapNav({ setTrack, setPlaying }) {
         if (i !== 0) {
           const next = order[i-1][1].url
           setTrack(music[(countries[order[i-1][0]].tracks[0])-1])
-          setPlaying(false)
+          // setPlaying(false)
           history.push(next)
         } else {
           const next = order[order.length-1][1].url
           setTrack(music[(countries[order[order.length-1][0]].tracks[0])-1])
-          setPlaying(false)
+          // setPlaying(false)
           history.push(next)
         }
       }
@@ -124,12 +123,12 @@ export default function MapNav({ setTrack, setPlaying }) {
         if (i < order.length-1) {
           const next = order[i+1][1].url
           setTrack(music[(countries[order[i+1][0]].tracks[0])-1])
-          setPlaying(false)
+          // setPlaying(false)
           history.push(next)
         } else {
           const next = order[0][1].url
           setTrack(music[(countries[order[0][0]].tracks[0])-1])
-          setPlaying(false)
+          // setPlaying(false)
           history.push(next)
         }
       }

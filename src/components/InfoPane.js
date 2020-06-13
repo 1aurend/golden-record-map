@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from '@emotion/styled'
 import {
   Box,
   Flex,
@@ -9,10 +8,8 @@ import SimplePlayer from './SimplePlayer'
 import useAspectRatio from '../useAspectRatio'
 
 
-
-
 export default function InfoPane({ detailVisible, track, setTrack, setPlaying, playing, country }) {
-  const [layout, dimensions] = useAspectRatio()
+  const layout = useAspectRatio()[0]
   return (
     <Flex
       detailVisible={detailVisible}
@@ -50,8 +47,6 @@ export default function InfoPane({ detailVisible, track, setTrack, setPlaying, p
               textAlign: 'center',
               textDecoration: 'none',
               color: 'gold',
-              marginBottom: '2%'
-
             }}>{track.Piece}
           </Text>
           <Box

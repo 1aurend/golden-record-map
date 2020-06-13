@@ -1,17 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled from '@emotion/styled'
 import { css, keyframes} from '@emotion/core'
 import {
-  Flex,
   Box,
-  Button,
   Text,
 } from 'rebass'
 import useAspectRatio from '../useAspectRatio'
-import recordPngA from '../assets/recordA.png'
+// import recordPngA from '../assets/recordA.png'
 import recordPngB from '../assets/recordB.png'
 import countries from '../countries'
-
 
 const rotate = keyframes`
   from {
@@ -24,8 +21,6 @@ const rotate = keyframes`
 const rotateRecord = css`
   animation: ${rotate} 10s linear infinite;
 `
-
-
 const Record = styled(Box)`
   height: 50vmin;
   width: 50vmin;
@@ -36,7 +31,7 @@ const Record = styled(Box)`
 
 
 export default function RecordSpinner({ playing, country}) {
-  const [layout, dimensions] = useAspectRatio()
+  const layout = useAspectRatio()[0]
   return (
     <Box
       sx={{
