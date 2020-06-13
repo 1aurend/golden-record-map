@@ -40,7 +40,6 @@ export default function InfoPane({ detailVisible, track, setTrack, setPlaying, p
             width: layout === 'h' ? '40vw' : '90vw',
             justifyContent: 'space-between',
             alignItems: 'center',
-            marginBottom: '2%'
           }}>
           <Text
             sx={{
@@ -50,7 +49,9 @@ export default function InfoPane({ detailVisible, track, setTrack, setPlaying, p
               fontWeight: '700',
               textAlign: 'center',
               textDecoration: 'none',
-              color: 'gold'
+              color: 'gold',
+              marginBottom: '2%'
+
             }}>{track.Piece}
           </Text>
           <Box
