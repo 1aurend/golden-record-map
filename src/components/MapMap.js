@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   Box,
   Text
@@ -8,7 +8,6 @@ import {
  } from 'react-router-dom'
 import debounce from 'lodash.debounce'
 import countries from '../countries'
-import background from '../assets/background'
 import Borders from './Borders'
 import Country from './Country'
 import music from '../music'
@@ -18,7 +17,7 @@ export default function MapMap({ country, highlight, setTrack, view = [1165, -10
   const history = useHistory()
   const [layout, dimensions] = useAspectRatio()
   const debounceHandler = debounce(setPopup, 75, {'leading':false})
-
+  const [background, setBackground] = useState()
   const vw = dimensions.width
   const vh = dimensions.height
   const yOffset = (view[2] - view[3])/2
@@ -26,6 +25,10 @@ export default function MapMap({ country, highlight, setTrack, view = [1165, -10
   const scaledViewNormal = [ view[0], view[1]+yOffset, view[2], view[2]]
   const scaledViewPortrait = [ view[0], view[1]-yOffset*2, view[2], view[2]/vw*vh]
   const scaledView = layout === 'h' ? scaledViewNormal : scaledViewPortrait
+
+  useEffect(() => {
+    import('../assets/background').then(background => setBackground(background.default))
+  }, [])
 
   const onSelectCountry = (country) => {
     if (setTrack) {
@@ -79,14 +82,15 @@ export default function MapMap({ country, highlight, setTrack, view = [1165, -10
       >{country? '' :
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pulvinar elementum integer enim neque volutpat. Pretium quam vulputate dignissim suspendisse in est ante in. '}
       </Text>
-      <svg viewBox={scaledView} >
-        <g>
-          {background}
-          {svgCountries}
-        </g>
-        <Borders/>
-      </svg>
-
+      {background &&
+        <svg viewBox={scaledView} >
+          <g>
+            {background}
+            {svgCountries}
+          </g>
+          <Borders/>
+        </svg>
+      }
     </Box>
     )
   }
