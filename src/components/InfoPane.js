@@ -81,7 +81,7 @@ export default function InfoPane({ detailVisible, track, setTrack, setPlaying, p
                 <>
                   <Text
                     sx={{
-                      fontSize: ['3vmin','2.5vmin','2vmin'],
+                      fontSize: ['3vmin','2.5vmin','1.5vmin'],
                       lineHeight: 'auto',
                       textTransform: 'uppercase',
                       letterSpacing:  ['0.5vmin','0.4vmin','0.3vmin'],
@@ -93,7 +93,7 @@ export default function InfoPane({ detailVisible, track, setTrack, setPlaying, p
                   </Text>
                   <Text
                     sx={{
-                      fontSize: ['3vmin','2.5vmin','2vmin'],
+                      fontSize: ['3vmin','2.75vmin','1.5vmin'],
                       lineHeight: 'auto',
                       color: 'white',
                       fontWeight: '400',

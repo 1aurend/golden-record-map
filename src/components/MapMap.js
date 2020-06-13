@@ -59,6 +59,7 @@ export default function MapMap({ country, highlight, setTrack, view = [1165, -10
         position: 'absolute',
         bottom:'0px',
         zIndex: 1,
+        overflow:'hidden',
       }}
       >
       <Text
@@ -72,7 +73,7 @@ export default function MapMap({ country, highlight, setTrack, view = [1165, -10
           position: 'fixed',
           zIndex: 5,
           height: '200px',
-          bottom: '0',
+          top: '75vh',
           textAlign: 'center',
           right:'25vw',
 

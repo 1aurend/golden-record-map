@@ -142,7 +142,7 @@ export default function RecordPlayer({ setPlaying, playing, setTrack, country, t
       sx={{
         flexDirection: 'row',
         alignItems: 'center',
-        width: '30vmin',
+        width: layout === 'h' ? ['35vmin','30vmin','20vmin'] : ['30vmin','25vmin','20vmin'],
       }}>
       <Skip
         onClick={prevTrack}><STrackPrev/></Skip>
