@@ -7,15 +7,15 @@
   - Also do this at some breakpoint for small horizontal windows? [**done 6/10**]
 - Scale font sizes [**done 6/10**]
 - Test song detail pane animation at different screen sizes
-- Top bar: golden record and title, two dropdowns
-  - dropdowns stack in portrait
-- do metadata as grid not flex
-- debounce mapnav
-- change aspect ratio cutoff
-- dynamically change map viewbox to prevent ugly cropping
-- golden record spinner
-- increase padding of mapnav arrows
-- bring back the song title in infopane as well as gradient
+- Top bar: golden record and title, two dropdowns [**done 6/12**]
+  - dropdowns stack in portrait [**done 6/12**]
+- do metadata as grid not flex [**done 6/12**]
+- debounce mapnav [**done 6/12**]
+- change aspect ratio cutoff [**done 6/12**]
+- dynamically change map viewbox to prevent ugly cropping [**done 6/12**]
+- golden record spinner [**done 6/12**]
+- increase padding of mapnav arrows [**done 6/12**]
+- bring back the song title in infopane as well as gradient [**done 6/12**]
 
 
 
