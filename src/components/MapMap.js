@@ -16,7 +16,7 @@ import Country from './Country'
 import music from '../music'
 import useAspectRatio from '../useAspectRatio'
 
-export default function MapMap({ country, highlight, setTrack, view = [1165, 0, 6975, 4650], setPopup, setPlaying, playing }) {
+export default function MapMap({ country, highlight, setTrack, view = [1165, -1000, 6975, 4650], setPopup, setPlaying, playing }) {
   const history = useHistory()
   const [layout, dimensions] = useAspectRatio()
   const debounceHandler = debounce(setPopup, 75, {'leading':false})
@@ -26,7 +26,7 @@ export default function MapMap({ country, highlight, setTrack, view = [1165, 0, 
   const yOffset = (view[2] - view[3])/2
   // const yCorrection = (view[2] - view[2]/vw*vh)/2
   const scaledViewNormal = [ view[0], view[1]+yOffset, view[2], view[2]]
-  const scaledViewPortrait = [ view[0], view[1]-yOffset, view[2], view[2]/vw*vh]
+  const scaledViewPortrait = [ view[0], view[1]-yOffset*2, view[2], view[2]/vw*vh]
   const scaledView = layout === 'h' ? scaledViewNormal : scaledViewPortrait
 
   const onSelectCountry = (country) => {
@@ -55,7 +55,7 @@ export default function MapMap({ country, highlight, setTrack, view = [1165, 0, 
     <Box
       sx = {{
         width: '100vw',
-        height: layout === 'h' ? '100vh' : '80vh',
+        height: layout === 'h' ? '100vh' : '90vh',
         position: 'absolute',
         bottom:'0px',
         zIndex: 1,

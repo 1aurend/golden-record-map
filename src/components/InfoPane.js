@@ -44,7 +44,7 @@ export default function InfoPane({ detailVisible, track, setTrack, setPlaying, p
           }}>
           <Text
             sx={{
-              marginBottom: '2%',
+              marginBottom: '3%',
               lineHeight: 'auto',
               fontSize: ['5vmin','4.5vmin','4vmin'],
               fontWeight: '700',
