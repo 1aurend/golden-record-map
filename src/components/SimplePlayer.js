@@ -3,7 +3,6 @@ import styled from '@emotion/styled'
 import { css, keyframes} from '@emotion/core'
 import {
   Flex,
-  Box,
   Button,
 } from 'rebass'
 import { useLocation, useHistory } from 'react-router-dom'
@@ -13,8 +12,29 @@ import { ReactComponent as PlayOverlay } from '../assets/controls_play_overlay.s
 import { ReactComponent as PauseOverlay } from '../assets/controls_pause_overlay.svg'
 import music from '../music'
 import countries from '../countries'
+import useAspectRatio from '../useAspectRatio'
 
 
+const STrackNext = styled(TrackNext)`
+  &:hover{
+    filter: hue-rotate(137deg) brightness(0.72) saturate(1.18)
+  }
+`
+const STrackPrev = styled(TrackPrev)`
+  &:hover{
+    filter: hue-rotate(137deg) brightness(0.72) saturate(1.18)
+  }
+`
+const SPlayOverlay = styled(PlayOverlay)`
+  &:hover{
+    filter: hue-rotate(137deg) brightness(0.72) saturate(1.18)
+  }
+`
+const SPauseOverlay = styled(PauseOverlay)`
+  &:hover{
+    filter: hue-rotate(137deg) brightness(0.72) saturate(1.18)
+  }
+`
 const rotate = keyframes`
   from {
     transform: rotate(0deg);
@@ -26,37 +46,28 @@ const rotate = keyframes`
 const rotateRecord = css`
   animation: ${rotate} 10s linear infinite;
 `
-const ControlsFlex = styled(Flex)`
-  flex-direction: row;
-  align-items: center;
-`
 const Skip = styled(Button)`
-  height: 32px;
-  width: 24px;
   cursor: pointer;
   background: none;
-  padding: 5px;
-`
-const Record = styled(Box)`
-  height: 60px;
-  width: 60px;
-  ${props => props.rotate? rotateRecord : 'animation: none;'};
-  background-size: cover;
+  padding: 3px;
+  width: 15%;
+  height: 15%;
 `
 const PlayPause = styled(Button)`
-  height: auto;
-  width: auto;
   cursor: pointer;
   background: none;
   padding: 0px;
-  margin: 10px;
+  width: 50%;
+  height: 50%;
+  margin: 0% 10%;
 `
 
 
 export default function RecordPlayer({ setPlaying, playing, setTrack, country, track }) {
   const location = useLocation()
+  const layout = useAspectRatio()[0]
   const history = useHistory()
-  const overlay = playing ? <PauseOverlay/> : <PlayOverlay/>
+  const overlay = playing ? <SPauseOverlay/> : <SPlayOverlay/>
 
   const prevTrack = () => {
     const multiTrack = countries[country].tracks.length > 1
@@ -118,12 +129,20 @@ export default function RecordPlayer({ setPlaying, playing, setTrack, country, t
 
 
   return (
-    <ControlsFlex>
-      <Skip onClick={prevTrack}><TrackPrev/></Skip>
-      <PlayPause onClick={() => {setPlaying(!playing)}}>
-        <Record rotate={playing}>{overlay}</Record>
+    <Flex
+      sx={{
+        flexDirection: 'row',
+        alignItems: 'center',
+        width: layout === 'h' ? ['35vmin','30vmin','20vmin'] : ['30vmin','25vmin','20vmin'],
+      }}>
+      <Skip
+        onClick={prevTrack}><STrackPrev/></Skip>
+      <PlayPause
+        onClick={() => {setPlaying(!playing)}}>
+          {overlay}
       </PlayPause>
-      <Skip onClick={nextTrack}><TrackNext/></Skip>
-    </ControlsFlex>
+      <Skip
+        onClick={nextTrack}><STrackNext/></Skip>
+    </Flex>
   )
 }

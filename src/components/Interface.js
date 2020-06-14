@@ -1,22 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import {
-  Flex,
+  Box
 } from 'rebass'
 import Howler from 'react-howler'
 import MapMap from './MapMap'
-import Sidebar from './Sidebar'
+import Topbar from './Topbar'
 import InfoPane from './InfoPane'
 import HoverPopup from './Popup'
-import useAspectRatio from '../useAspectRatio'
 
 
 export default function Interface({ country, detailVisible, setDetailVisible, setTrack, currentTrack, view }) {
   const [popup, setPopup] = useState(null)
   const [playing, setPlaying] = useState(false)
-  const layout = useAspectRatio()
-  if (layout === 'vertical') {
-    console.log('stack please!')
-  }
 
   useEffect(() => {
     if (!country) {
@@ -28,10 +23,21 @@ export default function Interface({ country, detailVisible, setDetailVisible, se
   }, [country, setDetailVisible])
 
   return (
-    <Flex
-      width={'100vw'}
-      bg='black'
+    <Box
+      sx = {{
+        width:'100vw',
+        height:'100vh',
+        bg:'black',
+        overflow: 'hidden',
+      }}
       >
+      <Topbar
+        country={country}
+        setTrack={setTrack}
+        setPlaying={setPlaying}
+        currentTrack={currentTrack}
+        playing={playing}
+        />
       <MapMap
         height={detailVisible}
         highlight={country}
@@ -39,6 +45,7 @@ export default function Interface({ country, detailVisible, setDetailVisible, se
         view={view}
         setPopup={setPopup}
         setPlaying={setPlaying}
+        country={country}
         />
       {country &&
         <InfoPane
@@ -56,11 +63,6 @@ export default function Interface({ country, detailVisible, setDetailVisible, se
           setTrack={setTrack}
           />
       }
-      <Sidebar
-        country={country}
-        setTrack={setTrack}
-        setPlaying={setPlaying}
-        />
       {currentTrack &&
         <Howler
           src={currentTrack.Audio}
@@ -69,6 +71,6 @@ export default function Interface({ country, detailVisible, setDetailVisible, se
           playing={playing}
           />
       }
-    </Flex>
+    </Box>
   )
 }

@@ -8,7 +8,7 @@ import {
   Link,
   useHistory
 } from 'react-router-dom'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 import music from '../music'
 import countries from '../countries'
 import pointer from '../assets/pointer.svg'

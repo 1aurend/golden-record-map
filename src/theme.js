@@ -15,5 +15,10 @@ export default {
   lineHeights: {
     body: 1.5,
     heading: 1.25,
-  }
+  },
+  breakpoints: [
+    '576px',
+    '768px',
+    '992px'
+  ]
 }

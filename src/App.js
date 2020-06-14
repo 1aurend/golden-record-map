@@ -6,7 +6,7 @@ import {
   useParams,
   Redirect,
  } from 'react-router-dom'
-import { ThemeProvider } from 'styled-components'
+import { ThemeProvider } from 'emotion-theming'
 import theme from './theme'
 import Interface from './components/Interface'
 import countries from './countries'

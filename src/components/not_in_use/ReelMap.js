@@ -4,7 +4,7 @@ import {
   Box,
   Image
 } from 'rebass'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 import Svg20200528Map from './20200528map'
 import MapMap from './MapMap'
 

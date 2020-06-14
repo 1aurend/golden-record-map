@@ -3,24 +3,35 @@
 ## Responsiveness
 
 - Add aspect ration hook [**done 6/5**]
-- Move sidebar to top for any vh > vw
-  - Also do this at some breakpoint for small horizontal windows?
-- Scale font sizes
+- Move sidebar to top for any vh > vw [**done 6/10**]
+  - Also do this at some breakpoint for small horizontal windows? [**done 6/10**]
+- Scale font sizes [**done 6/10**]
 - Test song detail pane animation at different screen sizes
+- Top bar: golden record and title, two dropdowns [**done 6/12**]
+  - dropdowns stack in portrait [**done 6/12**]
+- do metadata as grid not flex [**done 6/12**]
+- debounce mapnav [**done 6/12**]
+- change aspect ratio cutoff [**done 6/12**]
+- dynamically change map viewbox to prevent ugly cropping [**done 6/12**]
+- golden record spinner [**done 6/12**]
+- increase padding of mapnav arrows [**done 6/12**]
+- bring back the song title in infopane as well as gradient [**done 6/12**]
+
+
 
 ## Buttons
 
-- Play button should be larger or otherwise more discoverable
-  - Option = separate record image from play Button
-- Enlarge clickable area around next/prev track buttons; it's too easy to accidentally click pause rather than next
-- Add map navigation buttons to the sidebar both so users can get back to the world map from there and also to indicate that the map arrows and the dropdown have related functions
-  - Do we need map navigation in the song detail panel at all? Is it confusing? If the globe/arrows move to the sidebar and users can also click on countries?
+- Play button should be larger or otherwise more discoverable [**done 6/11**]
+  - Option = separate record image from play Button [**done 6/11**]
+- Enlarge clickable area around next/prev track buttons; it's too easy to accidentally click pause rather than next [**done 6/11**]
+- Add map navigation buttons to the sidebar both so users can get back to the world map from there and also to indicate that the map arrows and the dropdown have related functions [**mitigated? 6/10**]
+  - Do we need map navigation in the song detail panel at all? Is it confusing? If the globe/arrows move to the sidebar and users can also click on countries? [**see previous**]
 - Test a variety of button colors on users; does consistency in color help indicate which things are buttons?
- - Or use tooltips as indicators
+ - Or use tooltips as indicators [**done 6/11**]
 
 ## Layout
 
-- Widen the sidebar and/or the country dropdown so that long country names don't get cut off at smaller screen sizes
+- Widen the sidebar and/or the country dropdown so that long country names don't get cut off at smaller screen sizes [**done 6/10**]
   - Could also show abbreviations of country names at smaller sizes
 - Git rid of delay before detail panel animation [**done 6/5** so much better! :)]
 
@@ -43,6 +54,8 @@
 - Animate viewbox transitions
 - Rotate map in each country view so country is vertical
 - Responsive viewbox sizes and centers
+- Function to convert colors in theme prop
+
 
 ## Sound
 
