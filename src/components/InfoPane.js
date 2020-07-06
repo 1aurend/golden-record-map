@@ -71,7 +71,7 @@ export default function InfoPane({ detailVisible, track, setTrack, setPlaying, p
           >
           {
             Object.entries(track)
-            .filter(([key, value]) => {return key !== 'Country' && key !== 'Piece' && key !== 'Audio'})
+            .filter(([key, value]) => {return key !== 'Country' && key !== 'Piece' && key !== 'Audio' && key !=='ShortPiece'})
             .map(([key, value]) => {
               return (
                 <>
