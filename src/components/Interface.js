@@ -9,9 +9,18 @@ import InfoPane from './InfoPane'
 import HoverPopup from './Popup'
 
 
-export default function Interface({ country, detailVisible, setDetailVisible, setTrack, currentTrack, view }) {
+export default function Interface(props) {
+  const {
+    country,
+    detailVisible,
+    setDetailVisible,
+    setTrack,
+    currentTrack,
+    view,
+    playing,
+    setPlaying
+  } = props
   const [popup, setPopup] = useState(null)
-  const [playing, setPlaying] = useState(false)
 
   useEffect(() => {
     if (!country) {
@@ -20,7 +29,7 @@ export default function Interface({ country, detailVisible, setDetailVisible, se
       return
     }
     setDetailVisible(true)
-  }, [country, setDetailVisible])
+  }, [country, setDetailVisible, setPlaying])
 
   return (
     <Box
@@ -63,7 +72,7 @@ export default function Interface({ country, detailVisible, setDetailVisible, se
           setTrack={setTrack}
           />
       }
-      {currentTrack &&
+      {false &&
         <Howler
           src={currentTrack.Audio}
           preload={true}
