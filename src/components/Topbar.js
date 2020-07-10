@@ -102,7 +102,7 @@ export default function Sidebar({ country, setTrack, setPlaying, playing, curren
               <Select
                 id='track'
                 name='track'
-                value={currentTrack ? currentTrack.Piece : ''}
+                value={currentTrack ? currentTrack.ShortPiece : ''}
                 onChange={onSelectTrack}
                 sx={{
                   fontSize: ['14px','15px','16px'],
@@ -117,7 +117,7 @@ export default function Sidebar({ country, setTrack, setPlaying, playing, curren
                   <option
                     key={i}
                     >
-                    {music[track-1].Piece}
+                    {music[track-1].ShortPiece}
                   </option>
                 ))}
                 >

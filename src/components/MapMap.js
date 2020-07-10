@@ -78,7 +78,7 @@ export default function MapMap({ country, highlight, setTrack, view = [1165, -10
 
         }}
       >{country? '' :
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pulvinar elementum integer enim neque volutpat. Pretium quam vulputate dignissim suspendisse in est ante in. '}
+      ' In 1977 NASA shot the Golden Record into outer space, as part of the Voyager space mission. The record contained music in different genres from all over the world. Mouse over this map of the world to see where the pieces come from, and click on the titles to listen to the music.'}
       </Text>
       <Suspense fallback={<Box></Box>}>
         <svg viewBox={scaledView}>
