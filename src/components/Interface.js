@@ -5,6 +5,7 @@ import {
 import Howler from 'react-howler'
 import MapMap from './MapMap'
 import Topbar from './Topbar'
+import Splash from './Splash'
 import InfoPane from './InfoPane'
 import HoverPopup from './Popup'
 
@@ -40,13 +41,16 @@ export default function Interface(props) {
         overflow: 'hidden',
       }}
       >
-      <Topbar
-        country={country}
-        setTrack={setTrack}
-        setPlaying={setPlaying}
-        currentTrack={currentTrack}
-        playing={playing}
-        />
+      {props.splash
+        ? <Splash setSplash={props.setSplash}/>
+        : <Topbar
+          country={country}
+          setTrack={setTrack}
+          setPlaying={setPlaying}
+          currentTrack={currentTrack}
+          playing={playing}
+          />
+      }
       <MapMap
         height={detailVisible}
         highlight={country}

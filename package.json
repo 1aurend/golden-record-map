@@ -9,6 +9,7 @@
     "emotion-theming": "^10.0.27",
     "lodash.debounce": "^4.0.8",
     "react": "^16.13.1",
+    "react-device-detect": "^1.13.1",
     "react-dom": "^16.13.1",
     "react-howler": "^3.7.4",
     "react-https-redirect": "^1.1.0",

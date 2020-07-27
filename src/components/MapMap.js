@@ -61,25 +61,6 @@ export default function MapMap({ country, highlight, setTrack, view = [1165, -10
         overflow:'hidden',
       }}
       >
-      <Text
-        sx={{
-          fontFamily: 'body',
-          fontSize: ['3vmin','2.5vmin','2vmin'],
-          lineHeight: ['4vmin','3.5vmin','3vmin'],
-          color: 'white',
-          width: '50vw',
-          overflow: 'auto',
-          position: 'fixed',
-          zIndex: 5,
-          height: '200px',
-          top: '75vh',
-          textAlign: 'center',
-          right:'25vw',
-
-        }}
-      >{country? '' :
-      ' In 1977 NASA shot the Golden Record into outer space, as part of the Voyager space mission. The record contained music in different genres from all over the world. Mouse over this map of the world to see where the pieces come from, and click on the titles to listen to the music.'}
-      </Text>
       <Suspense fallback={<Box></Box>}>
         <svg viewBox={scaledView}>
           <g>

@@ -18,6 +18,7 @@ export default function AppRouter() {
   const [detailVisible, setDetailVisible] = useState(false)
   const [currentTrack, setTrack] = useState(null)
   const [playing, setPlaying] = useState(false)
+  const [splash, setSplash] = useState(true)
   const howler = useRef()
 
   useEffect(() => {
@@ -38,6 +39,8 @@ export default function AppRouter() {
               setTrack={setTrack}
               setPlaying={setPlaying}
               playing={playing}
+              splash={splash}
+              setSplash={setSplash}
               />
           </Route>
           <Route path='/:country'>
