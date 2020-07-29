@@ -9,12 +9,14 @@
     "emotion-theming": "^10.0.27",
     "lodash.debounce": "^4.0.8",
     "react": "^16.13.1",
+    "react-device-detect": "^1.13.1",
     "react-dom": "^16.13.1",
     "react-howler": "^3.7.4",
     "react-https-redirect": "^1.1.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "rebass": "^4.0.7",
+    "serve": "^11.3.2",
     "styled-components": "^5.1.1"
   },
   "scripts": {

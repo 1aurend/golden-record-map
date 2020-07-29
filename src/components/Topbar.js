@@ -132,7 +132,9 @@ export default function Sidebar({ country, setTrack, setPlaying, playing, curren
           right: layout === 'h' ? '0' : 'auto',
           top: layout === 'h' ? '25vh' : 'auto',
         }}>
-        <RecordSpinner playing={playing} country={country}/>
+        {country &&
+          <RecordSpinner playing={playing} country={country}/>
+        }
       </Box>
     </Flex>
   )
