@@ -3,6 +3,8 @@ import {
   Box
 } from 'rebass'
 import Howler from 'react-howler'
+import {isMobile} from 'react-device-detect'
+import useAspectRatio from '../useAspectRatio'
 import MapMap from './MapMap'
 import Topbar from './Topbar'
 import Splash from './Splash'
@@ -22,6 +24,7 @@ export default function Interface(props) {
     setPlaying
   } = props
   const [popup, setPopup] = useState(null)
+  const layout = useAspectRatio()[0]
 
   useEffect(() => {
     if (!country) {
@@ -35,8 +38,8 @@ export default function Interface(props) {
   return (
     <Box
       sx = {{
-        width:'100vw',
-        height:'100vh',
+        width: '100vw',
+        height: '100vh',
         bg:'black',
         overflow: 'hidden',
       }}
@@ -70,7 +73,7 @@ export default function Interface(props) {
           country={country}
           />
       }
-      {!country &&
+      {!country && !isMobile &&
         <HoverPopup
           country={popup}
           setTrack={setTrack}

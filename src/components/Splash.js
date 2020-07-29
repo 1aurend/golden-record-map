@@ -39,7 +39,7 @@ export default function Splash(props) {
         />
         <Flex
           sx={{
-            height: '75vmin',
+            height: 'auto',
             width: '45vmin',
             flexDirection:'column',
             justifyContent:'center',
@@ -80,7 +80,7 @@ export default function Splash(props) {
             }}
           >
             {isMobileOnly ? 'Please rotate your device to landscape mode.':''}
-            {isSafari ? ' Please use Chrome or Firefox for the best experience.':''}
+            {isSafari ? ' Use Chrome or Firefox for the best experience.':''}
           </Text>
           <Button
             onClick={()=>props.setSplash(false)}

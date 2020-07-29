@@ -62,6 +62,7 @@ export default function AppRouter() {
           html5={true}
           playing={playing}
           ref={el => howler.current = el}
+          loop={true}
           />
       }
     </ThemeProvider>
